@@ -1,0 +1,6 @@
+{
+  "globalDependencies": {
+    "d3": "registry:dt/d3#0.0.0+20160315011939",
+    "c3": "registry:dt/c3#0.0.0+20160608082756"
+  }
+}
