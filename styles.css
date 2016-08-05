@@ -15,4 +15,74 @@ limitations under the License.
 
 body {
   font-family: "Roboto", "Helvetica", "Verdana", "Arial", sans-serif;
+  margin: 0;
+}
+
+h1 {
+  font-size: 24px;
+}
+
+h2 {
+  font-size: 18px;
+  line-height: normal;
+  margin: 0;
+}
+
+/* Buttons */
+
+.summary-buttons .mdl-button {
+  margin: 4px 2px;
+  width: 150px;
+}
+
+/* Inputs */
+.rps.mdl-textfield {
+  width: 100px;
+}
+
+#rps-slider {
+  display: inline-block;
+}
+
+/* Nav */
+
+nav {
+  /* Center vertically in its parent. */
+  display: flex;
+  flex-direction: column;
+  height: 400px;
+  justify-content: center;
+}
+
+.mdl-layout__drawer {
+  max-width: 240px;
+  /* Overrides a style which makes the drawer too wide. */
+  width: initial;
+}
+
+.mdl-layout__drawer .mdl-navigation .mdl-navigation__link.selected {
+  color: #000;
+  font-weight: 800;
+}
+
+.mdl-navigation__link.selected .material-icons {
+  margin: 0 2px 0 -28px;
+  width: 24px;
+}
+
+/* Summary */
+.summary-card {
+  margin-bottom: 50px;
+  min-height: 100px;
+}
+
+.summary-alternatives {
+  padding: 16px;
+  width: 100%;
+}
+
+.summary-alternatives .mdl-data-table {
+  border: none;
+  margin: 0 -16px;
+  width: 100%;
 }

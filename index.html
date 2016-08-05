@@ -22,9 +22,150 @@ limitations under the License.
   <script src="lib.js"></script>
 </head>
 <body>
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
+    <div class="mdl-layout__drawer">
+      <nav class="mdl-navigation">
+        <a class="mdl-navigation__link selected" href="">
+          <i class="material-icons">keyboard_arrow_right</i>High renewables</a>
+        <a class="mdl-navigation__link" href="">Carbon capture</a>
+        <a class="mdl-navigation__link" href="">CO<sub>2</sub> emissions tax</a>
+        <a class="mdl-navigation__link" href="">Advanced nuclear</a>
+        <a class="mdl-navigation__link" href="">Capital costs</a>
+      </nav>
+    </div>
+    <main class="mdl-layout__content">
+      <div class="page-content">
+        <div class="mdl-grid">
+          <div id="article" class="mdl-cell mdl-cell--8-col">
+            <h1>Increasing solar and wind-based energy generation</h1>
+            <p>
+              Many people expect that renewables will be the path to zero-carbon electricity. The
+              gap between the demand and the variable supply needs to be filled in somehow. In this
+              scenario, we introduce energy storage, which attempts to bridge the gap.
+            </p>
 
-  <!-- TODO: content goes here -->
+            <div class="rps mdl-textfield mdl-js-textfield">
+              <input class="mdl-textfield__input" type="text" id="sample1" value="RPS 10%">
+              <label class="mdl-textfield__label" for="sample1">RPS</label>
+            </div>
+            <div id="rps-slider">
+              <div class="graph"></div>
+              <input class="rps mdl-slider mdl-js-slider" type="range"
+                     min="0" max="100" value="25" tabindex="0">
+            </div>
 
+            <p>
+              Now let's see what happens if we add storage into the equation &mdash; let's enable
+              storage.
+            </p>
+
+            <h2>Energy storage</h2>
+            <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-2">
+              <input type="checkbox" id="switch-2" class="mdl-switch__input" />
+              <span class="mdl-switch__label"></span>
+            </label>
+
+            <p>
+              Some more text.
+            </p>
+
+            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect
+                           mdl-button--colored">
+              Try high renewables
+            </button>
+          </div>  <!-- #article -->
+
+          <div id="summary" class="mdl-cell mdl-cell--4-col">
+            <div class="summary-card mdl-card mdl-shadow--4dp">
+              <div class="mdl-card__supporting-text">
+
+                <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable
+                              mdl-shadow--2dp">
+                  <tbody>
+                    <tr>
+                      <td class="mdl-data-table__cell--non-numeric">CO₂</td>
+                      <td>32 Mt</td>
+                      <td class="good">▼ 43%</td>
+                    </tr>
+                    <tr>
+                      <td class="mdl-data-table__cell--non-numeric">Cost</td>
+                      <td>$50B</td>
+                      <td>▲ 16%</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="mdl-card mdl-shadow--4dp">
+              <div class="summary-alternatives mdl-card__supporting-text">
+                <h2>Alternative Scenarios</h2>
+                <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable">
+                  <thead>
+                    <tr>
+                      <th>CO<sub>2</sub></th>
+                      <th>Cost</th>
+                      <th class="mdl-data-table__cell--non-numeric">Scenario</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>12%</td>
+                      <td>12%</td>
+                      <td class="mdl-data-table__cell--non-numeric">High renewables</td>
+                    </tr>
+                    <tr>
+                      <td>8%</td>
+                      <td>8%</td>
+                      <td class="mdl-data-table__cell--non-numeric">Carbon capture</td>
+                    </tr>
+                    <tr>
+                      <td>45%</td>
+                      <td>27%</td>
+                      <td class="mdl-data-table__cell--non-numeric">CO<sub>2</sub> emissions</td>
+                    </tr>
+                    <tr>
+                      <td>2%</td>
+                      <td>2%</td>
+                      <td class="mdl-data-table__cell--non-numeric">Advanced nuclear</td>
+                    </tr>
+                    <tr>
+                      <td>43%</td>
+                      <td>16%</td>
+                      <td class="mdl-data-table__cell--non-numeric">Current</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="mdl-card__actions">
+                <div class="summary-buttons">
+                  <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+                    Save current
+                  </button>
+
+                  <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+                    <i class="material-icons">share</i> Share
+                  </button>
+
+                  <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+                    Download data
+                  </button>
+
+                  <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+                    Open data
+                  </button>
+                </div>
+              </div>
+
+            </div>
+          </div>  <!-- #summary -->
+        </div>
+      </div>
+    </main>
+  </div>
   <script src="bundle.js"></script>
+
+  <!-- TODO: Add Google analytics script. -->
 </body>
 </html>
