@@ -25,14 +25,15 @@ h1 {
 h2 {
   font-size: 18px;
   line-height: normal;
-  margin: 0;
 }
+
 
 /* Buttons */
 
 .summary-buttons .mdl-button {
   margin: 4px 2px;
-  width: 150px;
+  padding: 0 12px;
+  width: 135px;
 }
 
 /* Inputs */
@@ -48,8 +49,6 @@ h2 {
 
 nav {
   /* Center vertically in its parent. */
-  display: flex;
-  flex-direction: column;
   height: 400px;
   justify-content: center;
 }
@@ -70,7 +69,38 @@ nav {
   width: 24px;
 }
 
+/* Article */
+#article {
+  margin: 20px 350px 0 12px;
+}
+
 /* Summary */
+
+#summary .mdl-card {
+  width: initial;
+}
+
+#summary .mdl-card h2 {
+  margin: 0;
+}
+
+#summary {
+  bottom: 0;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  transition: top 0.5s;
+  width: 300px;
+}
+
+
+@media (max-height: 680px) {
+  #summary {
+    top: 0;
+  }
+}
+
+
 .summary-card {
   margin-bottom: 50px;
   min-height: 100px;
