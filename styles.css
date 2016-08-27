@@ -19,10 +19,15 @@ body {
 }
 
 h1 {
-  font-size: 24px;
+  font-size: 36px;
+  font-weight: lighter;
 }
 
 h2 {
+  font-size: 24px;
+}
+
+.summary-alternatives h2 {
   font-size: 18px;
   line-height: normal;
 }
@@ -115,4 +120,13 @@ nav {
   border: none;
   margin: 0 -16px;
   width: 100%;
+}
+
+/* Scenario controls */
+.scenario-slider-container {
+  height: 30px;
+  left: 38px;
+  position: relative;
+  top: -35px;
+  width: 555px;
 }

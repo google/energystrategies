@@ -13,24 +13,23 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ==============================================================================*/
 
-/// <reference path="typings/index.d.ts" />
-/// <reference path="dataset.d.ts" />
-/// <reference path="es6.d.ts" />
-
-import {App} from './app';
-import * as config from './config';
-import * as formatters from './formatters';
-import * as util from './util';
+/// <reference path="../typings/index.d.ts" />
+/// <reference path="../dataset.d.ts" />
 
 
-formatters.configure();
+/**
+ * An element with formatted, text-based content that can update dynamically.
+ */
+export class TextView {
+  element: HTMLElement;
+  formatter: Function;
 
-const app = new App(
-  util.shallowCopy(config.NAMED_SCENARIOS.reference, {}),
-  util.shallowCopy(config.DEFAULT_SCENARIO_SPEC, {}));
+  constructor(element, formatter?: Function) {
+    this.element = element;
+    this.formatter = formatter || (value => String(value));
+  }
 
-document.addEventListener('DOMContentLoaded', event => {
-  console.info('document.DOMContentLoaded', event);
-  app.init();
-});
-
+  update(newValue) {
+    this.element.textContent = this.formatter(newValue);
+  }
+}
