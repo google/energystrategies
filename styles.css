@@ -58,15 +58,8 @@ nav {
   justify-content: center;
 }
 
-.mdl-layout__drawer {
-  max-width: 240px;
-  /* Overrides a style which makes the drawer too wide. */
-  width: initial;
-}
-
 .mdl-layout__drawer .mdl-navigation .mdl-navigation__link.selected {
   color: #000;
-  font-weight: 800;
 }
 
 .mdl-navigation__link.selected .material-icons {
@@ -75,8 +68,13 @@ nav {
 }
 
 /* Article */
+main {
+  padding-right: 350px;
+}
+
 #article {
-  margin: 20px 350px 0 12px;
+  margin: 20px 0 0 12px;
+  width: 100%;
 }
 
 /* Summary */
@@ -96,6 +94,7 @@ nav {
   top: 20px;
   transition: top 0.5s;
   width: 300px;
+  z-index: 10;
 }
 
 
@@ -105,10 +104,21 @@ nav {
   }
 }
 
-
 .summary-card {
+  color: rgba(0,0,0,.54);
   margin-bottom: 50px;
   min-height: 100px;
+}
+
+.summary-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.summary-table td {
+  border-bottom: 1px solid rgba(0,0,0,.12);
+  border-top: 1px solid rgba(0,0,0,.12);
+  padding: 16px 4px 16px 12px;
 }
 
 .summary-alternatives {

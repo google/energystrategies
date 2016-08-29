@@ -22,7 +22,13 @@ limitations under the License.
   <script src="lib.js"></script>
 </head>
 <body>
-  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+    <header class="mdl-layout__header">
+      <div class="mdl-layout__header-row">
+        <!-- Title -->
+        <span class="mdl-layout-title">Energy Playground</span>
+      </div>
+    </header>
     <div class="mdl-layout__drawer">
       <nav class="mdl-navigation">
         <a class="mdl-navigation__link selected" href="">
@@ -37,10 +43,8 @@ limitations under the License.
       <div class="page-content">
         <div class="mdl-grid">
           <div id="article" class="mdl-cell mdl-cell--8-col">
-            <h1>Energy Playground</h1>
-
             <p>
-              There are many paths to get to low-carbon electricity. Each path has different advantages and cots. This tool allows you to learn about how electricity generation works, and lets you explore different paths.
+              There are many paths to get to low-carbon electricity. Each path has different advantages and costs. This tool allows you to learn about how electricity generation works, and lets you explore different paths.
             </p>
             <p>
               This tool computes which mixture of electricity generation technologies fulfills the overall demand of the United States for the least cost. As you use the tool, you can change your assumptions about policies, future technologies, and costs. The best mixture will shift depending on your assumptions.
@@ -156,9 +160,7 @@ limitations under the License.
   <div id="summary">
     <div class="summary-pinned">
       <div class="summary-card mdl-card mdl-shadow--4dp">
-        <div class="mdl-card__supporting-text">
-          <table class="mdl-data-table mdl-data-table--selectable
-                        mdl-shadow--2dp">
+          <table class="summary-table">
             <tbody>
               <tr>
                 <td class="mdl-data-table__cell--non-numeric">CO₂</td>
@@ -173,7 +175,6 @@ limitations under the License.
               </tr>
             </tbody>
           </table>
-        </div>
       </div>
 
       <div class="mdl-card mdl-shadow--4dp">
