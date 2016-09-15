@@ -24,8 +24,9 @@ import {DimensionToggle} from './components/dimension-toggle';
 import {DimensionSlider} from './components/dimension-slider';
 import {ScenarioCO2, ScenarioDeltaCO2} from './components/scenario-co2';
 import {ScenarioCost, ScenarioDeltaCost} from './components/scenario-cost';
-import {ComparisonTable} from './components/comparison-table';
-
+import {Router} from './router';
+import {ScenarioCO2GoalChart} from './components/scenario-co2-goal-chart';
+import {ScenarioCostGoalChart} from './components/scenario-cost-goal-chart';
 
 // Ambient object declarations and typedefs.
 declare var Object: ObjectConstructorES6;
@@ -50,10 +51,20 @@ export class App {
   // A collection of all page components driven by dataset selection updates.
   components: DatasetSelectionView[];
 
+  router: Router;
+
   constructor(referenceScenario: ScenarioOutcome, defaultSpec: ScenarioSpec) {
     this.referenceScenario = referenceScenario;
     this.defaultSpec = defaultSpec;
     this.spec = Object.assign({}, defaultSpec);
+
+    this.router = new Router([
+      'intro',
+      'high-renewables',
+      'carbon-capture',
+      'advanced-nuclear',
+      'explore',
+    ]);
 
     // The dataset-related members are initialized upon data load.
     this.components = [];
@@ -62,6 +73,9 @@ export class App {
   }
 
   init() {
+    this.router.init();
+    // Route to the step indicated by the initial URL hash.
+    this.router.routeToLocationHash();
     // Make an async request for the scenario dataset.
     d3.json('data.json', this._handleDataLoad.bind(this));
   }
@@ -74,6 +88,18 @@ export class App {
   updateDimension(dimension: string, newLevel: number) {
     this.spec[dimension] = newLevel;
     this._updateView();
+  }
+
+  _buildOutcomeSummary() {
+    const view = this._getPlaygroundView();
+
+    let goal = new ScenarioCO2GoalChart(
+        document.getElementById('scenario-goal-chart'), view);
+    this.components.push(goal);
+
+    let cost = new ScenarioCostGoalChart(
+      document.getElementById('scenario-cost-goal-chart'), view);
+    this.components.push(cost);
   }
 
   /**
@@ -151,23 +177,6 @@ export class App {
   }
 
   /**
-   * Builds the static comparison cart component.
-   *
-   * TODO: replace this with a fully functional dynamic cart implementation.
-   */
-  _buildStaticCart() {
-    const landmarks: TitledScenarioOutcome[] = [
-      config.NAMED_SCENARIOS.advanced_nuclear,
-      config.NAMED_SCENARIOS.carbon_capture,
-      config.NAMED_SCENARIOS.high_renewables,
-    ];
-
-    const element = <HTMLElement>document.querySelector(
-      '.summary-alternatives tbody');
-    new ComparisonTable(element, this.referenceScenario, landmarks);
-  }
-
-  /**
    * Gets the current playground view state.
    */
   _getPlaygroundView(): PlaygroundState {
@@ -201,7 +210,7 @@ export class App {
     // Render the initial scenario view across page components.
     this._buildDatasetSelectionViews();
     this._buildDimensionControls();
-    this._buildStaticCart();
+    this._buildOutcomeSummary();
   }
 
   _updateView() {

@@ -15,20 +15,18 @@ limitations under the License.
 
 /// <reference path="../typings/index.d.ts" />
 /// <reference path="../dataset.d.ts" />
+
 import * as mdl from '../mdl';
 import * as config from '../config';
-import {SliceChart} from './slice-chart';
 
 
 /**
- * A scenario dimension control that supports selecting a value from a range.
+ * Dimension slider control element.
  *
- * This page component combines a slider (range) input element with a dynamic
- * that updates according to the current dataset selection to show a preview
- * of scenario outcomes impacted by the current slider level.
+ * Provides a range element for the user to modify a scenario dimension value
+ * (e.g., solar cost).
  */
 export class DimensionSlider implements DatasetSelectionView {
-
   element: HTMLElement;
   displayName: string;
   dimension: string;
@@ -38,6 +36,14 @@ export class DimensionSlider implements DatasetSelectionView {
   slider: OrdinalSlider;
   sliceChart: DatasetSelectionView;
 
+  /**
+   * Constructor.
+   *
+   * @param element The container element for the slider.
+   * @param view The initial dataset selection view for the slider.
+   * @param onChangeCallback A callback that will be invoked whenever the
+   *     slider state changes (e.g., user moves slider to new value).
+   */
   constructor(
       element: HTMLElement,
       view: DatasetSelection,
@@ -58,11 +64,16 @@ export class DimensionSlider implements DatasetSelectionView {
     this.numLevels = config.NUM_SLIDER_LEVELS;
 
     this._build(view, onChangeCallback);
-    console.debug(`Created DimensionSlider for ${this.displayName}`);
+    console.debug(`Created minimal DimensionSlider for ${this.displayName}`);
   }
 
+  /**
+   * Updates the slider's displayed state when the dataset selection changes.
+   *
+   * @param view The updated dataset selection view.
+   */
   update(view: DatasetSelection) {
-    this.sliceChart.update(view);
+    // Currently a no-op.
   }
 
   _build(view: DatasetSelection, onChangeCallback: Function) {
@@ -70,15 +81,9 @@ export class DimensionSlider implements DatasetSelectionView {
     this.title.textContent = this.displayName;
     this.element.appendChild(this.title);
 
-    const chartContainer = document.createElement('div');
-    chartContainer.classList.add('sweep-preview');
-    this.sliceChart = new SliceChart(
-      view, this.dimension, d3.select(chartContainer));
-    this.element.appendChild(chartContainer);
-
     // Create a container element that is used for styling the slider.
     const sliderContainer = document.createElement('div');
-    sliderContainer.classList.add('scenario-slider-container');
+    // sliderContainer.classList.add('dimension-slider-container');
     this.element.appendChild(sliderContainer);
 
     // Create the MDL slider element.
@@ -103,7 +108,6 @@ export class DimensionSlider implements DatasetSelectionView {
   }
 }
 
-
 /**
  * A slider defined to have a fixed number of ordinal levels.
  */
@@ -112,7 +116,13 @@ class OrdinalSlider {
   numLevels: number;
   onChangeCallbacks: Function[];
 
-  constructor(element, numLevels) {
+  /**
+   * Constructor.
+   *
+   * @param element The container element for the slider.
+   * @param numLevels The number of steps/notches/levels for the slider.
+   */
+  constructor(element: HTMLElement, numLevels: number) {
     this.element = element;
     this.numLevels = numLevels;
     this.onChangeCallbacks = [];

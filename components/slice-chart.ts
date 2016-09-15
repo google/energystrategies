@@ -16,7 +16,7 @@ limitations under the License.
 /// <reference path="../typings/index.d.ts" />
 /// <reference path="../dataset.d.ts" />
 
-import {COLORS} from '../constants';
+import {COLORS} from '../style';
 import * as util from '../util';
 
 /**

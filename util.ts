@@ -66,3 +66,14 @@ export function max(series: number[]) {
   series.forEach(x => maxSoFar = Math.max(maxSoFar, x));
   return maxSoFar;
 }
+
+/**
+ * Selects elements in the DOM matching the given query selector.
+ *
+ * @param querySelector A DOM query selector string.
+ * @return The array of elements that matched the query selector.
+ */
+export function selectElements(querySelector: string): HTMLElement[] {
+    let nodeList = document.querySelectorAll(querySelector);
+    return Array.prototype.slice.call(nodeList);
+}

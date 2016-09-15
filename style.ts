@@ -19,7 +19,24 @@ limitations under the License.
 export const COLORS = {
   // Material design lite default blue.
   PRIMARY: '#3f51b5',
+  ACCENT_PRIMARY: '#8C9EFF',
   LIGHT_GRAY: '#dfdfdf',
   WHITE: '#fff',
   BLACK: '#000',
+};
+
+// Scenario outcome semantic CSS classes for indicating "goodness" of outcome.
+export const SCENARIO_GOAL_CSS = {
+  GOOD: 'scenario-goal-chart-region-good-outcome',
+  OK: 'scenario-goal-chart-region-ok-outcome',
+  BAD: 'scenario-goal-chart-region-bad-outcome',
+};
+
+// The CSS class added to scenario goal threshold lines.
+export const SCENARIO_GOAL_THRESHOLD_CSS = 'scenario-goal-chart-threshold';
+
+// Goal chart container element size dimensions.
+export const SCENARIO_GOAL_CHART_SIZE = {
+  width: 165,
+  height: 250,
 };

@@ -34,6 +34,19 @@ export const percentDeltaFormatter = deltaFraction => {
     return (delta >= 0 ? '▲' : '▼') + Math.abs(delta) + '%';
 };
 
+
+// Gets the sign of the given numeric value.
+function getSign(value: number) {
+    return value < 0 ? '-' : '+';
+}
+
+// Formats a fractional value to a signed percentage.
+//
+// e.g., +2.14 => '214%', -0.3 => '-30%'
+export function percentFormatter(fraction) {
+    return `${getSign(fraction)}${Math.floor(Math.abs(fraction) * 100)}%`;
+}
+
 // The following modifies the default d3 large value formatting to use
 // 'business units' instead of SI units (i.e., 'Billions' instead of 'Giga-').
 //
