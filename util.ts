@@ -20,6 +20,7 @@ limitations under the License.
 // Declare that we expect ES6 Object features to be available.
 declare const Object: ObjectConstructorES6;
 
+
 export const shallowCopy = (source: Object, dest: Object) => {
     return Object.assign(dest, source);
 };
@@ -40,3 +41,28 @@ const MONTHLY_COST_PER_HOUSEHOLD_DIVISOR = 2.083e9;
 export const asMonthlyPerHouseholdCost = (totalCost: number) => {
     return totalCost / MONTHLY_COST_PER_HOUSEHOLD_DIVISOR;
 };
+
+/**
+ * Gets the sum of the series of numeric values.
+ *
+ * @param series An array of numbers.
+ * @return The sum of the array.
+ */
+export function sum(series: number[]) {
+  let total = 0;
+  series.forEach(x => total += x);
+  return total;
+}
+
+/**
+ * Gets the maximum value within the series of numerica values.
+ *
+ * @param series An array of numbers.
+ * @return The maxiumum value within the series or -Infinity for zero-length
+ *     series.
+ */
+export function max(series: number[]) {
+  let maxSoFar = -Infinity;
+  series.forEach(x => maxSoFar = Math.max(maxSoFar, x));
+  return maxSoFar;
+}

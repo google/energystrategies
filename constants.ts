@@ -13,8 +13,13 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ==============================================================================*/
 
-// A minimal interface definition for the ndarray library.
-interface NDArray {
-  get(...indices: number[]): number;
-  pick(...indices: number[]): NDArray;
-}
+/// <reference path="typings/index.d.ts" />
+
+
+export const COLORS = {
+  // Material design lite default blue.
+  PRIMARY: '#3f51b5',
+  LIGHT_GRAY: '#dfdfdf',
+  WHITE: '#fff',
+  BLACK: '#000',
+};

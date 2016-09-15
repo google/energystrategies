@@ -57,10 +57,44 @@ export const NAMED_SCENARIOS = {
 // from the per-dimension scales (i.e., scale.length == numLevels).
 export const NUM_SLIDER_LEVELS = 20;
 
-export const colors = {
-  // Material design lite default blue.
-  PRIMARY: '#3f51b5',
-  LIGHT_GRAY: '#dfdfdf',
-  WHITE: '#fff',
-  BLACK: '#000',
+export const NON_DISPATCHABLE_ENERGY_SOURCES = ['solar', 'wind', 'nuclear'];
+export const DISPATCHABLE_ENERGY_SOURCES = ['ng'];
+export const ALL_ENERGY_SOURCES = DISPATCHABLE_ENERGY_SOURCES
+    .concat(NON_DISPATCHABLE_ENERGY_SOURCES);
+
+// Conversion factors.
+export const DISCOUNT_RATE_YEARLY = 14.2;
+export const WEEKS_PER_YEAR = 52;
+export const DISCOUNT_RATE_WEEKLY = DISCOUNT_RATE_YEARLY * WEEKS_PER_YEAR;
+export const POUNDS_PER_TONNE = 2204.62;
+
+// Fixed cost (capital + fixed) per MW of capacity by energy source.
+//
+// Units are dollars USD per MW of capacity ($/MW)
+export const FIXED_COST = {
+  ng: 773000, // Assumes 100% conventional turbine mix.
+  solar: 1490000,
+  wind: 1844000,
+  nuclear: 6814000,
+};
+
+// Variable cost (including fuel) per MW-hour by energy source.
+//
+// Units are dollars USD per MWh ($/MWh).
+export const VARIABLE_COST = {
+  ng: 32,
+  nuclear: 7.3,
+  solar: 0,
+  wind: 0,
+};
+
+// Rate of CO2 creation for each energy source.
+//
+// Units are tonnes-of-co2 per MWh-of-energy-supplied (tonnes/MWh)
+export const CO2_RATE = {
+  // Dimensional analysis: lbs/MWh * tonnes/lbs => tonnes/MWh
+  ng: 1140 / POUNDS_PER_TONNE,
+  solar: 0,
+  wind: 0,
+  nuclear: 0.
 };

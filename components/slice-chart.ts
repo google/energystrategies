@@ -16,7 +16,7 @@ limitations under the License.
 /// <reference path="../typings/index.d.ts" />
 /// <reference path="../dataset.d.ts" />
 
-import {colors} from '../config';
+import {COLORS} from '../constants';
 import * as util from '../util';
 
 /**
@@ -121,12 +121,12 @@ export class SliceChart implements DatasetSelectionView {
     // current scenario.
     if (dataItem.id == 'cost') {
       return dataItem.x == scenarioLevel ?
-          colors.WHITE :
-          colors.BLACK;
+          COLORS.WHITE :
+          COLORS.BLACK;
     } else if (dataItem.id == 'co2') {
       return dataItem.x == scenarioLevel ?
-          colors.PRIMARY :
-          colors.LIGHT_GRAY;
+          COLORS.PRIMARY :
+          COLORS.LIGHT_GRAY;
     }
   }
 
