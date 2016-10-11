@@ -45,8 +45,22 @@ interface ScenarioOutcomeBreakdown extends ScenarioOutcome {
  * Aggregated scenario outcome details specific to a single energy source.
  */
 interface EnergySourceOutcome {
-  fixed_cost: number;
-  variable_cost: number;
+  // Maximum energy supply capacity (nameplate) of the source (MW).
+  capacity: number,
+
+  // Amount of energy provided by source, ignoring demand (MWh).
+  energy: number,
+
+  // Amount of energy consumed from the source by demand (MWh).
+  consumed: number,
+
+  // Amount of fixed cost required for the energy source ($USD).
+  fixedCost: number;
+
+  // Amount of variable cost required for the energy source ($USD).
+  variableCost: number;
+
+  // Amount of CO2 emissions from the source (Mtonnes).
   co2: number;
 }
 

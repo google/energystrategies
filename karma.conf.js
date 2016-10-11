@@ -38,7 +38,7 @@ module.exports = function(config) {
 
     // Compile all tests and their dependencies with tsify.
     preprocessors: {
-      '**/*.ts': ['browserify']
+      '**/*-test.ts': ['browserify']
     },
     browserify: {
       debug: true,
@@ -65,6 +65,11 @@ module.exports = function(config) {
     browsers: ['Chrome'],
 
     // Keep Karma running after test suite finishes excecuting.
-    singleRun: false
+    singleRun: false,
+
+    // The .ts suffix defaults to a video-based MIME-type if not specified.
+    mime: {
+      'text/x-typescript': ['ts']
+    }
   });
 };

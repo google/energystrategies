@@ -15,6 +15,7 @@ limitations under the License.
 
 /// <reference path="typings/index.d.ts" />
 /// <reference path="dataset.d.ts" />
+/// <reference path="es6.d.ts" />
 
 
 // Declare that we expect ES6 Object features to be available.
