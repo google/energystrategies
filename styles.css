@@ -18,6 +18,17 @@ limitations under the License.
 body {
   font-family: "Roboto", "Helvetica", "Verdana", "Arial", sans-serif;
   margin: 0;
+  min-width: 850px;
+}
+
+a {
+  color: #69a4e4;
+  font-weight: normal;
+  text-decoration: none;
+}
+
+label {
+  font-weight: 500;
 }
 
 h1 {
@@ -30,6 +41,12 @@ h2 {
 }
 
 /* Page layout */
+.mdl-tabs__panel h1,
+.mdl-tabs__panel h2,
+.mdl-tabs__panel h3,
+.mdl-tabs__panel .description {
+  margin-left: 8px;
+}
 
 footer {
   height: 30px;
@@ -95,4 +112,29 @@ footer {
   position: relative;
   top: -35px;
   width: 555px;
+}
+
+.info {
+  font-size: 11pt;
+  vertical-align: middle;
+}
+
+/* Make sliders take the full width of the flex column. */
+.mdl-slider,
+.mdl-slider__background-flex {
+  margin-left: 0;
+  margin-right: 0;
+  width: 100%;
+}
+
+#weekly-graph-left-placeholder,
+#yearly-graph-left-placeholder {
+  background-color: pink;
+  height: 400px;
+}
+
+#weekly-graph-right-placeholder,
+#yearly-graph-right-placeholder {
+  background-color: pink;
+  height: 130px;
 }
