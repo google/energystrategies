@@ -17,20 +17,11 @@ limitations under the License.
 /// <reference path="dataset.d.ts" />
 /// <reference path="es6.d.ts" />
 
-import {App} from './app';
-import * as config from './config';
 import * as formatters from './formatters';
-import * as util from './util';
 
 
 formatters.configure();
 
-const app = new App(
-  util.shallowCopy(config.NAMED_SCENARIOS.reference, {}),
-  util.shallowCopy(config.DEFAULT_SCENARIO_SPEC, {}));
-
 document.addEventListener('DOMContentLoaded', event => {
   console.info('document.DOMContentLoaded', event);
-  app.init();
 });
-

@@ -31,30 +31,6 @@ h2 {
 
 /* Page layout */
 
-#main {
-  display: flex;
-  flex: 1;
-  flex-direction: row;
-  min-height: 0;
-}
-
-.column.left {
-  width: 300px;
-  flex: 0 0 300px;
-  overflow-y: hidden;
-  background-color: #F5F5F5;
-  border-right: 1px solid #E0E0E0;
-}
-.column.center {
-  border-left: 1px solid #eee;
-  width: 300px;
-  flex: 0 0 300px;
-  overflow-y: hidden;
-}
-.column.right {
-  overflow-y: scroll;
-}
-
 footer {
   height: 30px;
   overflow-y: hidden;
@@ -67,91 +43,6 @@ footer {
 
 .hide-me {
   display: none;
-}
-
-/* Stepper */
-#stepper {
-  margin: 0;
-  padding: 0 24pt;
-  list-style: none;
-  margin-top: 36pt;
-}
-#stepper li {
-  margin-bottom: 15pt;
-}
-#stepper .stepper-step-title {
-  font-size: 14pt;
-  text-decoration: none;
-  color: rgba(0, 0, 0, .35);
-  text-transform: uppercase;
-  display: block;
-  margin-bottom: 10pt;
-}
-#stepper .active .stepper-step-title {
-  color: rgba(0, 0, 0, .87);
-}
-#stepper li p {
-  color: rgba(0, 0, 0, .87);
-}
-
-/* Controls palette */
-
-.controls-palette{
-  margin-top: 12pt;
-  margin-left: 12pt;
-}
-
-/* Headline scenario outcome */
-.scenario-outcome-full-width {
-  width: 750px;
-}
-#scenario-headline-card {
-  margin: 16pt 8pt 16pt 8pt;
-  padding: 0 18pt 18pt 18pt;
-}
-#scenario-headline-card h2 {
-  font-size: 18pt;
-  color: rgba(0, 0, 0, .87);
-}
-#scenario-headline-goals, #scenario-headline-tables {
-   display: -webkit-flex;
-   display: flex;
-   -webkit-flex-direction: row;
-   flex-direction: row;
-
-   -webkit-align-items: center;
-   align-items: center;
-   -webkit-justify-content: center;
-   justify-content: center;
-}
-#scenario-headline-card .mdl-data-table {
-  font-size: 1.8em;
-  font-weight: lighter;
-}
-.scenario-goal-table {
-  margin-top: 22pt;
-  margin-left: 16pt;
-  margin-right: 16pt;
-  width: 300px;
-}
-.scenario-goal-container {
-  margin: 0 32px;
-  width: 300px;
-}
-.scenario-goal-container h6 {
-  margin: 0;
-  text-align: left;
-  text-transform: uppercase;
-  font-size: 10pt;
-  color: rgba(0, 0, 0, .35);
-}
-
-/* Details about scenario outcome */
-#scenario-details-container {
-  margin: 30pt 0 0 8pt;
-  padding: 16pt;
-  height: 300px;
-  background-color: rgba(0, 0, 0, 0.16);
 }
 
 /* Components */
@@ -175,18 +66,20 @@ footer {
   opacity: 0.2;
 }
 
-
 .c3-axis-x path.domain,
 .c3-axis-y path.domain,
 .c3-axis-y2 path.domain {
   visibility: hidden;
 }
+
 .c3-grid text {
   fill: rgba(0, 0, 0, 1);
 }
+
 .c3-grid line {
   stroke: rgba(0, 0, 0, 1);
 }
+
 .c3-axis-x-label {
   text-anchor: middle;
   text-transform: uppercase;
