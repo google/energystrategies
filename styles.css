@@ -32,20 +32,49 @@ label {
 }
 
 h1 {
-  font-size: 36px;
-  font-weight: lighter;
+  font-size: 24px;
+  line-height: normal;
+  margin: 46px 0 24px;
 }
 
 h2 {
-  font-size: 24px;
+  font-size: 20px;
+  line-height: normal;
+  margin: 8px 0 4px;
 }
 
 /* Page layout */
+main {
+  padding: 0 66px;
+}
+
+@media screen and (max-width: 1024px) {
+  /* For smaller screen sizes, shrink the left margin. */
+  main {
+    padding: 0 46px;
+  }
+  .mdl-layout__header-row {
+    /* Overrides 72px which is too much whitespace on the left. */
+    padding-left: 60px;
+  }
+}
+
 .mdl-tabs__panel h1,
 .mdl-tabs__panel h2,
 .mdl-tabs__panel h3,
 .mdl-tabs__panel .description {
-  margin-left: 8px;
+  margin-left: 14px;
+}
+
+.mdl-tabs__tab {
+  /* Overrides the 24px of padding set in the MDL stylesheet. */
+  padding-left: 14px;
+}
+
+.mdl-tabs__panel h1,
+.mdl-tabs__panel h2,
+.mdl-tabs__panel h3 {
+  color: #5d3835;
 }
 
 footer {
@@ -122,9 +151,45 @@ footer {
 /* Make sliders take the full width of the flex column. */
 .mdl-slider,
 .mdl-slider__background-flex {
-  margin-left: 0;
-  margin-right: 0;
-  width: 100%;
+  margin-left: 2%;
+  margin-right: 2%;
+  width: 96%;
+}
+
+.option {
+  margin: 4px 8px 38px 0;
+}
+
+.mdl-slider__container {
+  margin-top: 16px;
+}
+
+.preset {
+  border-radius: 24px;
+  border: 1px solid rgb(78,146,223);
+  height: 32px;
+  line-height: 32px;
+  margin: 4px;
+  padding: 0 10px;
+  text-transform: none;
+}
+
+.preset .mdl-icon-toggle__label {
+  color: rgb(78,146,223);
+  width: auto;
+}
+
+.preset.is-checked {
+  background-color: rgb(78,146,223);
+}
+
+.preset.is-checked .mdl-icon-toggle__label {
+  color: #fff;
+}
+
+.horizontal-label-slider>div {
+  display: inline-block;
+  width: 45%;
 }
 
 #weekly-graph-left-placeholder,

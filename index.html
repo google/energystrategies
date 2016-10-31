@@ -17,7 +17,8 @@ limitations under the License.
 <head lang="en">
   <meta charset="utf-8">
   <title>Energy Playground</title>
-  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500|Material+Icons" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500|Material+Icons"
+        rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="bundle.css" type="text/css">
   <script src="lib.js"></script>
 </head>
@@ -27,7 +28,7 @@ limitations under the License.
 
   <header class="mdl-layout__header">
     <div class="mdl-layout__header-row">
-      <span class="mdl-layout-title">Energy Playground</span>
+      <span class="mdl-layout-title">Energy playground</span>
       <div class="mdl-layout-spacer"></div>
       <nav class="mdl-navigation mdl-layout--large-screen-only">
         <a class="mdl-navigation__link" href="">About</a>
@@ -48,12 +49,13 @@ limitations under the License.
     </nav>
   </div>
 
-  <main class="mdl-layout__content">
+  <main>
     <div class="mdl-tabs mdl-js-tabs">
       <div class="mdl-tabs__panel is-active" id="tab1">
         <h1>Weekly utilities</h1>
-        <h2>Title</h2>
-        <div class="description">Description
+        <h2>Allocate energy sources to fulfill demand</h2>
+        <div class="description">
+          See if you can find a low-cost, low-carbon allocation that keeps the lights on.
           <a href="javascript:alert('Replace');">Learn more</a>
         </div>
         <div class="mdl-grid">
@@ -62,45 +64,59 @@ limitations under the License.
           </div>
           <div class="mdl-cell mdl-cell--4-col">
             <div id="weekly-graph-right-placeholder"></div>
-            <h3></h3>
+            <label>Title</label>
           </div>
         </div>
         <div class="mdl-grid">
           <div class="mdl-cell mdl-cell--4-col">
-            <label>Label <i class="material-icons info">info_outline</i></label>
-            <div class="slider-description">Description.
-              <a href="javascript:alert('Replace');">
-                Learn more <i class="material-icons info">launch</i>
-              </a>
+            <div class="option">
+              <label>Natural gas <i class="material-icons info">info_outline</i></label>
+              <div class="slider-description">
+                This source can quickly ramp up-and-down to meet demand.
+                <a href="javascript:alert('Replace');">
+                  Learn more <i class="material-icons info">launch</i>
+                </a>
+              </div>
+              <input id="weekly-ng" class="mdl-slider mdl-js-slider" type="range"
+                min="0" max="100" value="25" tabindex="0">
             </div>
-            <input class="mdl-slider mdl-js-slider" type="range"
-              min="0" max="100" value="25" tabindex="0">
-            <label>Label <i class="material-icons info">info_outline</i></label>
-            <div class="slider-description">Description.
-              <a href="javascript:alert('Replace');">
-                Learn more <i class="material-icons info">launch</i>
-              </a>
+            <div class="option">
+              <label>Solar <i class="material-icons info">info_outline</i></label>
+              <div class="slider-description">
+                This energy source emits no CO2 but is highly dependent on time of day, weather, and
+                seasons.
+                <a href="javascript:alert('Replace');">
+                  Learn more <i class="material-icons info">launch</i>
+                </a>
+              </div>
+              <input id="weekly-solar" class="mdl-slider mdl-js-slider" type="range"
+                min="0" max="100" value="25" tabindex="0">
             </div>
-            <input class="mdl-slider mdl-js-slider" type="range"
-              min="0" max="100" value="25" tabindex="0">
           </div>
           <div class="mdl-cell mdl-cell--4-col">
-            <label>Label <i class="material-icons info">info_outline</i></label>
-            <div class="slider-description">Description.
-              <a href="javascript:alert('Replace');">
-                Learn more <i class="material-icons info">launch</i>
-              </a>
+            <div class="option">
+              <label>Nuclear <i class="material-icons info">info_outline</i></label>
+              <div class="slider-description">
+                This source produces a constant amount of power and cannot dynamically adapt to
+                changes in demand.
+                <a href="javascript:alert('Replace');">
+                  Learn more <i class="material-icons info">launch</i>
+                </a>
+              </div>
+              <input id="weekly-nuclear" class="mdl-slider mdl-js-slider" type="range"
+                min="0" max="100" value="25" tabindex="0">
             </div>
-            <input class="mdl-slider mdl-js-slider" type="range"
-              min="0" max="100" value="25" tabindex="0">
-            <label>Label <i class="material-icons info">info_outline</i></label>
-            <div class="slider-description">Description.
-              <a href="javascript:alert('Replace');">
-                Learn more <i class="material-icons info">launch</i>
-              </a>
+            <div class="option">
+              <label>Wind <i class="material-icons info">info_outline</i></label>
+              <div class="slider-description">
+                This energy source emits no CO2 but is highly dependent on weather.
+                <a href="javascript:alert('Replace');">
+                  Learn more <i class="material-icons info">launch</i>
+                </a>
+              </div>
+              <input id="weekly-wind" class="mdl-slider mdl-js-slider" type="range"
+                min="0" max="100" value="25" tabindex="0">
             </div>
-            <input class="mdl-slider mdl-js-slider" type="range"
-              min="0" max="100" value="25" tabindex="0">
           </div>
           <div class="mdl-cell mdl-cell--4-col">
           </div>
@@ -124,6 +140,153 @@ limitations under the License.
           <div class="mdl-cell mdl-cell--4-col">
             <div id="yearly-graph-right-placeholder"></div>
             <h3></h3>
+          </div>
+        </div>
+        <div class="mdl-grid">
+          <div class="mdl-cell mdl-cell--8-col">
+            <label>Presets <i class="material-icons info">info_outline</i></label>
+            <div>
+              <label class="preset mdl-icon-toggle mdl-js-icon-toggle" for="yearly-preset-1">
+                <input type="checkbox" id="yearly-preset-1" class="mdl-icon-toggle__input">
+                <span class="mdl-icon-toggle__label">High renewables</span>
+              </label>
+
+              <label class="preset mdl-icon-toggle mdl-js-icon-toggle" for="yearly-preset-2">
+                <input type="checkbox" id="yearly-preset-2" class="mdl-icon-toggle__input">
+                <span class="mdl-icon-toggle__label">High carbon capture</span>
+              </label>
+
+              <label class="preset mdl-icon-toggle mdl-js-icon-toggle" for="yearly-preset-3">
+                <input type="checkbox" id="yearly-preset-3" class="mdl-icon-toggle__input">
+                <span class="mdl-icon-toggle__label">High nuclear</span>
+              </label>
+            </div>
+          </div>
+          <div class="mdl-cell mdl-cell--4-col">
+          </div>
+        </div>
+        <div class="mdl-grid">
+          <div class="mdl-cell mdl-cell--4-col">
+            <div class="option">
+              <label>Label <i class="material-icons info">info_outline</i></label>
+              <div class="slider-description">
+                Description.
+                <a href="javascript:alert('Replace');">
+                  Learn more <i class="material-icons info">launch</i>
+                </a>
+              </div>
+              <input id="yearly-slider" class="mdl-slider mdl-js-slider" type="range"
+                min="0" max="100" value="25" tabindex="0">
+            </div>
+            <div class="option">
+              <label>Label <i class="material-icons info">info_outline</i></label>
+              <div class="slider-description">
+                Description.
+                <a href="javascript:alert('Replace');">
+                  Learn more <i class="material-icons info">launch</i>
+                </a>
+              </div>
+              <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">
+                <input type="radio" id="option-1" class="mdl-radio__button" name="options" value="1"
+                       checked>
+                <span class="mdl-radio__label">Radio</span>
+              </label>
+              <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2">
+                <input type="radio" id="option-2" class="mdl-radio__button" name="options">
+                <span class="mdl-radio__label">Radio</span>
+              </label>
+            </div>
+          </div>
+          <div class="mdl-cell mdl-cell--4-col">
+            <div class="option">
+              <label>Label <i class="material-icons info">info_outline</i></label>
+              <div class="slider-description">
+                Description.
+                <a href="javascript:alert('Replace');">
+                  Learn more <i class="material-icons info">launch</i>
+                </a>
+              </div>
+              <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-1">
+                <input type="checkbox" id="checkbox-1" class="mdl-checkbox__input" checked>
+                <span class="mdl-checkbox__label">Checkbox</span>
+              </label>
+              <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-2">
+                <input type="checkbox" id="checkbox-2" class="mdl-checkbox__input" checked>
+                <span class="mdl-checkbox__label">Checkbox</span>
+              </label>
+            </div>
+            <div class="option">
+              <label>Label <i class="material-icons info">info_outline</i></label>
+              <div class="slider-description">
+                Description.
+                <a href="javascript:alert('Replace');">
+                  Learn more <i class="material-icons info">launch</i>
+                </a>
+              </div>
+              <input id="yearly-slider-2" class="mdl-slider mdl-js-slider" type="range"
+                min="0" max="100" value="25" tabindex="0">
+            </div>
+          </div>
+          <div class="mdl-cell mdl-cell--4-col">
+          </div>
+        </div>
+        <hr>
+        <h2>Cost assumptions</h2>
+        <div class="mdl-grid">
+          <div class="mdl-cell mdl-cell--4-col">
+            <label>Presets <i class="material-icons info">info_outline</i></label>
+            <div>
+              <label class="preset mdl-icon-toggle mdl-js-icon-toggle" for="yearly-cost-preset-1">
+                <input type="checkbox" id="yearly-cost-preset-1" class="mdl-icon-toggle__input"
+                       checked>
+                <span class="mdl-icon-toggle__label">Expected</span>
+              </label>
+              <label class="preset mdl-icon-toggle mdl-js-icon-toggle" for="yearly-cost-preset-2">
+                <input type="checkbox" id="yearly-cost-preset-2" class="mdl-icon-toggle__input">
+                <span class="mdl-icon-toggle__label">Cheap Nuclear</span>
+              </label>
+            </div>
+          </div>
+          <div class="mdl-cell mdl-cell--4-col">
+            <div class="option">
+              <label>Energy source costs <i class="material-icons info">info_outline</i></label>
+              <div class="slider-description">
+                Description.
+                <a href="javascript:alert('Replace');">
+                  Learn more <i class="material-icons info">launch</i>
+                </a>
+              </div>
+              <div class="horizontal-label-slider">
+                <div>Natural gas</div>
+                <div>
+                  <input id="ng-cost" class="mdl-slider mdl-js-slider" type="range"
+                    min="0" max="100" value="25" tabindex="0">
+                </div>
+              </div>
+              <div class="horizontal-label-slider">
+                <div>Nuclear</div>
+                <div>
+                  <input id="nuclear-cost" class="mdl-slider mdl-js-slider" type="range"
+                    min="0" max="100" value="25" tabindex="0">
+                </div>
+              </div>
+              <div class="horizontal-label-slider">
+                <div>Solar</div>
+                <div>
+                  <input id="solar-cost" class="mdl-slider mdl-js-slider" type="range"
+                    min="0" max="100" value="25" tabindex="0">
+                </div>
+              </div>
+              <div class="horizontal-label-slider">
+                <div>Wind</div>
+                <div>
+                  <input id="wind-cost" class="mdl-slider mdl-js-slider" type="range"
+                    min="0" max="100" value="25" tabindex="0">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mdl-cell mdl-cell--4-col">
           </div>
         </div>
         <div>
