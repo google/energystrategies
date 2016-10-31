@@ -206,3 +206,16 @@ interface ProfileAllocations {
   wind: number;
   nuclear: number;
 }
+
+/**
+ * Utility mode data and configuration view.
+ */
+interface UtilityDataView {
+  // The time profile for each available energy source.
+  profiles: ProfileDataset;
+
+  // The per-energy source allocations.
+  //
+  // The utility view configuration state is determined by the allocations.
+  allocations: ProfileAllocations;
+}

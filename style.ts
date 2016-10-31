@@ -23,6 +23,15 @@ export const COLORS = {
   LIGHT_GRAY: '#dfdfdf',
   WHITE: '#fff',
   BLACK: '#000',
+
+  // Failure indication color.
+  FAILURE: '#FF1744',
+
+  // Energy source colors.
+  SOLAR: '#FFC107',
+  WIND: '#03A9F4',
+  NUCLEAR: '#9C27B0',
+  NG: '#212121',
 };
 
 // Scenario outcome semantic CSS classes for indicating "goodness" of outcome.
