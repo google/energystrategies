@@ -26,6 +26,7 @@ import {ScenarioCO2, ScenarioDeltaCO2} from './components/scenario-co2';
 import {ScenarioCost, ScenarioDeltaCost} from './components/scenario-cost';
 import {ScenarioCO2GoalChart} from './components/scenario-co2-goal-chart';
 import {ScenarioCostGoalChart} from './components/scenario-cost-goal-chart';
+import * as profiles from './profiles';
 
 // Ambient object declarations and typedefs.
 declare var Object: ObjectConstructorES6;

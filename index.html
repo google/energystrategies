@@ -62,10 +62,16 @@ limitations under the License.
         </div>
         <div class="mdl-grid">
           <div class="mdl-cell mdl-cell--8-col">
-            <div id="weekly-graph-left-placeholder"></div>
+            <div id="utility-mode-profiles-chart"></div>
           </div>
           <div class="mdl-cell mdl-cell--4-col">
-            <div id="weekly-graph-right-placeholder"></div>
+            <div>
+              <div id="utility-mode-goal-progress"></div>
+              <h4>
+                <span id="utility-mode-cost"></span>
+                USD/month/household
+              </h4>
+            </div>
             <label>Title</label>
           </div>
         </div>
@@ -79,8 +85,7 @@ limitations under the License.
                   Learn more <i class="material-icons info">launch</i>
                 </a>
               </div>
-              <input id="weekly-ng" class="mdl-slider mdl-js-slider" type="range"
-                min="0" max="100" value="25" tabindex="0">
+              <div id="ng-slider"></div>
             </div>
             <div class="option">
               <label>Solar <i class="material-icons info">info_outline</i></label>
@@ -91,8 +96,7 @@ limitations under the License.
                   Learn more <i class="material-icons info">launch</i>
                 </a>
               </div>
-              <input id="weekly-solar" class="mdl-slider mdl-js-slider" type="range"
-                min="0" max="100" value="25" tabindex="0">
+              <div id="solar-slider"></div>
             </div>
           </div>
           <div class="mdl-cell mdl-cell--4-col">
@@ -105,8 +109,7 @@ limitations under the License.
                   Learn more <i class="material-icons info">launch</i>
                 </a>
               </div>
-              <input id="weekly-nuclear" class="mdl-slider mdl-js-slider" type="range"
-                min="0" max="100" value="25" tabindex="0">
+              <div id="nuclear-slider"></div>
             </div>
             <div class="option">
               <label>Wind <i class="material-icons info">info_outline</i></label>
@@ -116,8 +119,7 @@ limitations under the License.
                   Learn more <i class="material-icons info">launch</i>
                 </a>
               </div>
-              <input id="weekly-wind" class="mdl-slider mdl-js-slider" type="range"
-                min="0" max="100" value="25" tabindex="0">
+              <div id="wind-slider"></div>
             </div>
           </div>
           <div class="mdl-cell mdl-cell--4-col">
@@ -150,6 +152,7 @@ limitations under the License.
         </div>
         <h2>Paths to low-carbon</h2>
         <div class="mdl-grid">
+
           <div class="mdl-cell mdl-cell--8-col">
             <label>Presets <i class="material-icons info">info_outline</i></label>
             <div>

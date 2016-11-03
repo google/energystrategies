@@ -18,10 +18,14 @@ limitations under the License.
 /// <reference path="es6.d.ts" />
 
 import * as formatters from './formatters';
+import * as utility from './utility-mode';
 
 
 formatters.configure();
 
+const utilityMode = new utility.UtilityMode('data/utility-dataset.json');
+
 document.addEventListener('DOMContentLoaded', event => {
-  console.info('document.DOMContentLoaded', event);
+  console.debug('document.DOMContentLoaded', event);
+  utilityMode.init();
 });
