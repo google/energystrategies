@@ -23,30 +23,50 @@ import {TextView} from './text-view';
 /**
  * A page component that renders the current scenario outcome's absolute cost.
  */
-export class ScenarioCost implements DatasetSelectionView {
+export class ScenarioCost implements SummaryDataComponent {
   textView: TextView;
 
-  constructor(element) {
+  /**
+   * Constructor.
+   *
+   * @param element The container element.
+   */
+  constructor(element: HTMLElement) {
     this.textView = new TextView(
       element, formatters.householdCostFormatter);
   }
 
-  update(view: DatasetSelection) {
-    this.textView.update(view.scenario.cost);
+  /**
+   * Updates the component to render the new data view.
+   *
+   * @param view The new data view to render.
+   */
+  update(view: SummaryDataView) {
+    this.textView.update(view.summary.cost);
   }
 }
 
 /**
  * A page component that renders the current scenario outcome's relative delta.
  */
-export class ScenarioDeltaCost implements DatasetSelectionView {
+export class ScenarioDeltaCost implements SummaryDataComponent {
   textView: TextView;
 
-  constructor(element) {
+  /**
+   * Constructor.
+   *
+   * @param element The container element.
+   */
+  constructor(element: HTMLElement) {
     this.textView = new TextView(element, formatters.percentDeltaFormatter);
   }
 
-  update(view: PlaygroundState) {
+  /**
+   * Updates the component to render the new data view.
+   *
+   * @param view The new data view to render.
+   */
+  update(view: SummaryDataView) {
     this.textView.update(view.deltaToRef.cost);
   }
 }

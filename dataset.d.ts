@@ -208,14 +208,52 @@ interface ProfileAllocations {
 }
 
 /**
+ * Common outcome summary data and configuration view.
+ */
+interface SummaryDataView {
+  // The outcome summary for the energy profiles as currently allocated.
+  summary: ScenarioOutcomeBreakdown;
+
+  // The delta of the outcome to a pre-defined reference outcome.
+  deltaToRef: {
+    co2: number;
+    cost: number;
+  }
+}
+
+/**
+ * Components that render views of the summary data.
+ */
+interface SummaryDataComponent {
+  /**
+   * Updates the component to render data within the new data view.
+   *
+   * @param view The new data view to render.
+   **/
+  update(view: SummaryDataView);
+}
+
+/**
  * Utility mode data and configuration view.
  */
-interface UtilityDataView {
-  // The time profile for each available energy source.
+interface UtilityDataView extends SummaryDataView {
+  // The allocated time profile for each available energy source.
   profiles: ProfileDataset;
 
   // The per-energy source allocations.
   //
   // The utility view configuration state is determined by the allocations.
   allocations: ProfileAllocations;
+}
+
+/**
+ * Components that render views of the utility data.
+ */
+interface UtilityDataComponent {
+  /**
+   * Updates the component to render data within the new data view.
+   *
+   * @param view The new data view to render.
+   */
+  update(view: UtilityDataView);
 }

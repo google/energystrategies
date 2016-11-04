@@ -23,7 +23,7 @@ import * as formatters from '../formatters';
 /**
  * Energy profile chart for displaying supply and demand over time.
  */
-export class EnergyProfileChart {
+export class EnergyProfileChart implements UtilityDataComponent {
   element: HTMLElement;
   chart: c3.ChartAPI;
 
