@@ -156,6 +156,10 @@ export class EnergyProfileChart implements UtilityDataComponent {
         // Pad chart region to avoid clipping the far-right x-axis tick label.
         right: 24,
       },
+      transition: {
+        // Disable transition animations.
+        duration: 0
+      }
     };
     this.chart = c3.generate(<any>config);
   }

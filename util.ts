@@ -78,3 +78,26 @@ export function selectElements(querySelector: string): HTMLElement[] {
     let nodeList = document.querySelectorAll(querySelector);
     return Array.prototype.slice.call(nodeList);
 }
+
+/**
+ * Throttles the invocation rate of the given function.
+ *
+ * @param fn The function to throttle.
+ * @param delay The delay (millis) enforced between allowed invocations of the
+ *     function.
+ * @returns A wrapped version of the input function with throttled invocation.
+ */
+export function throttle(fn: Function, delay: number) {
+  let timer = null;
+  return function () {
+    if (!timer) {
+      // Invoke the throttled function immediately (no active timer).
+      fn.apply(this, arguments);
+
+      // Block re-execution until the timer expires.
+      timer = setTimeout(() => {
+        timer = null;
+      }, delay);
+    }
+  };
+}
