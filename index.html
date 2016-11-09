@@ -148,6 +148,7 @@ limitations under the License.
             <h3></h3>
           </div>
         </div>
+        <h2>Paths to low-carbon</h2>
         <div class="mdl-grid">
           <div class="mdl-cell mdl-cell--8-col">
             <label>Presets <i class="material-icons info">info_outline</i></label>
@@ -174,7 +175,7 @@ limitations under the License.
         <div class="mdl-grid">
           <div class="mdl-cell mdl-cell--4-col">
             <div class="option">
-              <label>Label <i class="material-icons info">info_outline</i></label>
+              <label>Mandated fraction of clean energy <i class="material-icons info">info_outline</i></label>
               <div class="slider-description">
                 Description.
                 <a href="javascript:alert('Replace');">
@@ -185,52 +186,56 @@ limitations under the License.
                 min="0" max="100" value="25" tabindex="0">
             </div>
             <div class="option">
-              <label>Label <i class="material-icons info">info_outline</i></label>
+              <label>Include carbon capture in clean energy fraction <i class="material-icons info">info_outline</i></label>
               <div class="slider-description">
                 Description.
                 <a href="javascript:alert('Replace');">
                   Learn more <i class="material-icons info">launch</i>
                 </a>
               </div>
-              <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">
-                <input type="radio" id="option-1" class="mdl-radio__button" name="options" value="1"
-                       checked>
-                <span class="mdl-radio__label">Radio</span>
+              <label for="ccs-is-clean" class="mdl-switch mdl-js-switch mdl-js-ripple-effect">
+                <input type="checkbox" id="ccs-is-clean" class="mdl-switch__input">
+                <span class="mdl-switch__label">Carbon capture produces clean energy</span>
               </label>
-              <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2">
-                <input type="radio" id="option-2" class="mdl-radio__button" name="options">
-                <span class="mdl-radio__label">Radio</span>
+            </div>
+            <div class="option">
+              <label>Include nuclear in clean energy fraction <i class="material-icons info">info_outline</i></label>
+              <div class="slider-description">
+                Description.
+                <a href="javascript:alert('Replace');">
+                  Learn more <i class="material-icons info">launch</i>
+                </a>
+              </div>
+              <label for="nuclear-is-clean" class="mdl-switch mdl-js-switch mdl-js-ripple-effect">
+                <input type="checkbox" id="nuclear-is-clean" class="mdl-switch__input">
+                <span class="mdl-switch__label">Nuclear produces clean energy</span>
               </label>
             </div>
           </div>
           <div class="mdl-cell mdl-cell--4-col">
             <div class="option">
-              <label>Label <i class="material-icons info">info_outline</i></label>
+              <label>Carbon tax <i class="material-icons info">info_outline</i></label>
               <div class="slider-description">
                 Description.
                 <a href="javascript:alert('Replace');">
                   Learn more <i class="material-icons info">launch</i>
                 </a>
               </div>
-              <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-1">
-                <input type="checkbox" id="checkbox-1" class="mdl-checkbox__input" checked>
-                <span class="mdl-checkbox__label">Checkbox</span>
-              </label>
-              <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-2">
-                <input type="checkbox" id="checkbox-2" class="mdl-checkbox__input" checked>
-                <span class="mdl-checkbox__label">Checkbox</span>
-              </label>
+              <input id="yearly-slider" class="mdl-slider mdl-js-slider" type="range"
+                min="0" max="100" value="25" tabindex="0">
             </div>
             <div class="option">
-              <label>Label <i class="material-icons info">info_outline</i></label>
+              <label>Disallow nuclear energy <i class="material-icons info">info_outline</i></label>
               <div class="slider-description">
                 Description.
                 <a href="javascript:alert('Replace');">
                   Learn more <i class="material-icons info">launch</i>
                 </a>
               </div>
-              <input id="yearly-slider-2" class="mdl-slider mdl-js-slider" type="range"
-                min="0" max="100" value="25" tabindex="0">
+              <label for="exclude-nuclear" class="mdl-switch mdl-js-switch mdl-js-ripple-effect">
+                <input type="checkbox" id="exclude-nuclear" class="mdl-switch__input">
+                <span class="mdl-switch__label">Disallow nuclear</span>
+              </label>
             </div>
           </div>
           <div class="mdl-cell mdl-cell--4-col">
@@ -293,6 +298,19 @@ limitations under the License.
             </div>
           </div>
           <div class="mdl-cell mdl-cell--4-col">
+            <div class="option">
+              <label>Carbon capture technology <i class="material-icons info">info_outline</i></label>
+              <div class="slider-description">
+                Description.
+                <a href="javascript:alert('Replace');">
+                  Learn more <i class="material-icons info">launch</i>
+                </a>
+              </div>
+              <label for="ccs-tech" class="mdl-switch mdl-js-switch mdl-js-ripple-effect">
+                <input type="checkbox" id="ccs-tech" class="mdl-switch__input">
+                <span class="mdl-switch__label">Use amine-based tech</span>
+              </label>
+            </div>
           </div>
         </div>
         <div>
