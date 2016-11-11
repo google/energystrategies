@@ -23,29 +23,49 @@ import {TextView} from './text-view';
 /**
  * A page component that renders the current scenario outcome's absolute CO2.
  */
-export class ScenarioCO2 implements DatasetSelectionView {
-  textView: TextView;
+export class ScenarioCO2 implements SummaryDataComponent {
+  _textView: TextView;
 
-  constructor(element) {
-    this.textView = new TextView(element, formatters.largeNumberFormatter);
+  /**
+   * Constructor.
+   *
+   * @param element The container element.
+   */
+  constructor(container: HTMLElement) {
+    this._textView = new TextView(container, formatters.largeNumberFormatter);
   }
 
-  update(view: DatasetSelection) {
-    this.textView.update(view.scenario.co2);
+  /**
+   * Updates the component to render the new data view.
+   *
+   * @param view The new data view to render.
+   */
+  update(view: SummaryDataView) {
+    this._textView.update(view.summary.co2);
   }
 }
 
 /**
  * A page component that renders the current scenario's relative CO2 delta.
  */
-export class ScenarioDeltaCO2 implements DatasetSelectionView {
-  textView: TextView;
+export class ScenarioDeltaCO2 implements SummaryDataComponent {
+  _textView: TextView;
 
-  constructor(element) {
-    this.textView = new TextView(element, formatters.percentDeltaFormatter);
+  /**
+   * Constructor.
+   *
+   * @param element The container element.
+   */
+  constructor(container: HTMLElement) {
+    this._textView = new TextView(container, formatters.percentDeltaFormatter);
   }
 
-  update(view: PlaygroundState) {
-    this.textView.update(view.deltaToRef.co2);
+  /**
+   * Updates the component to render the new data view.
+   *
+   * @param view The new data view to render.
+   */
+  update(view: SummaryDataView) {
+    this._textView.update(view.deltaToRef.co2);
   }
 }

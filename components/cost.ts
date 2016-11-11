@@ -24,16 +24,16 @@ import {TextView} from './text-view';
  * A page component that renders the current scenario outcome's absolute cost.
  */
 export class ScenarioCost implements SummaryDataComponent {
-  textView: TextView;
+  _textView: TextView;
 
   /**
    * Constructor.
    *
    * @param element The container element.
    */
-  constructor(element: HTMLElement) {
-    this.textView = new TextView(
-      element, formatters.householdCostFormatter);
+  constructor(container: HTMLElement) {
+    this._textView = new TextView(
+      container, formatters.householdCostFormatter);
   }
 
   /**
@@ -42,7 +42,7 @@ export class ScenarioCost implements SummaryDataComponent {
    * @param view The new data view to render.
    */
   update(view: SummaryDataView) {
-    this.textView.update(view.summary.cost);
+    this._textView.update(view.summary.cost);
   }
 }
 
@@ -50,15 +50,15 @@ export class ScenarioCost implements SummaryDataComponent {
  * A page component that renders the current scenario outcome's relative delta.
  */
 export class ScenarioDeltaCost implements SummaryDataComponent {
-  textView: TextView;
+  _textView: TextView;
 
   /**
    * Constructor.
    *
    * @param element The container element.
    */
-  constructor(element: HTMLElement) {
-    this.textView = new TextView(element, formatters.percentDeltaFormatter);
+  constructor(container: HTMLElement) {
+    this._textView = new TextView(container, formatters.percentDeltaFormatter);
   }
 
   /**
@@ -67,6 +67,6 @@ export class ScenarioDeltaCost implements SummaryDataComponent {
    * @param view The new data view to render.
    */
   update(view: SummaryDataView) {
-    this.textView.update(view.deltaToRef.cost);
+    this._textView.update(view.deltaToRef.cost);
   }
 }
