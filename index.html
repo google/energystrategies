@@ -154,7 +154,8 @@ limitations under the License.
         <div class="mdl-grid">
 
           <div class="mdl-cell mdl-cell--8-col">
-            <label>Presets <i class="material-icons info">info_outline</i></label>
+            <label><b>Presets</b> <i class="material-icons info">info_outline</i></label>
+	    <div class="description">Each of these buttons set all individual policies.</div>
             <div>
               <label class="preset mdl-icon-toggle mdl-js-icon-toggle" for="yearly-preset-1">
                 <input type="checkbox" id="yearly-preset-1" class="mdl-icon-toggle__input">
@@ -175,101 +176,119 @@ limitations under the License.
           <div class="mdl-cell mdl-cell--4-col">
           </div>
         </div>
+        <div class="mdl-grid">	
+          <div class="mdl-cell mdl-cell--4-col">
+            <label><b>Individual policies</b></label>
+	  </div>
+	</div>
         <div class="mdl-grid">
-          <div class="mdl-cell mdl-cell--4-col">
-            <div class="option">
-              <label>Mandated fraction of clean energy <i class="material-icons info">info_outline</i></label>
-              <div class="slider-description">
-                Description.
-                <a href="javascript:alert('Replace');">
-                  Learn more <i class="material-icons info">launch</i>
-                </a>
+	    <div class="mdl-cell mdl-cell--4-col">
+              <div class="option">
+                <label>Mandated clean energy <i class="material-icons info">info_outline</i></label>
+                <div class="slider-description">
+		  What fraction of energy should come from clean sources?
+                  <a href="javascript:alert('Replace');">
+                    Learn more <i class="material-icons info">launch</i>
+                  </a>
+                </div>
+                <input id="yearly-slider" class="mdl-slider mdl-js-slider" type="range"
+                  min="0" max="100" value="25" tabindex="0">
               </div>
-              <input id="yearly-slider" class="mdl-slider mdl-js-slider" type="range"
-                min="0" max="100" value="25" tabindex="0">
-            </div>
-            <div class="option">
-              <label>Include carbon capture in clean energy fraction? <i class="material-icons info">info_outline</i></label>
-              <div class="slider-description">
-                Description.
-                <a href="javascript:alert('Replace');">
-                  Learn more <i class="material-icons info">launch</i>
-                </a>
+	    </div>
+	    <div class="mdl-cell mdl-cell--4-col">
+              <div class="option">
+                <label>Is carbon capture clean energy? <i class="material-icons info">info_outline</i></label>
+                <div class="slider-description">
+                  Would you include carbon capture as part of mandated clean energy?
+                  <a href="javascript:alert('Replace');">
+                    Learn more <i class="material-icons info">launch</i>
+                  </a>
+                </div>
+                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="ccs-is-clean-energy-true">
+                  <input type="radio" id="ccs-is-clean-energy-true" class="mdl-radio__button" name="ccs-is-clean-energy" value="1" checked>
+                  <span class="mdl-radio__label">CCS is clean energy</span>
+                </label>
+                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="ccs-is-clean-energy-false">
+                  <input type="radio" id="ccs-is-clean-energy-false" class="mdl-radio__button" name="ccs-is-clean-energy" value="0">
+                  <span class="mdl-radio__label">CCS is not clean energy</span>
+                </label>
               </div>
-              <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="ccs-is-clean-energy-true">
-                <input type="radio" id="ccs-is-clean-energy-true" class="mdl-radio__button" name="ccs-is-clean-energy" value="1" checked>
-                <span class="mdl-radio__label">CCS is clean energy</span>
-              </label>
-              <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="ccs-is-clean-energy-false">
-                <input type="radio" id="ccs-is-clean-energy-false" class="mdl-radio__button" name="ccs-is-clean-energy" value="0">
-                <span class="mdl-radio__label">CCS <strong>is not</strong> clean energy</span>
-              </label>
-            </div>
-            <div class="option">
-              <label>Include nuclear in clean energy fraction? <i class="material-icons info">info_outline</i></label>
-              <div class="slider-description">
-                Description.
-                <a href="javascript:alert('Replace');">
-                  Learn more <i class="material-icons info">launch</i>
-                </a>
+	    </div>
+	    <div class="mdl-cell mdl-cell--4-col">
+             <div class="option">
+                <label>Is nuclear clean energy? <i class="material-icons info">info_outline</i></label>
+                <div class="slider-description">
+                  Would you include nuclear power as part of mandated clean energy?
+                  <a href="javascript:alert('Replace');">
+                    Learn more <i class="material-icons info">launch</i>
+                  </a>
+                </div>
+                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="nuclear-is-clean-energy-true">
+                  <input type="radio" id="nuclear-is-clean-energy-true" class="mdl-radio__button" name="nuclear-is-clean-energy" value="1" checked>
+                  <span class="mdl-radio__label">Nuclear is clean energy</span>
+                </label>
+                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="nuclear-is-clean-energy-false">
+                  <input type="radio" id="nuclear-is-clean-energy-false" class="mdl-radio__button" name="nuclear-is-clean-energy" value="0">
+                  <span class="mdl-radio__label">Nuclear is not clean energy</span>
+                </label>
               </div>
-              <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="nuclear-is-clean-energy-true">
-                <input type="radio" id="nuclear-is-clean-energy-true" class="mdl-radio__button" name="nuclear-is-clean-energy" value="1" checked>
-                <span class="mdl-radio__label">Nuclear is clean energy</span>
-              </label>
-              <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="nuclear-is-clean-energy-false">
-                <input type="radio" id="nuclear-is-clean-energy-false" class="mdl-radio__button" name="nuclear-is-clean-energy" value="0">
-                <span class="mdl-radio__label">Nuclear <strong>is not</strong> clean energy</span>
-              </label>
-            </div>
-          </div>
-          <div class="mdl-cell mdl-cell--4-col">
-            <div class="option">
-              <label>Carbon tax <i class="material-icons info">info_outline</i></label>
-              <div class="slider-description">
-                Description.
-                <a href="javascript:alert('Replace');">
-                  Learn more <i class="material-icons info">launch</i>
-                </a>
-              </div>
-              <input id="yearly-slider" class="mdl-slider mdl-js-slider" type="range"
-                min="0" max="100" value="25" tabindex="0">
-            </div>
-            <div class="option">
-              <label>Nuclear energy policy <i class="material-icons info">info_outline</i></label>
-              <div class="slider-description">
-                Description.
-                <a href="javascript:alert('Replace');">
-                  Learn more <i class="material-icons info">launch</i>
-                </a>
-              </div>
-              <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="nuclear-is-allowed-true">
-                <input type="radio" id="nuclear-is-allowed-true" class="mdl-radio__button" name="nuclear-is-allowed" value="1" checked>
-                <span class="mdl-radio__label">Allow nuclear power</span>
-              </label>
-              <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="nuclear-is-allowed-false">
-                <input type="radio" id="nuclear-is-allowed-false" class="mdl-radio__button" name="nuclear-is-allowed" value="0">
-                <span class="mdl-radio__label">Ban nuclear power</span>
-              </label>
-            </div>
           </div>
           <div class="mdl-cell mdl-cell--4-col">
           </div>
         </div>
+        <div class="mdl-grid">
+	  <div class="mdl-cell mdl-cell--4-col">
+	    <div class="option">
+                <label>Nuclear energy policy <i class="material-icons info">info_outline</i></label>
+                <div class="slider-description">
+                  Should nuclear power be turned off entirely?
+                  <a href="javascript:alert('Replace');">
+                    Learn more <i class="material-icons info">launch</i>
+                  </a>
+                </div>
+                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="nuclear-is-allowed-true">
+                  <input type="radio" id="nuclear-is-allowed-true" class="mdl-radio__button" name="nuclear-is-allowed" value="1" checked>
+                  <span class="mdl-radio__label">Allow nuclear power</span>
+                </label>
+                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="nuclear-is-allowed-false">
+                  <input type="radio" id="nuclear-is-allowed-false" class="mdl-radio__button" name="nuclear-is-allowed" value="0">
+                  <span class="mdl-radio__label">Disallow nuclear power</span>
+                </label>
+              </div>
+          </div>
+	  <div class="mdl-cell mdl-cell--4-col">
+              <div class="option">
+                <label>Carbon price <i class="material-icons info">info_outline</i></label>
+                <div class="slider-description">
+                  What price should be placed on emitting CO2? 
+                  <a href="javascript:alert('Replace');">
+                    Learn more <i class="material-icons info">launch</i>
+                  </a>
+                </div>
+                <input id="yearly-slider" class="mdl-slider mdl-js-slider" type="range"
+                  min="0" max="100" value="25" tabindex="0">
+              </div>
+          </div>
+	</div>
         <hr>
         <h2>Cost assumptions</h2>
         <div class="mdl-grid">
           <div class="mdl-cell mdl-cell--4-col">
             <label>Presets <i class="material-icons info">info_outline</i></label>
+	    <div class="description">Each of these buttons set all cost assumptions</div>
             <div>
               <label class="preset mdl-icon-toggle mdl-js-icon-toggle" for="yearly-cost-preset-1">
                 <input type="checkbox" id="yearly-cost-preset-1" class="mdl-icon-toggle__input"
                        checked>
-                <span class="mdl-icon-toggle__label">Expected</span>
+                <span class="mdl-icon-toggle__label">Today's cost</span>
               </label>
               <label class="preset mdl-icon-toggle mdl-js-icon-toggle" for="yearly-cost-preset-2">
                 <input type="checkbox" id="yearly-cost-preset-2" class="mdl-icon-toggle__input">
-                <span class="mdl-icon-toggle__label">Cheap Nuclear</span>
+                <span class="mdl-icon-toggle__label">Pessimistic future cost</span>
+              </label>
+                <label class="preset mdl-icon-toggle mdl-js-icon-toggle" for="yearly-cost-preset-2">
+                <input type="checkbox" id="yearly-cost-preset-2" class="mdl-icon-toggle__input">
+                <span class="mdl-icon-toggle__label">Optimistic future cost</span>
               </label>
             </div>
           </div>
@@ -277,34 +296,34 @@ limitations under the License.
             <div class="option">
               <label>Energy source costs <i class="material-icons info">info_outline</i></label>
               <div class="slider-description">
-                Description.
+                In the future, how much do you expect each energy source to cost?
                 <a href="javascript:alert('Replace');">
                   Learn more <i class="material-icons info">launch</i>
                 </a>
               </div>
               <div class="horizontal-label-slider">
-                <div>Natural gas</div>
+                <div>Natural gas fuel</div>
                 <div>
                   <input id="ng-cost" class="mdl-slider mdl-js-slider" type="range"
                     min="0" max="100" value="25" tabindex="0">
                 </div>
               </div>
               <div class="horizontal-label-slider">
-                <div>Nuclear</div>
+                <div>Nuclear plants</div>
                 <div>
                   <input id="nuclear-cost" class="mdl-slider mdl-js-slider" type="range"
                     min="0" max="100" value="25" tabindex="0">
                 </div>
               </div>
               <div class="horizontal-label-slider">
-                <div>Solar</div>
+                <div>Solar farms</div>
                 <div>
                   <input id="solar-cost" class="mdl-slider mdl-js-slider" type="range"
                     min="0" max="100" value="25" tabindex="0">
                 </div>
               </div>
               <div class="horizontal-label-slider">
-                <div>Wind</div>
+                <div>Wind turbines</div>
                 <div>
                   <input id="wind-cost" class="mdl-slider mdl-js-slider" type="range"
                     min="0" max="100" value="25" tabindex="0">
@@ -316,7 +335,7 @@ limitations under the License.
             <div class="option">
               <label>Carbon capture technology <i class="material-icons info">info_outline</i></label>
               <div class="slider-description">
-                Description.
+                Which carbon capture technology will become available?
                 <a href="javascript:alert('Replace');">
                   Learn more <i class="material-icons info">launch</i>
                 </a>
