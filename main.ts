@@ -19,6 +19,7 @@ limitations under the License.
 
 import * as formatters from './formatters';
 import * as utility from './utility-mode';
+import * as tabs from './components/tabs';
 
 
 formatters.configure();
@@ -28,4 +29,5 @@ const utilityMode = new utility.UtilityMode('data/utility-dataset.json');
 document.addEventListener('DOMContentLoaded', event => {
   console.debug('document.DOMContentLoaded', event);
   utilityMode.init();
+  tabs.init();
 });
