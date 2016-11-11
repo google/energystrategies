@@ -189,29 +189,37 @@ limitations under the License.
                 min="0" max="100" value="25" tabindex="0">
             </div>
             <div class="option">
-              <label>Include carbon capture in clean energy fraction <i class="material-icons info">info_outline</i></label>
+              <label>Include carbon capture in clean energy fraction? <i class="material-icons info">info_outline</i></label>
               <div class="slider-description">
                 Description.
                 <a href="javascript:alert('Replace');">
                   Learn more <i class="material-icons info">launch</i>
                 </a>
               </div>
-              <label for="ccs-is-clean" class="mdl-switch mdl-js-switch mdl-js-ripple-effect">
-                <input type="checkbox" id="ccs-is-clean" class="mdl-switch__input">
-                <span class="mdl-switch__label">Carbon capture produces clean energy</span>
+              <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="ccs-is-clean-energy-true">
+                <input type="radio" id="ccs-is-clean-energy-true" class="mdl-radio__button" name="ccs-is-clean-energy" value="1" checked>
+                <span class="mdl-radio__label">CCS is clean energy</span>
+              </label>
+              <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="ccs-is-clean-energy-false">
+                <input type="radio" id="ccs-is-clean-energy-false" class="mdl-radio__button" name="ccs-is-clean-energy" value="0">
+                <span class="mdl-radio__label">CCS <strong>is not</strong> clean energy</span>
               </label>
             </div>
             <div class="option">
-              <label>Include nuclear in clean energy fraction <i class="material-icons info">info_outline</i></label>
+              <label>Include nuclear in clean energy fraction? <i class="material-icons info">info_outline</i></label>
               <div class="slider-description">
                 Description.
                 <a href="javascript:alert('Replace');">
                   Learn more <i class="material-icons info">launch</i>
                 </a>
               </div>
-              <label for="nuclear-is-clean" class="mdl-switch mdl-js-switch mdl-js-ripple-effect">
-                <input type="checkbox" id="nuclear-is-clean" class="mdl-switch__input">
-                <span class="mdl-switch__label">Nuclear produces clean energy</span>
+              <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="nuclear-is-clean-energy-true">
+                <input type="radio" id="nuclear-is-clean-energy-true" class="mdl-radio__button" name="nuclear-is-clean-energy" value="1" checked>
+                <span class="mdl-radio__label">Nuclear is clean energy</span>
+              </label>
+              <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="nuclear-is-clean-energy-false">
+                <input type="radio" id="nuclear-is-clean-energy-false" class="mdl-radio__button" name="nuclear-is-clean-energy" value="0">
+                <span class="mdl-radio__label">Nuclear <strong>is not</strong> clean energy</span>
               </label>
             </div>
           </div>
@@ -228,16 +236,20 @@ limitations under the License.
                 min="0" max="100" value="25" tabindex="0">
             </div>
             <div class="option">
-              <label>Disallow nuclear energy <i class="material-icons info">info_outline</i></label>
+              <label>Nuclear energy policy <i class="material-icons info">info_outline</i></label>
               <div class="slider-description">
                 Description.
                 <a href="javascript:alert('Replace');">
                   Learn more <i class="material-icons info">launch</i>
                 </a>
               </div>
-              <label for="exclude-nuclear" class="mdl-switch mdl-js-switch mdl-js-ripple-effect">
-                <input type="checkbox" id="exclude-nuclear" class="mdl-switch__input">
-                <span class="mdl-switch__label">Disallow nuclear</span>
+              <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="nuclear-is-allowed-true">
+                <input type="radio" id="nuclear-is-allowed-true" class="mdl-radio__button" name="nuclear-is-allowed" value="1" checked>
+                <span class="mdl-radio__label">Allow nuclear power</span>
+              </label>
+              <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="nuclear-is-allowed-false">
+                <input type="radio" id="nuclear-is-allowed-false" class="mdl-radio__button" name="nuclear-is-allowed" value="0">
+                <span class="mdl-radio__label">Ban nuclear power</span>
               </label>
             </div>
           </div>
@@ -309,9 +321,13 @@ limitations under the License.
                   Learn more <i class="material-icons info">launch</i>
                 </a>
               </div>
-              <label for="ccs-tech" class="mdl-switch mdl-js-switch mdl-js-ripple-effect">
-                <input type="checkbox" id="ccs-tech" class="mdl-switch__input">
-                <span class="mdl-switch__label">Use amine-based tech</span>
+              <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="ccs-tech-amine">
+                <input type="radio" id="ccs-tech-amine" class="mdl-radio__button" name="ccs-tech" value="amine" checked>
+                <span class="mdl-radio__label">Amine-based</span>
+              </label>
+              <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="ccs-tech-cryo">
+                <input type="radio" id="ccs-tech-cryo" class="mdl-radio__button" name="ccs-tech" value="cryo">
+                <span class="mdl-radio__label">Cryo-based</span>
               </label>
             </div>
           </div>
