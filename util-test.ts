@@ -19,6 +19,77 @@ limitations under the License.
 import * as util from './util';
 
 
+describe('Deep object merge', () => {
+  it('when both objects are empty', () => {
+    const src = {};
+    const dest = {};
+    util.mergeDeep(src, dest);
+    expect(dest).toEqual({});
+  });
+
+  it('when source object is empty', () => {
+    const src = {};
+    const dest = {a: 1, b: 2};
+    util.mergeDeep(src, dest);
+    expect(dest).toEqual({a: 1, b: 2});
+  });
+
+  it('when destination object is empty', () => {
+    const src = {a: 1, b: 2};
+    const dest = {};
+    util.mergeDeep(src, dest);
+    expect(dest).toEqual({a: 1, b: 2});
+  });
+
+  it('when objects have no common keys', () => {
+    const src = {a: 1, b: [2, 2], c: {foo: 'bar'}};
+    const dest = {d: 3, e: [4, 4], f: {foo: 'bar'}};
+    util.mergeDeep(src, dest);
+    // Expect the union of the source and destination objects.
+    expect(dest).toEqual({
+      a: 1, b: [2, 2], c: {foo: 'bar'},
+      d: 3, e: [4, 4], f: {foo: 'bar'},
+    });
+  });
+
+  it('when atomic source values overwrite atomic destination values', () => {
+    const src = {a: 1, b: 2};
+    const dest = {b: -1, c: 3};
+    util.mergeDeep(src, dest);
+    // Expect source values to overwrite destination values when
+    // both objects define the same key (and both are primitive).
+    expect(dest).toEqual({a: 1, b: 2, c: 3});
+  });
+
+  it('when atomic source values overwrite destination value objects', () => {
+    const src = {a: 1, b: 2};
+    const dest = {b: {foo: 'bar'}, c: 3};
+    util.mergeDeep(src, dest);
+    // When the same key exists in the destination object, the source
+    // value overwrites when the source value is primitive (i.e.,
+    // not-an-object).
+    expect(dest).toEqual({a: 1, b: 2, c: 3});
+  });
+
+  it('when source values recursively merge with destination values', () => {
+    const src = {
+      a: {foo: 1, bar: 2},
+      b: {foo: 4, bar: 5},
+    };
+    const dest = {
+      a: {foo: -1, baz: -3},
+      b: {foo: -4, baz: -6},
+    };
+    util.mergeDeep(src, dest);
+    // The values for all "foo" and "bar" keys should match the source object,
+    // while all "baz" values should match the destination object.
+    expect(dest).toEqual({
+      a: {foo: 1, bar: 2, baz: -3},
+      b: {foo: 4, bar: 5, baz: -6},
+    });
+  });
+});
+
 describe('Function invocation throttling', () => {
   let callback;
 

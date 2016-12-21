@@ -101,3 +101,31 @@ export function throttle(fn: Function, delay: number) {
     }
   };
 }
+
+
+/**
+ * Recursively merges the keys of two objects.
+ *
+ * If the same key is found within the source and destination objects, then
+ * the source value overwrites the destination value (in the case of atomic
+ * values like strings or numbers) or continues to merge with the destination
+ * value if the destination and source values are both objects.
+ *
+ * @param source The source object (keys copied from here); the source object
+ *     is unmodified by the merge process.
+ * @param destination The destination object (keys copied to here); the
+ *     destination object is mutated by the merge process.
+ */
+export function mergeDeep(source, destination) {
+  Object.keys(source).forEach(k => {
+    // Object values need to be recursively merged if the corresponding
+    // key also exists in the destination object.
+    if (source[k] && typeof source[k] == 'object'
+        && destination[k] && typeof destination[k] == 'object') {
+      mergeDeep(source[k], destination[k]);
+    } else {
+      // Non-object values can be copied over as-is.
+      destination[k] = source[k];
+    }
+  });
+}
