@@ -129,3 +129,68 @@ export function mergeDeep(source, destination) {
     }
   });
 }
+
+/**
+ * Pairwise element comparator for ascending numeric sort.
+ *
+ * For example: someArray.sort(sortNumericAscending)
+ *
+ * @param a The first element in the pair.
+ * @param b The second element in the pair.
+ * @returns A negative value if `a` should precede `b`; else some value >= 0.
+ */
+export function sortNumericAscending(a, b): number {
+  return parseInt(a) - parseInt(b);
+}
+
+/**
+ * Creates an update function that invokes a rate-limited render function.
+ *
+ * Separating model state updates from view render calls provides a means of
+ * coalescing high-frequency updates into fewer (expensive) render calls while
+ * maintaining up-to-date state in the data model.
+ *
+ * A typical use case is preventing high-frequency on-change callbacks from
+ * overwhelming the browser with 1:1 update:render invocations.
+ *
+ * For example:
+ * function myOnChangeCallback(...)
+ * function myRenderCallback(...)
+ * someDomNode.onchange = animate(myOnChangeCallback, myRenderCallback)
+ *
+ * Now when the onChange event is fired for the domNode, the update callback
+ * is immediately invoked, while the render callback is deferred until the
+ * next browser animation frame is available (via window.requestAnimationFrame).
+ *
+ * @param update The update callback to be invoked on every state change.
+ * @param render The render callback to invoke for view repaints.
+ * @returns A wrapped update function that will trigger rate-limited
+ *   rendering as necessary.
+ */
+export function animate(update, render) {
+  // Continue animating until the latest update has been rendered.
+  let isAnimating = false;
+
+  // Wrap the user-provided render callback so that animation stops after
+  // the latest update() invocation has been rendered.
+  function wrappedRender() {
+    render.apply(null, arguments);
+    isAnimating = false;
+  }
+
+  // Wrap the user-provided update callback so that a render invocation is
+  // automatically requested if necessary.
+  function wrappedUpdate() {
+    // Invoke update() so that the latest state is saved for subsequent
+    // render invocations.
+    update.apply(null, arguments);
+
+    // Only request a render call if one is not already in flight.
+    if (!isAnimating) {
+      window.requestAnimationFrame(wrappedRender);
+    }
+    isAnimating = true;
+  }
+
+  return wrappedUpdate;
+}

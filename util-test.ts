@@ -17,6 +17,7 @@ limitations under the License.
 /// <reference path="dataset.d.ts" />
 
 import * as util from './util';
+import * as testing from './testing';
 
 
 describe('Deep object merge', () => {
@@ -161,5 +162,147 @@ describe('Function invocation throttling', () => {
     expect(callback.calls.count()).toEqual(2);
     callback();
     expect(callback.calls.count()).toEqual(3);
+  });
+});
+
+describe('Numeric ascending sort comparator', () => {
+  it('sorts numbers ascending', () => {
+    const arr = [5, 4, 3, 2, 1];
+    arr.sort(util.sortNumericAscending);
+    expect(arr).toEqual([1, 2, 3, 4, 5]);
+  });
+  it('sorts stringified numbers ascending', () => {
+    const arr = ['5', '4', '3', '2', '1'];
+    arr.sort(util.sortNumericAscending);
+    expect(arr).toEqual(['1', '2', '3', '4', '5']);
+  });
+});
+
+describe('Animation frame-based render throttling', () => {
+  let mockAnimator;
+
+  beforeEach(() => {
+    mockAnimator = new testing.MockAnimator();
+    mockAnimator.install();
+  });
+
+  afterEach(() => {
+    mockAnimator.uninstall();
+  });
+
+  it('animates a pair of update and render callbacks', () => {
+    // The state being tracked.
+    let value = 0;
+
+    let numUpdates = 0;
+    function update(newValue) {
+      value = newValue;
+      numUpdates++;
+    }
+
+    let renderedValues = [];
+    let numRenders = 0;
+    function render() {
+      renderedValues.push(value);
+      numRenders++;
+    }
+
+    const animatedUpdate: Function = util.animate(update, render);
+
+    // All calls to the wrapped update function should immediately modify the
+    // state stored in the `value` variable.
+    animatedUpdate(3);
+    expect(value).toBe(3);
+    expect(numUpdates).toBe(1);
+
+    animatedUpdate(5);
+    expect(value).toBe(5);
+    expect(numUpdates).toBe(2);
+
+    // An animation frame has not yet passed, so the previous updates should
+    // not have forced a render invocation.
+    expect(numRenders).toBe(0);
+
+    // Move to the next animation frame and verify that the latest state of
+    // `value` was flushed via the render callback.
+    mockAnimator.tick();
+    expect(numRenders).toBe(1);
+    expect(renderedValues).toEqual([5]);
+
+    // No updates were made since the last animation frame tick, so we don't
+    // expect the render callback to be invoked again, even if another
+    // animation frame occurs.
+    mockAnimator.tick();
+    expect(numRenders).toBe(1);
+    expect(numUpdates).toBe(2);
+    mockAnimator.tick();
+    expect(numRenders).toBe(1);
+    expect(numUpdates).toBe(2);
+
+    // Calling the wrapped update should re-start the async rendering process
+    // and only the final update (up until the next tick) should be rendered.
+    animatedUpdate(7);
+    animatedUpdate(9);
+    expect(value).toBe(9);
+    expect(numUpdates).toBe(4);
+
+    // The number of render calls should match the number of throttled changes,
+    // such that render isn't being called on requestAnimationFrame ticks where
+    // no modifications occured.
+    //
+    // We would expect rendered values to be [5,5,5,9] if render was being
+    // called on every frame.
+    mockAnimator.tick();
+    expect(renderedValues).toEqual([5, 9]);
+  });
+
+  it('animates update and render callbacks bound to an object context', () => {
+    // Define a trivial object that has both an update and render method.
+    //
+    // The purpose of this test is to verify that bound object methods
+    // will retain the object instance context when invoked by the animated
+    // wrapper function; i.e., verify that the implementation of animate()
+    // does not clobber the `this` context being bound externally.
+    class Renderer {
+      value: number;
+      numRenders: number;
+      numUpdates: number;
+      renderedValues: number[];
+
+      constructor() {
+        this.value = 0;
+        this.numRenders = 0;
+        this.numUpdates = 0;
+        this.renderedValues = [];
+      }
+
+      update(newValue: number) {
+        this.numUpdates += 1;
+        this.value = newValue;
+      }
+
+      render() {
+        this.numRenders += 1;
+        this.renderedValues.push(this.value);
+      }
+    }
+
+    const foo = new Renderer();
+    const animatedUpdate: Function = util.animate(
+      foo.update.bind(foo),
+      foo.render.bind(foo));
+
+    mockAnimator.tick();
+    animatedUpdate(3);
+    animatedUpdate(5);
+    mockAnimator.tick();
+    animatedUpdate(7);
+    animatedUpdate(9);
+    mockAnimator.tick();
+
+    expect(foo.numRenders).toBe(2);
+    expect(foo.numUpdates).toBe(4);
+    expect(foo.renderedValues).toEqual([5, 9]);
+    expect(foo.value).toBe(9);
   });
 });
