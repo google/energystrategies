@@ -77,7 +77,11 @@ export class UtilityMode {
       document.getElementById('utility-mode-cost'));
     const goal = new CO2GoalProgress(
       document.getElementById('utility-mode-goal-progress'));
-    const utilityModeComponents = [goal, headlineCost, profilesChart];
+    const utilityModeComponents: UtilityDataComponent[] = [
+        goal,
+        headlineCost,
+        profilesChart,
+    ];
     utilityModeComponents.forEach(c => c.update(utilityDataView));
 
     // Create each of the input sliders.

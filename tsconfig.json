@@ -2,10 +2,8 @@
   "compilerOptions": {
     "module": "commonjs",
     "removeComments": true,
-    "preserveConstEnums": true
-  },
-  "exclude": [
-    "node_modules",
-    "typings/index.d.ts"
-  ]
+    "preserveConstEnums": true,
+    "noEmit": true
+   },
+  "files": []
 }
