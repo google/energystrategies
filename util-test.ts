@@ -13,8 +13,6 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ==============================================================================*/
 
-/// <reference path="typings/index.d.ts" />
-/// <reference path="dataset.d.ts" />
 
 import * as util from './util';
 import * as testing from './testing';

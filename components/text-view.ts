@@ -13,9 +13,6 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ==============================================================================*/
 
-/// <reference path="../typings/index.d.ts" />
-/// <reference path="../dataset.d.ts" />
-
 
 /**
  * An element with formatted, text-based content that can update dynamically.

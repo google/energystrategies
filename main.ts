@@ -13,9 +13,6 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ==============================================================================*/
 
-/// <reference path="typings/index.d.ts" />
-/// <reference path="dataset.d.ts" />
-/// <reference path="es6.d.ts" />
 
 import * as formatters from './formatters';
 import * as utility from './utility-mode';

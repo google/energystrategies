@@ -13,8 +13,6 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ==============================================================================*/
 
-/// <reference path="typings/index.d.ts" />
-/// <reference path="dataset.d.ts" />
 
 // The default state of the dataset selection and page controls.
 export const DEFAULT_SCENARIO_SPEC: ScenarioSpec = {

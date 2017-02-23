@@ -14,8 +14,6 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ==============================================================================*/
 
-/// <reference path="typings/index.d.ts" />
-/// <reference path="dataset.d.ts" />
 
 import {EnergyProfileChart} from './components/energy-profile-chart';
 import {ScenarioCost} from './components/cost';

@@ -1,7 +1,11 @@
 {
   "globalDependencies": {
     "c3": "registry:dt/c3#0.0.0+20160608082756",
+    "c3-extra": "file:typings/c3.d.ts",
     "d3": "registry:dt/d3#0.0.0+20160315011939",
-    "jasmine": "registry:dt/jasmine#2.5.0+20161003201800"
+    "dataset": "file:dataset.d.ts",
+    "es6": "file:typings/es6.d.ts",
+    "jasmine": "registry:dt/jasmine#2.5.0+20161003201800",
+    "ndarray": "file:typings/ndarray.d.ts"
   }
 }

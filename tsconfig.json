@@ -5,5 +5,7 @@
     "preserveConstEnums": true,
     "noEmit": true
    },
-  "files": []
+  "files": [
+    "typings/index.d.ts"
+  ]
 }

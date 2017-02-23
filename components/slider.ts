@@ -13,8 +13,6 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ==============================================================================*/
 
-/// <reference path="../dataset.d.ts" />
-/// <reference path="../typings/index.d.ts" />
 
 import * as mdl from '../mdl';
 import * as util from '../util';

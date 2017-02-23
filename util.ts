@@ -13,10 +13,6 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ==============================================================================*/
 
-/// <reference path="typings/index.d.ts" />
-/// <reference path="dataset.d.ts" />
-/// <reference path="es6.d.ts" />
-
 
 // Declare that we expect ES6 Object features to be available.
 declare const Object: ObjectConstructorES6;
