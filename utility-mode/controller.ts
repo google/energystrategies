@@ -15,12 +15,12 @@ limitations under the License.
 ==============================================================================*/
 
 
-import {EnergyProfileChart} from './components/energy-profile-chart';
-import {ScenarioCost} from './components/cost';
-import {Slider} from './components/slider';
-import {CO2GoalProgress} from './components/goal-progress';
+import {EnergyProfileChart} from '../components/energy-profile-chart';
+import {ScenarioCost} from '../components/cost';
+import {Slider} from '../components/slider';
+import {CO2GoalProgress} from '../components/goal-progress';
 import * as profiles from './profiles';
-import * as util from './util';
+import * as util from '../util';
 import * as config from './config';
 
 // Ambient object declarations and typedefs.

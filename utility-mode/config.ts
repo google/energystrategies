@@ -15,38 +15,13 @@ limitations under the License.
 
 
 // The default state of the dataset selection and page controls.
-export const DEFAULT_SCENARIO_SPEC: ScenarioSpec = {
-  solar: 0,
-  rps: 0,
-  ccs_in_rps: 0,
-};
 
+// FIXME: move all of this file to utility-mode/config.ts// FIXME: move all of this file to utility-mode/config.ts// FIXME: move all of this file to utility-mode/config.ts// FIXME: move all of this file to utility-mode/config.ts
 export const NAMED_SCENARIOS = {
   reference: {
     title: 'Baseline',
     cost: 104e9, // USD
     co2: 57.0e6, // tonnes
-  },
-
-  // Using RPS @70% values.
-  high_renewables: {
-    title: 'High Renewables',
-    cost: 205e9, // USD
-    co2: 19.2e6, // tonnes
-  },
-
-  // Using carbon tax @$30/ton values.
-  carbon_capture: {
-    title: 'Carbon Capture',
-    cost: 111e9, // USD
-    co2: 58.6e6, // tonnes
-  },
-
-  // Using CCS-allowed, carbon tax @$30/ton values.
-  advanced_nuclear: {
-    title: 'Advanced Nuclear',
-    cost: 103e9, // USD
-    co2: 19.5e6, // tonnes
   },
 };
 

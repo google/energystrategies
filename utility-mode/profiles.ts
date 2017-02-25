@@ -15,7 +15,7 @@ limitations under the License.
 
 
 import * as config from './config';
-import * as util from './util';
+import * as util from '../util';
 
 
 /**
