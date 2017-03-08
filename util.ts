@@ -18,25 +18,39 @@ limitations under the License.
 declare const Object: ObjectConstructorES6;
 
 
+export const MONTHS_PER_YEAR = 12;
+export const WEEKS_PER_YEAR = 52;
+export const DISCOUNT_RATE_YEARLY = 14.6;  // Rate of 6% over 30 years.
+export const DISCOUNT_RATE_WEEKLY = DISCOUNT_RATE_YEARLY * WEEKS_PER_YEAR;
+const PEOPLE_PER_HOUSEHOLD = 2.53;
+const MONTHLY_COST_PER_HOUSEHOLD_FACTOR = PEOPLE_PER_HOUSEHOLD
+    / (MONTHS_PER_YEAR * DISCOUNT_RATE_YEARLY);
+export const POUNDS_PER_TONNE = 2204.62;
+
 export const shallowCopy = (source: Object, dest: Object) => {
-    return Object.assign(dest, source);
+  return Object.assign(dest, source);
 };
 
 export const deltas = (baseline: ScenarioOutcome, current: ScenarioOutcome) => {
-    function delta(ref, value) {
-        return (value - ref) / ref;
-    }
+  function delta(ref, value) {
+    return (value - ref) / ref;
+  }
 
-    return {
-        co2: delta(baseline.co2, current.co2),
-        cost: delta(baseline.cost, current.cost),
-    };
+  return {
+    co2: delta(baseline.co2, current.co2),
+    cost: delta(baseline.cost, current.cost),
+  };
 };
 
-// TODO: need to "show the work" on this formulation somewhere.
-const MONTHLY_COST_PER_HOUSEHOLD_DIVISOR = 2.083e9;
-export const asMonthlyPerHouseholdCost = (totalCost: number) => {
-    return totalCost / MONTHLY_COST_PER_HOUSEHOLD_DIVISOR;
+/**
+ * Gets the amortized per household monthly cost.
+ *
+ * @param cost Total cost for the entire population.
+ * @param population Population size.
+ * @return The monthly cost per household.
+ */
+export function asMonthlyPerHouseholdCost(cost: number, population: number) {
+  return cost / population * MONTHLY_COST_PER_HOUSEHOLD_FACTOR;
 };
 
 /**

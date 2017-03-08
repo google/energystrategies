@@ -99,7 +99,7 @@ function getFixedCost(capacity: number, source: string) {
  */
 function getVariableCost(energy: number, source: string) {
   // Dimensional analysis: MWh * $USD/MWh => $USD
-  return energy * config.VARIABLE_COST[source] * config.DISCOUNT_RATE_WEEKLY;
+  return energy * config.VARIABLE_COST[source] * util.DISCOUNT_RATE_WEEKLY;
 }
 
 /**
@@ -115,7 +115,7 @@ function getCo2(energy: number, source: string): number {
   //
   // Note: the 1-week co2 is scaled to the 1-year level for consistency with
   // scenario outcome datasets.
-  return energy * config.CO2_RATE[source] * config.WEEKS_PER_YEAR;
+  return energy * config.CO2_RATE[source] * util.WEEKS_PER_YEAR;
 }
 
 /**

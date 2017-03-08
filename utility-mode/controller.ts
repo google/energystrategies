@@ -65,7 +65,8 @@ export class UtilityMode {
       allocations: allocations,
       profiles: allocatedProfiles,
       summary: updatedSummary,
-      deltaToRef: util.deltas(config.NAMED_SCENARIOS.reference, updatedSummary)
+      deltaToRef: util.deltas(config.NAMED_SCENARIOS.reference, updatedSummary),
+      population: config.POPULATION,
     };
 
     // Create each of the output components.
@@ -106,7 +107,8 @@ export class UtilityMode {
           allocations: allocations,
           profiles: newProfiles,
           summary: newSummary,
-          deltaToRef: util.deltas(config.NAMED_SCENARIOS.reference, newSummary)
+          deltaToRef: util.deltas(config.NAMED_SCENARIOS.reference, newSummary),
+          population: config.POPULATION,
         };
 
         // Update the output components.

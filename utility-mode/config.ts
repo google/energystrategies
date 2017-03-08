@@ -15,8 +15,6 @@ limitations under the License.
 
 
 // The default state of the dataset selection and page controls.
-
-// FIXME: move all of this file to utility-mode/config.ts// FIXME: move all of this file to utility-mode/config.ts// FIXME: move all of this file to utility-mode/config.ts// FIXME: move all of this file to utility-mode/config.ts
 export const NAMED_SCENARIOS = {
   reference: {
     title: 'Baseline',
@@ -25,26 +23,17 @@ export const NAMED_SCENARIOS = {
   },
 };
 
-// TODO: not all sliders will have the same number of levels in the full
-// version; instead of using this constant, derive the number of levels
-// from the per-dimension scales (i.e., scale.length == numLevels).
-export const NUM_SLIDER_LEVELS = 20;
-
-export const NON_DISPATCHABLE_ENERGY_SOURCES = ['solar', 'wind', 'nuclear'];
-export const DISPATCHABLE_ENERGY_SOURCES = ['ng'];
-export const ALL_ENERGY_SOURCES = DISPATCHABLE_ENERGY_SOURCES
-    .concat(NON_DISPATCHABLE_ENERGY_SOURCES);
-
-// Conversion factors.
-export const DISCOUNT_RATE_YEARLY = 14.2;
-export const WEEKS_PER_YEAR = 52;
-export const DISCOUNT_RATE_WEEKLY = DISCOUNT_RATE_YEARLY * WEEKS_PER_YEAR;
-export const POUNDS_PER_TONNE = 2204.62;
+export const POPULATION = 39.1e6; // California; Source: 2015 US Census.
+export const NON_DISPATCHABLE_ENERGY_SOURCES: UtilityEnergySource[] = [
+    'solar', 'wind', 'nuclear'];
+export const DISPATCHABLE_ENERGY_SOURCES: UtilityEnergySource[] = ['ng'];
+export const ALL_ENERGY_SOURCES: UtilityEnergySource[] = (
+    DISPATCHABLE_ENERGY_SOURCES.concat(NON_DISPATCHABLE_ENERGY_SOURCES));
 
 // Fixed cost (capital + fixed) per MW of capacity by energy source.
 //
 // Units are dollars USD per MW of capacity ($/MW)
-export const FIXED_COST = {
+export const FIXED_COST: UtilityEnergySourceMap<number> = {
   ng: 773000, // Assumes 100% conventional turbine mix.
   solar: 1490000,
   wind: 1844000,
@@ -54,7 +43,7 @@ export const FIXED_COST = {
 // Variable cost (including fuel) per MW-hour by energy source.
 //
 // Units are dollars USD per MWh ($/MWh).
-export const VARIABLE_COST = {
+export const VARIABLE_COST: UtilityEnergySourceMap<number> = {
   ng: 32,
   nuclear: 7.3,
   solar: 0,
@@ -64,10 +53,9 @@ export const VARIABLE_COST = {
 // Rate of CO2 creation for each energy source.
 //
 // Units are tonnes-of-co2 per MWh-of-energy-supplied (tonnes/MWh)
-export const CO2_RATE = {
-  // Dimensional analysis: lbs/MWh * tonnes/lbs => tonnes/MWh
-  ng: 1140 / POUNDS_PER_TONNE,
+export const CO2_RATE: UtilityEnergySourceMap<number> = {
+  ng: 0.517,
   solar: 0,
   wind: 0,
-  nuclear: 0.
+  nuclear: 0,
 };

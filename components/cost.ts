@@ -15,6 +15,7 @@ limitations under the License.
 
 
 import * as formatters from '../formatters';
+import * as util from '../util';
 import {TextView} from './text-view';
 
 
@@ -40,7 +41,9 @@ export class ScenarioCost implements SummaryDataComponent {
    * @param view The new data view to render.
    */
   update(view: SummaryDataView) {
-    this._textView.update(view.summary.cost);
+    const householdCost = util.asMonthlyPerHouseholdCost(
+        view.summary.cost, view.population);
+    this._textView.update(householdCost);
   }
 }
 

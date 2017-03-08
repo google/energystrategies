@@ -16,6 +16,7 @@ limitations under the License.
 
 import * as profiles from './profiles';
 import * as config from './config';
+import * as util from '../util';
 
 
 describe('Get allocated energy profiles', () => {
@@ -31,6 +32,7 @@ describe('Get allocated energy profiles', () => {
         solar: [6, 2, 0],
         wind: [4, 8, 0],
         ng: [10, 10, 10],
+        unmet: [0, 0, 0],
       }
     };
   });
@@ -154,6 +156,7 @@ describe('Energy generation used for supplying demand', () => {
         wind: [4, 8, 0],
         // Note that dispatch has already been taken into account here.
         ng: [10, 10, 10],
+        unmet: [0, 0, 0],
       }
     };
 
@@ -181,6 +184,7 @@ describe('Energy generation used for supplying demand', () => {
         wind: [4, 8, 0],
         // Note that dispatch has already been taken into account here.
         ng: [0, 0, 10],
+        unmet: [0, 0, 0],
       }
     };
 
@@ -231,6 +235,7 @@ describe('Summarize energy profile', () => {
         solar: [6, 2, 0],
         wind: [4, 8, 0],
         ng: [10, 10, 10],
+        unmet: [0, 0, 0],
       }
     };
     summarized = profiles.summarize(profileData);
@@ -240,7 +245,7 @@ describe('Summarize energy profile', () => {
     // Quantities related to energy generation.
     expect(summarized.breakdown.nuclear.energy).toEqual(24);
     expect(summarized.breakdown.nuclear.variableCost).toBeCloseTo(
-        config.VARIABLE_COST.nuclear * config.DISCOUNT_RATE_WEEKLY * 24);
+        config.VARIABLE_COST.nuclear * util.DISCOUNT_RATE_WEEKLY * 24);
   });
 
   it('energy capacity.', () => {

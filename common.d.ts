@@ -66,6 +66,9 @@ interface SummaryDataView {
   // The outcome summary for the energy profiles as currently allocated.
   summary: ScenarioOutcomeBreakdown;
 
+  // The population count of the geographic region for the scenario.
+  population: number;
+
   // The delta of the outcome to a pre-defined reference outcome.
   deltaToRef: {
     co2: number;

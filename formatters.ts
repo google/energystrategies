@@ -13,17 +13,13 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ==============================================================================*/
 
-/// <reference path="typings/index.d.ts" />
-
-import * as util from './util';
-
 
 // Generates an abbreviated string representation of large numeric values.
 export const largeNumberFormatter = d3.format('.3s');
 
-// Scales a nation-level cost value to a per-household monthly value.
-export const householdCostFormatter = cost => {
-    return `$${largeNumberFormatter(util.asMonthlyPerHouseholdCost(cost))}`;
+// Formats a per household cost amount.
+export const householdCostFormatter = householdCost => {
+    return `$${largeNumberFormatter(householdCost)}`;
 };
 
 // Formats a fractional value to a stock ticker-style percent delta.

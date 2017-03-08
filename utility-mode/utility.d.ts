@@ -15,6 +15,12 @@ limitations under the License.
 
 
 // Type definition specific to utility mode.
+type UtilityEnergySource = 'solar' | 'wind' | 'nuclear' | 'ng';
+type ProfileSeries = 'demand' | 'unmet' | UtilityEnergySource;
+
+// Object literal types keyed by a fixed set of values.
+type UtilityEnergySourceMap<T> = {[K in UtilityEnergySource]: T};
+type ProfileSeriesMap<T> = {[K in ProfileSeries]: T};
 
 /**
  * A collection of energy supply and demand profiles with a common time domain.
@@ -36,15 +42,7 @@ interface ProfileDataset {
   // A set of energy profiles that map 1:1 with one another and the time index.
   //
   // i.e., for all i, series.foo[i] <=> series.bar[i] <=> index[i].
-  series: {
-    demand: number[];
-    unmet?: number[];
-
-    solar: number[];
-    wind: number[];
-    nuclear: number[];
-    ng: number[];
-  };
+  series: ProfileSeriesMap<number[]>;
 }
 
 /**
@@ -53,12 +51,7 @@ interface ProfileDataset {
  * Values are in [0, 1] inclusive, with 0 indicating 0% allocation and
  * 1 indicating 100% allocation for the given energy source (e.g., 'nuclear').
  */
-interface ProfileAllocations {
-  ng: number;
-  solar: number;
-  wind: number;
-  nuclear: number;
-}
+type ProfileAllocations = UtilityEnergySourceMap<number>;
 
 /**
  * Utility mode data and configuration view.

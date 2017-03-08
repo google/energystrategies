@@ -18,6 +18,12 @@ import * as util from './util';
 import * as testing from './testing';
 
 
+describe('Monthly per household cost', () => {
+  it('when $100 total cost is attributed to 100 individuals.', () => {
+    expect(util.asMonthlyPerHouseholdCost(100, 100)).toBeCloseTo(0.01444);
+  });
+});
+
 describe('Deep object merge', () => {
   it('when both objects are empty', () => {
     const src = {};
