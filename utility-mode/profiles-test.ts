@@ -32,6 +32,7 @@ describe('Get allocated energy profiles', () => {
         solar: [6, 2, 0],
         wind: [4, 8, 0],
         ng: [10, 10, 10],
+        coal: [1, 1, 1],
         unmet: [0, 0, 0],
       }
     };
@@ -44,6 +45,7 @@ describe('Get allocated energy profiles', () => {
       solar: 0.5,
       wind: 0.5,
       ng: 0.5,
+      coal: 0.5,
     }, profileData);
 
     // Verify that non-dispatchable energy supply profiles
@@ -51,16 +53,17 @@ describe('Get allocated energy profiles', () => {
     expect(allocated.series.solar).toEqual([3, 1, 0]);
     expect(allocated.series.wind).toEqual([2, 4, 0]);
     expect(allocated.series.nuclear).toEqual([4, 4, 4]);
+    expect(allocated.series.coal).toEqual([0.5, 0.5, 0.5]);
 
     // The only dispatchable energy supply should be between
     // 0 and half of the available dispatchable allocations
     // (capped by demand).
-    expect(allocated.series.ng).toEqual([1, 0, 5]);
+    expect(allocated.series.ng).toEqual([0.5, 0, 5]);
 
     // There should only be unmet demand at the last time point.
     //
     // unmet[t] := demand[t] - non_dispatchables[t] - dispatchles[t]
-    expect(allocated.series.unmet).toEqual([0, 0, 20 - 4 - 5]);
+    expect(allocated.series.unmet).toEqual([0, 0, 20 - 4 - 5 - 0.5]);
 
     // Verify the pass-through attributes are unchanged.
     expect(allocated.index).toEqual([0, 1, 2]);
@@ -74,6 +77,7 @@ describe('Get allocated energy profiles', () => {
       solar: 0,
       wind: 0,
       ng: 0,
+      coal: 0,
     }, profileData);
 
     // The unmet profile should match the demand profile.
@@ -96,6 +100,7 @@ describe('Get allocated energy profiles', () => {
       solar: 1,
       wind: 1,
       ng: 1,
+      coal: 1,
     }, profileData);
 
     // All non-dispatchable energy profiles should match the originals.
@@ -109,7 +114,7 @@ describe('Get allocated energy profiles', () => {
     expect(allocated.series.ng).toEqual([0, 0, 10]);
 
     // Even with full allocation, there is unmet demand at the last time point.
-    expect(allocated.series.unmet).toEqual([0, 0, 2]);
+    expect(allocated.series.unmet).toEqual([0, 0, 1]);
 
     // Verify pass-through attributes are unchanged.
     expect(allocated.index).toEqual([0, 1, 2]);
@@ -123,6 +128,7 @@ describe('Get allocated energy profiles', () => {
       solar: 0,
       wind: 0,
       ng: 1,
+      coal: 0,
     }, profileData);
 
     // All non-dispatchable energy profiles should be zeroed out.
@@ -154,6 +160,7 @@ describe('Energy generation used for supplying demand', () => {
         nuclear: [8, 8, 8],
         solar: [6, 2, 0],
         wind: [4, 8, 0],
+        coal: [0, 0, 0],
         // Note that dispatch has already been taken into account here.
         ng: [10, 10, 10],
         unmet: [0, 0, 0],
@@ -182,6 +189,7 @@ describe('Energy generation used for supplying demand', () => {
         nuclear: [8, 8, 8],
         solar: [6, 2, 0],
         wind: [4, 8, 0],
+        coal: [0, 0, 0],
         // Note that dispatch has already been taken into account here.
         ng: [0, 0, 10],
         unmet: [0, 0, 0],
@@ -235,6 +243,7 @@ describe('Summarize energy profile', () => {
         solar: [6, 2, 0],
         wind: [4, 8, 0],
         ng: [10, 10, 10],
+        coal: [0, 0, 0],
         unmet: [0, 0, 0],
       }
     };
@@ -262,6 +271,7 @@ describe('Summarize energy profile', () => {
         solar: 0,
         wind: 0,
         ng: 0,
+        coal: 0,
     }, profileData);
     const zeroed = profiles.summarize(zeroProfiles);
 

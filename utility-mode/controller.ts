@@ -1,4 +1,3 @@
-
 /* Copyright 2016 Google Inc. All Rights Reserved.
 
 Licensed under the Apache License, Version 2.0 (the "License");
@@ -55,7 +54,7 @@ export class UtilityMode {
   _initComponents() {
     // Create the initial data view.
     const allocations = {
-        solar: 0.25, wind: 0.25, ng: 0.8, nuclear: 0.1
+        solar: 0.25, wind: 0.25, ng: 0.8, nuclear: 0.1, coal: 0.1
     };
     const allocatedProfiles = profiles.getAllocatedEnergyProfiles(
       allocations,
@@ -84,7 +83,7 @@ export class UtilityMode {
     utilityModeComponents.forEach(c => c.update(utilityDataView));
 
     // Create each of the input sliders.
-    const sliders = {
+    const sliders: UtilityEnergySourceMap<Slider> = {
       solar: new Slider(
           document.getElementById('solar-slider'), 0, 100, 1, 50),
       wind: new Slider(
@@ -93,6 +92,8 @@ export class UtilityMode {
             document.getElementById('nuclear-slider'), 0, 100, 1, 50),
       ng: new Slider(
             document.getElementById('ng-slider'), 0, 100, 1, 50),
+      coal: new Slider(
+        document.getElementById('coal-slider'), 0, 100, 1, 50),
     };
 
     config.ALL_ENERGY_SOURCES.forEach(source => {
@@ -117,6 +118,3 @@ export class UtilityMode {
     });
   }
 }
-
-
-

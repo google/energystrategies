@@ -15,7 +15,7 @@ limitations under the License.
 
 
 // Type definition specific to utility mode.
-type UtilityEnergySource = 'solar' | 'wind' | 'nuclear' | 'ng';
+type UtilityEnergySource = 'solar' | 'wind' | 'nuclear' | 'ng' | 'coal';
 type ProfileSeries = 'demand' | 'unmet' | UtilityEnergySource;
 
 // Object literal types keyed by a fixed set of values.

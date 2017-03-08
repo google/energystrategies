@@ -25,7 +25,7 @@ export const NAMED_SCENARIOS = {
 
 export const POPULATION = 39.1e6; // California; Source: 2015 US Census.
 export const NON_DISPATCHABLE_ENERGY_SOURCES: UtilityEnergySource[] = [
-    'solar', 'wind', 'nuclear'];
+    'solar', 'wind', 'nuclear', 'coal'];
 export const DISPATCHABLE_ENERGY_SOURCES: UtilityEnergySource[] = ['ng'];
 export const ALL_ENERGY_SOURCES: UtilityEnergySource[] = (
     DISPATCHABLE_ENERGY_SOURCES.concat(NON_DISPATCHABLE_ENERGY_SOURCES));
@@ -38,6 +38,7 @@ export const FIXED_COST: UtilityEnergySourceMap<number> = {
   solar: 1490000,
   wind: 1844000,
   nuclear: 6814000,
+  coal: 100000,  // TODO: placeholder to be replaced with actual cost.
 };
 
 // Variable cost (including fuel) per MW-hour by energy source.
@@ -48,6 +49,7 @@ export const VARIABLE_COST: UtilityEnergySourceMap<number> = {
   nuclear: 7.3,
   solar: 0,
   wind: 0,
+  coal: 50,  // TODO: placeholder to be replaced with actual cost.
 };
 
 // Rate of CO2 creation for each energy source.
@@ -58,4 +60,5 @@ export const CO2_RATE: UtilityEnergySourceMap<number> = {
   solar: 0,
   wind: 0,
   nuclear: 0,
+  coal: 1.0,  // TODO: placeholder to be replaced with actual co2.
 };
