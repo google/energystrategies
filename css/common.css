@@ -1,0 +1,148 @@
+/* Copyright 2016 Google Inc. All Rights Reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+==============================================================================*/
+
+
+/* Base MDL style overrides */
+
+body {
+  font-family: "Roboto", "Helvetica", "Verdana", "Arial", sans-serif;
+  margin: 0;
+  min-width: 850px;
+}
+
+h1 {
+  font-size: 24px;
+  margin: 48px 0 0 0;
+  line-height: normal;
+  color: rgba(0,0,0,.87);
+}
+
+h2 {
+  font-size: 18px;
+  margin: 24px 0 0 0;
+  line-height: normal;
+  color: rgba(0,0,0,.87);
+}
+
+h3 {
+  font-size: 14px;
+  margin: 18px 0 0 0;
+  color: rgba(0, 0, 0, .68);
+  line-height: normal;
+}
+
+a {
+  color: #69a4e4;
+  font-weight: normal;
+  text-decoration: none;
+}
+
+/* MDL grid spacing and configuration */
+
+.mdl-grid {
+  padding: 8px 0;
+  margin: 36px 0 0 -12px;
+}
+
+.mdl-cell {
+  margin: 0 12px;
+}
+
+.mdl-cell--4-col {
+  width: calc(33.333333333% - 24px);
+}
+
+.mdl-cell--8-col {
+  width: calc(66.666666666% - 24px);
+}
+
+.mdl-radio__label {
+  font-size: 10pt;
+}
+
+.mdl-tabs__tab {
+  padding-left: 0px;
+}
+
+/* Page layout */
+
+#container {
+  min-width: 1280px;
+}
+
+main {
+  width: 1168px;
+  padding: 0 20px 0 92px;
+}
+
+/* Main page header/banner */
+.mdl-layout__header-row {
+  min-height: 64px;
+}
+
+.section-description {
+  color: rgba(0,0,0,.67);
+  margin-bottom: 0;
+}
+
+.option {
+  margin: 4px 4px 4px 0;
+}
+
+.info {
+  font-size: 11pt;
+  vertical-align: middle;
+}
+
+/* UI Controls */
+
+label {
+  font-weight: 500;
+}
+
+.slider-description {
+  padding-top: 12px;
+  color: rgba(0, 0,0, .67);
+}
+
+/* MDL-based bar */
+.mdl-progress {
+  height: 30px;
+}
+
+/* Preset buttons */
+
+.preset {
+  border-radius: 24px;
+  border: 1px solid rgb(78, 146, 223);
+  height: 32px;
+  line-height: 32px;
+  margin: 4px;
+  padding: 0 10px;
+  text-transform: none;
+}
+
+.preset .mdl-icon-toggle__label {
+  width: auto;
+  color: rgb(78, 146, 223);
+}
+
+.preset.is-checked {
+  background-color: rgb(78, 146, 223);
+}
+
+.preset.is-checked .mdl-icon-toggle__label {
+  color: #fff;
+}

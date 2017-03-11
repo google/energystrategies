@@ -13,8 +13,6 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ==============================================================================*/
 
-/// <reference path="typings/index.d.ts" />
-
 
 export const COLORS = {
   // Material design lite default blue.
@@ -28,10 +26,11 @@ export const COLORS = {
   FAILURE: '#FF1744',
 
   // Energy source colors.
-  SOLAR: '#FFC107',
-  WIND: '#03A9F4',
-  NUCLEAR: '#9C27B0',
-  NG: '#212121',
+  SOLAR: '#FFD600',
+  WIND: '#41b6c4',
+  NUCLEAR: '#a1dab4',
+  NG: '#225ea8',
+  COAL: '#cb181d',
 };
 
 // Scenario outcome semantic CSS classes for indicating "goodness" of outcome.

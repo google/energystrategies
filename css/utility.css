@@ -1,0 +1,137 @@
+/* Copyright 2016 Google Inc. All Rights Reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+==============================================================================*/
+
+
+/**
+ * Utility mode.
+ *
+ */
+
+
+/* Energy source allocation sliders */
+
+.utility-source-legend-tile {
+  position: relative;
+  top: 2px;
+  width: 14px;
+  height: 14px;
+  float: left;
+}
+
+.utility-source-legend-label {
+  margin-left: 8px;
+}
+
+/* Wind slider */
+.option.wind .utility-source-legend-tile-wind,
+.option.wind .mdl-slider__background-lower {
+  background-color: #41b6c4;
+}
+.option.wind input[type=range]::-webkit-slider-thumb {
+  background-color: #41b6c4;
+}
+.option.wind input[type=range]::-moz-range-thumb {
+  background-color: #41b6c4;
+}
+.option.wind input[type=range]::-ms-thumb {
+  background-color: #41b6c4;
+}
+
+/* Solar slider */
+.option.solar .utility-source-legend-tile,
+.option.solar .mdl-slider__background-lower {
+  background-color: #FFD600;
+}
+.option.solar input[type=range]::-webkit-slider-thumb {
+  background-color: #FFD600;
+}
+.option.solar input[type=range]::-moz-range-thumb {
+  background-color: #FFD600;
+}
+.option.solar input[type=range]::-ms-thumb {
+  background-color: #FFD600;
+}
+
+/* Nuclear slider */
+.option.nuclear .utility-source-legend-tile,
+.option.nuclear .mdl-slider__background-lower {
+  background-color: #a1dab4;
+}
+.option.nuclear input[type=range]::-webkit-slider-thumb {
+  background-color: #a1dab4;
+}
+.option.nuclear input[type=range]::-moz-range-thumb {
+  background-color: #a1dab4;
+}
+.option.nuclear input[type=range]::-ms-thumb {
+  background-color: #a1dab4;
+}
+
+/* Natural gas slider */
+.option.ng .utility-source-legend-tile,
+.option.ng .mdl-slider__background-lower
+{
+  background-color: #225ea8;
+}
+.option.ng input[type=range]::-webkit-slider-thumb {
+  background-color: #225ea8;
+}
+.option.ng input[type=range]::-moz-range-thumb {
+  background-color: #225ea8;
+}
+.option.ng input[type=range]::-ms-thumb {
+  background-color: #225ea8;
+}
+
+/* Coal slider */
+.option.coal .utility-source-legend-tile,
+.option.coal .mdl-slider__background-lower
+{
+  background-color: #cb181d;
+}
+.option.coal input[type=range]::-webkit-slider-thumb {
+  background-color: #cb181d;
+}
+.option.coal input[type=range]::-moz-range-thumb {
+  background-color: #cb181d;
+}
+.option.coal input[type=range]::-ms-thumb {
+  background-color: #cb181d;
+}
+
+/* Energy generation summary */
+
+.utility-outcome-summary h2,
+.utility-outcome-summary h3 {
+  float: left;
+}
+
+.utility-outcome-summary h3 {
+  margin-top: 28px;
+  margin-left: 20px;
+}
+
+/* Unmet demand warning default appearance. */
+.utility-outcome-summary-unmet {
+  display: none;
+  margin-top: 24px;
+  /* Avoid pushing down the content for the main column due to card appearing */
+  margin-bottom: -100%;
+}
+
+/* Unmet demand warning overrides to apply when unmet demand exists. */
+.utility-outcome-summary-unmet.unmet {
+  display: block;
+}
