@@ -115,7 +115,7 @@ export class EnergyProfileChart implements UtilityDataComponent {
           nuclear: COLORS.NUCLEAR,
           ng: COLORS.NG,
           unmet: COLORS.FAILURE,
-          coal: '#111111',
+          coal: COLORS.COAL,
         },
       },
       point: {
