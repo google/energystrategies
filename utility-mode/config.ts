@@ -34,31 +34,31 @@ export const ALL_ENERGY_SOURCES: UtilityEnergySource[] = (
 //
 // Units are dollars USD per MW of capacity ($/MW)
 export const FIXED_COST: UtilityEnergySourceMap<number> = {
-  ng: 773000, // Assumes 100% conventional turbine mix.
-  solar: 1490000,
-  wind: 1844000,
-  nuclear: 6814000,
-  coal: 100000,  // TODO: placeholder to be replaced with actual cost.
+  ng: 770633.,
+  solar: 1356035.,
+  wind: 2181533.,
+  nuclear: 4667258.,
+  coal: 3388939.,
 };
 
 // Variable cost (including fuel) per MW-hour by energy source.
 //
 // Units are dollars USD per MWh ($/MWh).
 export const VARIABLE_COST: UtilityEnergySourceMap<number> = {
-  ng: 32,
-  nuclear: 7.3,
-  solar: 0,
-  wind: 0,
-  coal: 50,  // TODO: placeholder to be replaced with actual cost.
+  ng: 32.1,
+  nuclear: 12.0,
+  solar: 0.0,
+  wind: 0.0,
+  coal: 23.3,
 };
 
 // Rate of CO2 creation for each energy source.
 //
 // Units are tonnes-of-co2 per MWh-of-energy-supplied (tonnes/MWh)
 export const CO2_RATE: UtilityEnergySourceMap<number> = {
-  ng: 0.517,
-  solar: 0,
-  wind: 0,
-  nuclear: 0,
-  coal: 1.0,  // TODO: placeholder to be replaced with actual co2.
+  ng: 0.4538,
+  nuclear: 0.0,
+  solar: 0.0,
+  wind: 0.0,
+  coal: 0.8582,
 };
