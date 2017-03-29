@@ -1,0 +1,151 @@
+{
+  "dimensions": [
+    "solar_price", 
+    "wind_price", 
+    "nuclear_price", 
+    "ng_price", 
+    "carbon_tax", 
+    "rps", 
+    "rps_includes_carbon_capture", 
+    "rps_includes_nuclear_energy", 
+    "nuclear_allowed", 
+    "storage_allowed"
+  ], 
+  "facts": [
+    "co2", 
+    "cost", 
+    "storage_cost", 
+    "solar_energy", 
+    "solar_cost", 
+    "wind_energy", 
+    "wind_cost", 
+    "nuclear_energy", 
+    "nuclear_cost", 
+    "ng_energy", 
+    "ng_cost", 
+    "ngccs_energy", 
+    "ngccs_cost", 
+    "coal_energy", 
+    "coal_cost", 
+    "coalccs_energy", 
+    "coalccs_cost", 
+    "hydro_energy", 
+    "hydro_cost"
+  ], 
+  "baseline": {
+    "co2": 65346956, 
+    "hydro_cost": 770527257, 
+    "solar_cost": 22883964359, 
+    "ng_cost": 89988079297, 
+    "storage_cost": 0.0, 
+    "coalccs_energy": 0, 
+    "nuclear_energy": 26606106, 
+    "hydro_energy": 19853158, 
+    "coal_energy": 428268, 
+    "ngccs_energy": 0, 
+    "ngccs_cost": 0, 
+    "coalccs_cost": 0, 
+    "wind_energy": 17583040, 
+    "cost": 155332925808, 
+    "nuclear_cost": 27482440807, 
+    "coal_cost": 311290188, 
+    "ng_energy": 197040907, 
+    "wind_cost": 13896623900, 
+    "solar_energy": 21299370
+  }, 
+  "shape": [
+    3, 
+    3, 
+    3, 
+    3, 
+    21, 
+    19, 
+    2, 
+    2, 
+    2, 
+    2
+  ], 
+  "scales": {
+    "nuclear_price": [
+      0.0, 
+      1.0, 
+      2.0
+    ], 
+    "wind_price": [
+      0.0, 
+      1.0, 
+      2.0
+    ], 
+    "ng_price": [
+      0.0, 
+      1.0, 
+      2.0
+    ], 
+    "storage_allowed": [
+      0.0, 
+      1.0
+    ], 
+    "solar_price": [
+      0.0, 
+      1.0, 
+      2.0
+    ], 
+    "rps_includes_nuclear_energy": [
+      0.0, 
+      1.0
+    ], 
+    "rps": [
+      0.0, 
+      5.0, 
+      10.0, 
+      15.0, 
+      20.0, 
+      25.0, 
+      30.0, 
+      35.0, 
+      40.0, 
+      45.0, 
+      50.0, 
+      55.0, 
+      60.0, 
+      65.0, 
+      70.0, 
+      75.0, 
+      80.0, 
+      85.0, 
+      90.0
+    ], 
+    "nuclear_allowed": [
+      0.0, 
+      1.0
+    ], 
+    "carbon_tax": [
+      0.0, 
+      5.0, 
+      10.0, 
+      15.0, 
+      20.0, 
+      25.0, 
+      30.0, 
+      35.0, 
+      40.0, 
+      45.0, 
+      50.0, 
+      55.0, 
+      60.0, 
+      65.0, 
+      70.0, 
+      75.0, 
+      80.0, 
+      85.0, 
+      90.0, 
+      95.0, 
+      100.0
+    ], 
+    "rps_includes_carbon_capture": [
+      0.0, 
+      1.0
+    ]
+  }, 
+  "population": 39250017
+}
