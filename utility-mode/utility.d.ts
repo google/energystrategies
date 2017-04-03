@@ -15,12 +15,14 @@ limitations under the License.
 
 
 // Type definition specific to utility mode.
-type UtilityEnergySource = 'solar' | 'wind' | 'nuclear' | 'ng' | 'coal';
+type UtilityEnergySource = EnergySource;
 type ProfileSeries = 'demand' | 'unmet' | UtilityEnergySource;
 
 // Object literal types keyed by a fixed set of values.
 type UtilityEnergySourceMap<T> = {[K in UtilityEnergySource]: T};
 type ProfileSeriesMap<T> = {[K in ProfileSeries]: T};
+
+type UtilityOutcomeBreakdown = ScenarioOutcomeBreakdown<UtilityEnergySource>;
 
 /**
  * A collection of energy supply and demand profiles with a common time domain.
@@ -56,7 +58,7 @@ type ProfileAllocations = UtilityEnergySourceMap<number>;
 /**
  * Utility mode data and configuration view.
  */
-interface UtilityDataView extends SummaryDataView {
+interface UtilityDataView extends SummaryDataView<UtilityEnergySource> {
   // The allocated time profile for each available energy source.
   profiles: ProfileDataset;
 

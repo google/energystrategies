@@ -22,7 +22,7 @@ import {TextView} from './text-view';
 /**
  * A page component that renders the current scenario outcome's absolute cost.
  */
-export class ScenarioCost implements SummaryDataComponent {
+export class ScenarioCost implements SummaryDataComponent<string> {
   _textView: TextView;
 
   /**
@@ -40,7 +40,7 @@ export class ScenarioCost implements SummaryDataComponent {
    *
    * @param view The new data view to render.
    */
-  update(view: SummaryDataView) {
+  update(view: SummaryDataView<string>) {
     const householdCost = util.asMonthlyPerHouseholdCost(
         view.summary.cost, view.population);
     this._textView.update(householdCost);
@@ -50,7 +50,7 @@ export class ScenarioCost implements SummaryDataComponent {
 /**
  * A page component that renders the current scenario outcome's relative delta.
  */
-export class ScenarioDeltaCost implements SummaryDataComponent {
+export class ScenarioDeltaCost implements SummaryDataComponent<string> {
   _textView: TextView;
 
   /**
@@ -67,7 +67,7 @@ export class ScenarioDeltaCost implements SummaryDataComponent {
    *
    * @param view The new data view to render.
    */
-  update(view: SummaryDataView) {
+  update(view: SummaryDataView<string>) {
     this._textView.update(view.deltaToRef.cost);
   }
 }

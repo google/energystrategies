@@ -15,6 +15,10 @@ limitations under the License.
 
 
 // Type definitions common to multiple page modes.
+type EnergySource = 'solar' | 'wind' | 'nuclear' | 'ng' | 'coal';
+
+// Object literal types keyed by a fixed set of values.
+type EnergySourceMap<T> = {[K in EnergySource]: T};
 
 /**
  * Scenario outcome data.
@@ -25,49 +29,48 @@ interface ScenarioOutcome {
 }
 
 /**
- * Scenario outcome that also includes cost/co2 attributions by energy source.
- */
-interface ScenarioOutcomeBreakdown extends ScenarioOutcome {
-  breakdown: {
-    ng: EnergySourceOutcome;
-    solar: EnergySourceOutcome;
-    wind: EnergySourceOutcome;
-    nuclear: EnergySourceOutcome;
-  };
-}
-
-/**
  * Aggregated scenario outcome details specific to a single energy source.
  */
 interface EnergySourceOutcome {
-  // Maximum energy supply capacity (nameplate) of the source (MW).
-  capacity: number,
+  // Cost contribution of the energy source ($USD).
+  cost?: number;
 
   // Amount of energy provided by source, ignoring demand (MWh).
-  energy: number,
+  energy?: number,
 
   // Amount of energy consumed from the source by demand (MWh).
-  consumed: number,
+  consumed?: number,
 
   // Amount of fixed cost required for the energy source ($USD).
-  fixedCost: number;
+  fixedCost?: number;
 
   // Amount of variable cost required for the energy source ($USD).
-  variableCost: number;
+  variableCost?: number;
 
   // Amount of CO2 emissions from the source (Mtonnes).
-  co2: number;
+  co2?: number;
+
+  // Maximum energy supply capacity (nameplate) of the source (MW).
+  capacity?: number,
+}
+
+/**
+ * Scenario outcome that also includes cost/co2 attributions by energy source.
+ */
+interface ScenarioOutcomeBreakdown<Keys extends string> extends ScenarioOutcome {
+  breakdown: {[K in Keys]: EnergySourceOutcome}
 }
 
 /**
  * Common outcome summary data and configuration view.
  */
-interface SummaryDataView {
+interface SummaryDataView<Keys extends string> {
   // The outcome summary for the energy profiles as currently allocated.
-  summary: ScenarioOutcomeBreakdown;
+  summary: ScenarioOutcomeBreakdown<Keys>;
 
   // The population count of the geographic region for the scenario.
   population: number;
+  baseline: ScenarioOutcomeBreakdown<Keys>;
 
   // The delta of the outcome to a pre-defined reference outcome.
   deltaToRef: {
@@ -79,11 +82,11 @@ interface SummaryDataView {
 /**
  * Components that render views of the summary data.
  */
-interface SummaryDataComponent {
+interface SummaryDataComponent<Keys extends string> {
   /**
    * Updates the component to render data within the new data view.
    *
    * @param view The new data view to render.
    **/
-  update(view: SummaryDataView);
+  update(view: SummaryDataView<Keys>);
 }

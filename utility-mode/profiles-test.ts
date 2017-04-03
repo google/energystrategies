@@ -231,7 +231,7 @@ describe('Energy generation used for supplying demand', () => {
 
 describe('Summarize energy profile', () => {
   let profileData: ProfileDataset;
-  let summarized: ScenarioOutcomeBreakdown;
+  let summarized: ScenarioOutcomeBreakdown<UtilityEnergySource>;
 
   beforeEach(() => {
     profileData = {

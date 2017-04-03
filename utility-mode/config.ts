@@ -14,13 +14,11 @@ limitations under the License.
 ==============================================================================*/
 
 
-// The default state of the dataset selection and page controls.
-export const NAMED_SCENARIOS = {
-  reference: {
-    title: 'Baseline',
-    cost: 104e9, // USD
-    co2: 57.0e6, // tonnes
-  },
+// The baseline outcome for utility mode; California 2015.
+export const BASELINE: ScenarioOutcomeBreakdown<UtilityEnergySource> = {
+  cost: 104e9, // USD
+  co2: 57.0e6, // tonnes
+  breakdown: null,
 };
 
 export const POPULATION = 39.1e6; // California; Source: 2015 US Census.

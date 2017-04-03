@@ -36,7 +36,7 @@ interface MaterialProgressElement extends HTMLElement {
  *
  * Renders the percent CO2 emissions reduction relative to a reference.
  */
-export class CO2GoalProgress implements SummaryDataComponent {
+export class CO2GoalProgress implements SummaryDataComponent<string> {
   _element: HTMLElement;
   _progressBar: MaterialProgressElement;
 
@@ -56,7 +56,7 @@ export class CO2GoalProgress implements SummaryDataComponent {
    *
    * @param view The new data view to render.
    */
-  update(view: SummaryDataView) {
+  update(view: SummaryDataView<string>) {
     // Relative increase in co2 => 0% progress (default).
     let progressPercent = -100 * view.deltaToRef.co2;
     // Clip value to [0%, 100%].

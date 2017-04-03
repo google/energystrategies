@@ -218,7 +218,7 @@ export function getAllocatedEnergyProfiles(
  * @param profiles An energy profile collection for which to aggregate stats.
  * @return A summary of cost and co2 outcomes by energy generation source.
  */
-export function summarize(profiles: ProfileDataset): ScenarioOutcomeBreakdown {
+export function summarize(profiles: ProfileDataset): ScenarioOutcomeBreakdown<UtilityEnergySource> {
   // Compute the consumed (by demand) subset of the energy generation profiles.
   const supplyBreakdown = getSuppliedEnergyBreakdown(profiles);
 
