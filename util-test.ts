@@ -310,3 +310,37 @@ describe('Animation frame-based render throttling', () => {
     expect(foo.value).toBe(9);
   });
 });
+
+describe('Base64 encoding and decoding of js objects', () => {
+  it('decodes a simple object', () => {
+    const encoded = 'eyJmb28iOiJmb28iLCJiYXIiOiJiYXIifQ==';
+    expect(util.base64Decode(encoded)).toEqual({
+      foo: 'foo',
+      bar: 'bar'
+    });
+  });
+
+  it('decodes an empty object', () => {
+    const encoded = 'e30=';
+    expect(util.base64Decode(encoded)).toEqual({});
+  });
+
+  it('round-trip encodes an empty object', () => {
+    const orig = {};
+    const encoded = util.base64Encode(orig);
+    expect(util.base64Decode(encoded)).toEqual(orig);
+  });
+
+  it('round-trip encodes a non-empty object', () => {
+    const orig = {
+      foo: 'foo',
+      bar: 'bar',
+      list: [1, 2, 3],
+      nested: {
+        baz: 'baz'
+      }
+    };
+    const encoded = util.base64Encode(orig);
+    expect(util.base64Decode(encoded)).toEqual(orig);
+  });
+});

@@ -204,3 +204,23 @@ export function animate(update, render) {
 
   return wrappedUpdate;
 }
+
+/**
+ * Encodes an object as a base-64 encoded ASCII string.
+ *
+ * @param o An object to encode.
+ * @return A base-64 encoded ASCII string.
+ */
+export function base64Encode(o: Object): string {
+  return btoa(JSON.stringify(o));
+}
+
+/**
+ * Decodes an object from a base-64 string.
+ *
+ * @param s A base-64 encoded ASCII string.
+ * @returns An object specified by the encoded string.
+ */
+export function base64Decode(s: string): Object {
+  return JSON.parse(atob(s));
+}
