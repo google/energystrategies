@@ -27,10 +27,53 @@ const MONTHLY_COST_PER_HOUSEHOLD_FACTOR = PEOPLE_PER_HOUSEHOLD
     / (MONTHS_PER_YEAR * DISCOUNT_RATE_YEARLY);
 export const POUNDS_PER_TONNE = 2204.62;
 
-export const shallowCopy = (source: Object, dest: Object) => {
-  return Object.assign(dest, source);
+/**
+ * Gets the cost to generate a MWh of energy in $USD.
+ *
+ * A MWh is roughly what a typical household consumes each month.
+ *
+ * @param cost The total cost of power generation for the region ($USD) over the
+ *   lifetime of the infrastructure.
+ * @param consumed The total number of MWh consumed for the region per year;
+ *   i.e., any excess generation beyond demand is ignored due to curtailment.
+ * @returns The cost per MWh of energy fulfillment in $USD.
+ */
+export function asPerMegawattHourCost(cost: number, yearlyConsumed: number) {
+  return cost / DISCOUNT_RATE_YEARLY / yearlyConsumed;
+}
+
+/**
+ * Gets the monthly cost per household in the region.
+ *
+ * @param cost The total cost of power generation for the region ($USD) over the
+ *   lifetime of the infrastructure.
+ * @param population The population of the region.
+ * @return The monthly cost per household in the region ($USD).
+ */
+export function asMonthlyPerHouseholdCost(cost: number, population: number) {
+  return cost / population * MONTHLY_COST_PER_HOUSEHOLD_FACTOR;
 };
 
+/**
+ * Gets the yearly CO2 emissions level goal for the region.
+ *
+ * @param population The population of the region.
+ * @param yearlyCO2 The current CO2 emissions level for the region in metric
+ *   tonnes per year.
+ * @returns The target CO2 level in metric tonnes per year.
+ */
+export function getGoalCo2(population: number, yearlyCO2: number) {
+  // i.e., half metric tonne per person + 8% of today's emission's levels
+  return 0.5 * population + 0.08 * yearlyCO2;  // metric tonnes/year
+}
+
+/**
+ * Gets the relative change of the current scenario versus the baseline outcome.
+ *
+ * @param baseline The reference outcome for relative comparison.
+ * @param current The scenario outcome being compared to the baseline.
+ * @returns The deviation of cost and CO2 emissions relative to the baseline.
+ */
 export const deltas = (baseline: ScenarioOutcome, current: ScenarioOutcome) => {
   function delta(ref, value) {
     return (value - ref) / ref;
@@ -43,14 +86,19 @@ export const deltas = (baseline: ScenarioOutcome, current: ScenarioOutcome) => {
 };
 
 /**
- * Gets the amortized per household monthly cost.
+ * Copies the entries from the source object to the destination object.
  *
- * @param cost Total cost for the entire population.
- * @param population Population size.
- * @return The monthly cost per household.
+ * If a key exists in both source and destination, the source value will
+ * overwrite the existing value in the destination object.
+ *
+ * Note: this utility function only exists as a shim to Object.assign and
+ * can be dropped in the future in lieu of using Object.assign directly.
+ *
+ * @param source
+ * @param dest
  */
-export function asMonthlyPerHouseholdCost(cost: number, population: number) {
-  return cost / population * MONTHLY_COST_PER_HOUSEHOLD_FACTOR;
+export const shallowCopy = (source: Object, dest: Object) => {
+  return Object.assign(dest, source);
 };
 
 /**

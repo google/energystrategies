@@ -18,9 +18,40 @@ import * as util from './util';
 import * as testing from './testing';
 
 
+describe('Per Megawatt-hour cost', () => {
+  it('when total lifetime cost is attributed to yearly consumption', () => {
+    // Hypothetical scenario being tested here:
+    //
+    // Assume a region contains 100 households, each consuming 1 MWh/month
+    // at a cost of 12 cents/kWh, for a regional consumption of 1200 MWh/year.
+    //
+    // The above costs $144k/year and is then repeated for the 30-year lifetime
+    // of the infrastructure at 6% discount rate to get a total lifetime cost
+    // of ~$2.1M for the region.
+    const cost = 2.1e6;  // The total lifetime cost over 30 years.
+    const yearlyEnergyConsumption = 1200;  // Consumed energy in MWh.
+    const expectedCostPerMWh = 120;
+    expect(util.asPerMegawattHourCost(cost, yearlyEnergyConsumption))
+        .toBeCloseTo(expectedCostPerMWh, 0);
+  });
+})
+
 describe('Monthly per household cost', () => {
-  it('when $100 total cost is attributed to 100 individuals.', () => {
-    expect(util.asMonthlyPerHouseholdCost(100, 100)).toBeCloseTo(0.01444);
+  it('when total lifetime cost is attributed to regional population.', () => {
+    // Hypothetical scenario being tested here:
+    //
+    // Assume a region contains 100 households, each consuming 1 MWh/month
+    // at a cost of 12 cents/kWh, for a regional consumption of 1200 MWh/year.
+    //
+    // The above costs $144k/year and is then repeated for the 30-year lifetime
+    // of the infrastructure at 6% discount rate to get a total lifetime cost
+    // of ~$2.1M for the region.
+    const cost = 2.1e6;  // The total lifetime cost over 30 years.
+    const peoplePerHousehold = 2.53;
+    const population = 100 * peoplePerHousehold;
+    const expectedCostPerMWh = 120;
+    expect(util.asMonthlyPerHouseholdCost(cost, population))
+        .toBeCloseTo(expectedCostPerMWh, 0);
   });
 });
 
