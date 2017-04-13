@@ -231,7 +231,7 @@ describe('Energy generation used for supplying demand', () => {
 
 describe('Summarize energy profile', () => {
   let profileData: ProfileDataset;
-  let summarized: ScenarioOutcomeBreakdown<UtilityEnergySource>;
+  let summarized: UtilityOutcomeBreakdown;
 
   beforeEach(() => {
     profileData = {
@@ -247,7 +247,7 @@ describe('Summarize energy profile', () => {
         unmet: [0, 0, 0],
       }
     };
-    summarized = profiles.summarize(profileData);
+    summarized = profiles.summarize(profileData, false);
   });
 
   it('energy generation.', () => {

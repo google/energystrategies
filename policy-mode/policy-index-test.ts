@@ -112,6 +112,7 @@ describe('Sweep dataset index', () => {
     expect(scenario).toEqual({
       co2: 80,
       cost: 38,
+      energy: 10 + 10 + 100,
       breakdown: {
         storage: {cost: 7},
         solar: {cost: 0, energy: 0},
@@ -193,6 +194,7 @@ describe('Sweep dataset index', () => {
     const expected: ScenarioOutcomeBreakdown<PolicyBreakdownEntry> = {
       co2: 10,
       cost: 100,
+      energy: 10 + 10 + 10 + 10 + 10 + 10,
       breakdown: {
         solar: {
           energy: 10,

@@ -172,6 +172,7 @@ export function parsePolicyRowCSV(
   const outcome: PolicyOutcomeBreakdown = {
     co2: null,
     cost: null,
+    energy: 0,
     breakdown: {
       solar: {},
       wind: {},
@@ -195,10 +196,16 @@ export function parsePolicyRowCSV(
       outcome[field] = parseFloat(row[fact]);
     } else if (tokens.length == 2) {
       [source, field] = tokens; // e.g., solar_energy or wind_energy
+      const fact_value = parseFloat(row[fact])
 
       // Convert the csv string values to corresponding types,
       // which are all floats at the moment.
-      outcome.breakdown[source][field] = parseFloat(row[fact]);
+      outcome.breakdown[source][field] = fact_value;
+
+      // Accumulate the total energy across all energy sources.
+      if (field == 'energy') {
+        outcome.energy += fact_value;
+      }
     } else {
       throw new Error(
           `Unexpected field structure has more than 2 tokens:

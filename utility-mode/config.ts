@@ -18,6 +18,7 @@ limitations under the License.
 export const BASELINE: ScenarioOutcomeBreakdown<UtilityEnergySource> = {
   cost: 104e9, // USD
   co2: 57.0e6, // tonnes
+  energy: 282e6, // MWh
   breakdown: null,
 };
 
