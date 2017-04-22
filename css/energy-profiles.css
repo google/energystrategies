@@ -1,0 +1,87 @@
+/* Copyright 2016 Google Inc. All Rights Reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+==============================================================================*/
+
+
+/* Energy supply and demand profiles chart */
+
+.utility-mode-profiles-chart {
+  margin-left: -4px;
+}
+
+.energy-profiles-chart .axis path,
+.energy-profiles-chart .axis path .axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.energy-profiles-chart .y .tick text {
+  fill: rgba(0,0,0,.26);
+}
+
+.energy-profiles-chart .y text,
+.energy-profiles-chart .x .tick text {
+  fill: rgba(0,0,0,.67);
+}
+
+.energy-profiles-chart .x .tick text {
+  text-transform: uppercase;
+  font-size: 10px;
+}
+
+.energy-profiles-chart .demand-curve-line {
+  fill: none;
+  stroke: #b1b1b1;
+  stroke-width: 1px;
+}
+
+.energy-profiles-chart .excess-curve-line {
+  fill: none;
+  stroke: rgba(0,0,0,.16);
+  stroke-width: 0.5px;
+}
+
+.energy-profiles-chart .consumed-curve-line {
+  fill: none;
+  stroke-width: 0;
+  stroke: black;
+}
+
+.energy-profiles-chart .interest-marker-label {
+  font-size: 10pt;
+  fill: rgba(0, 0, 0, .37);
+  text-transform: uppercase;
+  z-index: 10;
+}
+
+.energy-profiles-chart .interest-marker-arrow {
+  stroke-width: .75;
+}
+
+.energy-profiles-chart .warning-marker-label {
+  font-size: 10pt;
+  text-transform: uppercase;
+  z-index: 10;
+}
+
+.energy-profiles-chart .warning-marker-label,
+.energy-profiles-chart .warning-marker-arrow {
+  opacity: .7;
+}
+
+.energy-profiles-chart .bounding-box {
+  stroke-width: 0.75;
+  stroke: rgba(0, 0, 0, .37);
+}

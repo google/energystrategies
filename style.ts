@@ -22,26 +22,24 @@ export const COLORS = {
   WHITE: '#fff',
   BLACK: '#000',
 
-  // Failure indication color.
-  FAILURE: '#FF1744',
-
   // Energy source colors.
   SOLAR: '#FFD600',
+  SOLAR_LIGHT: '#FFF59D',
   WIND: '#41b6c4',
   NUCLEAR: '#a1dab4',
   NG: '#225ea8',
+  NGCCS: '#1d91c0',
   COAL: '#cb181d',
-};
+  COALCCS: '#fb6a4a',
+  HYDRO: '#9ecae1',
+  STORAGE: '#8c6bb1',
 
-// Scenario outcome semantic CSS classes for indicating "goodness" of outcome.
-export const SCENARIO_GOAL_CSS = {
-  GOOD: 'scenario-goal-chart-region-good-outcome',
-  OK: 'scenario-goal-chart-region-ok-outcome',
-  BAD: 'scenario-goal-chart-region-bad-outcome',
+  // Additional indicator colors.
+  FAILURE: '#FF1744',
+  DEMAND: '#F0F0F0',
+  EXCESS_LIGHT: '#ffffff',
+  EXCESS: '#BDBDBD',
 };
-
-// The CSS class added to scenario goal threshold lines.
-export const SCENARIO_GOAL_THRESHOLD_CSS = 'scenario-goal-chart-threshold';
 
 // Goal chart container element size dimensions.
 export const SCENARIO_GOAL_CHART_SIZE = {

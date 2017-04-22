@@ -154,6 +154,7 @@ export function getAllocatedEnergyProfiles(
   // unmet demand profile.
   const unmetProfile = [];
   const dispatchProfile = [];
+  const supplyProfile = [];
   for (let i = 0; i < profiles.series.demand.length; ++i) {
     // Find the total power supplied at time[i] for non-dispatchables.
     let supplied = 0;
@@ -182,8 +183,12 @@ export function getAllocatedEnergyProfiles(
       unmet = needed - dispatched;
     }
 
+    // Add any additional energy that was dispatched to meet demand.
+    supplied += dispatched;
+
     dispatchProfile.push(dispatched);
     unmetProfile.push(unmet);
+    supplyProfile.push(supplied);
   }
 
   return {
@@ -195,6 +200,9 @@ export function getAllocatedEnergyProfiles(
 
       // Profile of unmet demand.
       unmet: unmetProfile,
+
+      // Profile of total energy generation.
+      supply: supplyProfile,
 
       // Non-dispatchable energy supplied.
       solar: allocatedProfiles.solar,

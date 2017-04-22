@@ -33,6 +33,7 @@ describe('Get allocated energy profiles', () => {
         wind: [4, 8, 0],
         ng: [10, 10, 10],
         coal: [1, 1, 1],
+        supply: [8+6+4+10+1, 8+2+8+10+1, 8+0+0+10+1],
         unmet: [0, 0, 0],
       }
     };
@@ -69,6 +70,13 @@ describe('Get allocated energy profiles', () => {
     expect(allocated.index).toEqual([0, 1, 2]);
     expect(allocated.units).toEqual('MWh');
     expect(allocated.series.demand).toEqual([10, 0, 20]);
+
+    // Verify that the total supply profile matches the sum of energy sources.
+    expect(allocated.series.supply).toEqual([
+      3+2+4+.5+.5,
+      1+4+4+.5+0,
+      0+0+4+.5+5,
+    ]);
   });
 
   it('when all allocations are zero', () => {
@@ -88,6 +96,8 @@ describe('Get allocated energy profiles', () => {
     expect(allocated.series.solar).toEqual([0, 0, 0]);
     expect(allocated.series.wind).toEqual([0, 0, 0]);
     expect(allocated.series.ng).toEqual([0, 0, 0]);
+    expect(allocated.series.coal).toEqual([0, 0, 0]);
+    expect(allocated.series.supply).toEqual([0, 0, 0]);
 
     expect(allocated.series.demand).toEqual([10, 0, 20]);
     expect(allocated.units).toEqual('MWh');
@@ -107,6 +117,7 @@ describe('Get allocated energy profiles', () => {
     expect(allocated.series.nuclear).toEqual([8, 8, 8]);
     expect(allocated.series.solar).toEqual([6, 2, 0]);
     expect(allocated.series.wind).toEqual([4, 8, 0]);
+    expect(allocated.series.coal).toEqual([1, 1, 1]);
 
     // Dispatchable energy source capped by demand.
     //
@@ -163,6 +174,7 @@ describe('Energy generation used for supplying demand', () => {
         coal: [0, 0, 0],
         // Note that dispatch has already been taken into account here.
         ng: [10, 10, 10],
+        supply: [8+6+4+0+10, 8+2+8+0+10, 8+0+0+0+10],
         unmet: [0, 0, 0],
       }
     };
@@ -178,6 +190,7 @@ describe('Energy generation used for supplying demand', () => {
     expect(supplied['nuclear']).toBeCloseTo(8 + 8 + 8);
     expect(supplied['wind']).toBeCloseTo(4 + 8 + 0);
     expect(supplied['solar']).toBeCloseTo(6 + 2 + 0);
+    expect(supplied['coal']).toBeCloseTo(0);
   });
 
   it('when there is an excess in generation.', () => {
@@ -192,6 +205,7 @@ describe('Energy generation used for supplying demand', () => {
         coal: [0, 0, 0],
         // Note that dispatch has already been taken into account here.
         ng: [0, 0, 10],
+        supply: [8+6+4+0+0, 8+2+8+0+0, 8+0+0+0+10],
         unmet: [0, 0, 0],
       }
     };
@@ -244,10 +258,11 @@ describe('Summarize energy profile', () => {
         wind: [4, 8, 0],
         ng: [10, 10, 10],
         coal: [0, 0, 0],
+        supply: [8+6+4+10+0, 8+2+8+10+0, 8+0+0+10+0],
         unmet: [0, 0, 0],
       }
     };
-    summarized = profiles.summarize(profileData, false);
+    summarized = profiles.summarize(profileData);
   });
 
   it('energy generation.', () => {
@@ -279,6 +294,7 @@ describe('Summarize energy profile', () => {
     // zero cost and co2 generation for all energy sources.
     expect(zeroed.co2).toEqual(0);
     expect(zeroed.cost).toEqual(0);
+    expect(zeroed.energy).toEqual(0);
 
     config.ALL_ENERGY_SOURCES.forEach(energySource => {
       expect(zeroed.breakdown[energySource].energy).toEqual(0);

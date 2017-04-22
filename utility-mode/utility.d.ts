@@ -16,7 +16,7 @@ limitations under the License.
 
 // Type definition specific to utility mode.
 type UtilityEnergySource = EnergySource;
-type ProfileSeries = 'demand' | 'unmet' | UtilityEnergySource;
+type ProfileSeries = 'supply' | 'demand' | 'unmet' | UtilityEnergySource;
 
 // Object literal types keyed by a fixed set of values.
 type UtilityEnergySourceMap<T> = {[K in UtilityEnergySource]: T};

@@ -23,15 +23,19 @@ module.exports = function(config) {
 
     frameworks: ['browserify', 'jasmine'],
 
+    // Load files into the browser test sandbox in the following order.
+    //
+    // Note: libraries and ambient dependencies should come before tests and
+    // other code that would expect them to be loaded/available.
     files: [
-      '**/*-test.ts',
       {
         pattern: 'dist/lib.js',
         watched: true,
-        included: false,
+        included: true,
         served: true,
         nocache: true,
       },
+      '**/*-test.ts',
     ],
 
     exclude: [],
