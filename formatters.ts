@@ -15,7 +15,15 @@ limitations under the License.
 
 
 // Generates an abbreviated string representation of large numeric values.
-export const largeNumberFormatter = d3.format('.3s');
+const _baseLargeNumberFormatter = d3.format('.3s');
+export const largeNumberFormatter = (value: number) => {
+  // When the value to be formatted is very nearly zero, format the value as
+  // simply "0" instead of -3.68e-7, etc..
+  if (Math.abs(value) < 1e-6) {
+      return '0';
+  }
+  return _baseLargeNumberFormatter(value);
+}
 
 // Formats a per household cost amount.
 export const householdCostFormatter = householdCost => {
