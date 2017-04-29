@@ -13,55 +13,73 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ==============================================================================*/
 
+
 /**
  * Policy mode.
  */
 
-/* Policy budget impact */
+/* Policy headline outcome content */
+
+.policy-mode-hero-box {
+  margin-top: 40px;
+}
+
+.policy-outcome-title-container {
+  display: flex;
+  display: -webkit-flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+}
+
+.policy-outcome-title {
+  margin-top: 0px;
+}
+
+.policy-outcome-description {
+  margin-top: 4px;
+  margin-left: 16px;
+  color: rgba(0, 0, 0, .41);
+}
+
+/* Policy CO2 outcome bar chart */
+
+.policy-mode-goal-chart {
+  /* Align top of co2 bar with the cap-height line of breakdown table text */
+  margin-top: 12px;
+}
+
+/* Policy budget impact equation */
 
 .policy-mode-budget-box {
-  margin-top: 36px;
-  margin-bottom: 36px;
+  /* Align bottom of the budget box with text baseline of the breakdown table */
+  margin-top: 48px;
 }
 
-.policy-mode-cost-eq {
-  clear: left;
+.cost-eq {
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap;
-  font-size: 14pt;
-  padding-top: 14px;
-  text-align: center;
-}
-
-.policy-mode-cost-eq > div {
-  flex-grow: 1;
-  margin: 0 12px;
-}
-
-.policy-mode-cost-eq > div:first-child {
-  margin-left: 0;
-}
-
-.policy-mode-cost-eq div.eq-var {
-  border-bottom: solid 1px rgba(0, 0, 0, .16);
-  font-weight: lighter;
-  min-width: 150px;
-  padding: 8px;
-}
-
-.policy-mode-cost-eq div.eq-label {
-  color: rgba(0, 0, 0, .37);
-  font-size: 10pt;
-  padding-top: 4px;
-  text-transform: uppercase;
-}
-
-.policy-mode-cost-eq .eq-symbol {
   color: rgba(0, 0, 0, .67);
-  font-size: 24pt;
-  font-weight: lighter;
-  padding-top: 28px;
+  text-align: left;
+  font-size: 20px;
+}
+
+.cost-eq .cost-eq-symbol {
+  width: 16px;
+  margin-right: 24px;
+  margin-left: 16px;
+}
+
+.cost-eq .cost-eq-value .eq-value-value {
+  width: 84px;
+  font-size: 20px;
+}
+
+.cost-eq .cost-eq-value .eq-value-description {
+  font-size: 11px;
+  max-width: 256px;
+  line-height: 1.3;
+  margin-top: 10px;
+  text-transform: uppercase;
 }
 
 /* Policy mode energy breakdown table. */
@@ -70,11 +88,14 @@ limitations under the License.
   width: 100%;
   margin-top: 12px;
   border-collapse: collapse;
-  border-bottom: 1px solid rgba(0, 0, 0, .16);
+}
+
+.policy-mode-headline-breakdown {
+  font-size: 11px;
+  line-height: 1.6;
 }
 
 .policy-mode-headline-breakdown thead {
-  font-size: 10pt;
   color: rgba(0, 0, 0, .67);
   text-transform: uppercase;
 }
@@ -83,7 +104,6 @@ limitations under the License.
   width: auto;
   text-align: right;
   border-bottom: 1px solid rgba(0, 0, 0, .16);
-  padding-bottom: 4px;
 }
 
 .policy-mode-headline-breakdown thead td.sources {
@@ -94,7 +114,6 @@ limitations under the License.
 .policy-mode-headline-breakdown tbody td {
   text-align: right;
   color: rgba(0, 0, 0, .37);
-  padding-top: 8px;
   text-transform: uppercase;
 }
 
@@ -102,7 +121,9 @@ limitations under the License.
 .policy-mode-headline-breakdown .wind,
 .policy-mode-headline-breakdown .nuclear,
 .policy-mode-headline-breakdown .ng,
+.policy-mode-headline-breakdown .ngccs,
 .policy-mode-headline-breakdown .coal,
+.policy-mode-headline-breakdown .coalccs,
 .policy-mode-headline-breakdown .hydro,
 .policy-mode-headline-breakdown .storage {
   text-align: left;
@@ -124,8 +145,14 @@ limitations under the License.
 .policy-mode-headline-breakdown .ng {
   color: #225ea8;
 }
+.policy-mode-headline-breakdown .ngccs {
+  color: #1d91c0;
+}
 .policy-mode-headline-breakdown .coal {
-  color: #cb181d;
+  color: #ef3b2c;
+}
+.policy-mode-headline-breakdown .coalccs {
+  color: #fb6a4a;
 }
 .policy-mode-headline-breakdown .storage {
   color: #8c6bb1;
@@ -138,27 +165,61 @@ limitations under the License.
   margin-bottom: 0;
 }
 
+/* Policy mode UI controls */
+
+.policy-presets-container {
+  margin-top: 40px;
+}
+
+.policy-controls {
+  margin-top: 24px;
+}
+
+#policy-mode .mode-switch-controls {
+  /* Use a much smaller leading than other mode pages because of the ragged
+  (vertically) set of controls leaves a larger vertical gap in the current
+  layout */
+  margin-top: 12px;
+}
+
+.policy-controls-row {
+  display: flex;
+  display: -webkit-flex;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+}
+
+.policy-controls-option {
+  width: 220px;
+  min-height: 60px;
+}
+
+.policy-controls-option .option-title {
+  display: block;
+  margin-top: 12px;
+}
+
+.policy-controls-option .mdl-radio {
+  margin-top: 4px;
+}
+
+/* Slider control specializations for policy mode */
+
+.policy-controls-option .slider-current-value {
+  margin-bottom: 0;
+  margin-top: 10px;
+  padding-top: 0;
+}
+
+.policy-controls-option.small-slider-label .slider-current-value {
+  width: 24px;
+}
+
 /* Energy source cost slider labels for {$,$$,$$$} */
+
 .horizontal-label-slider > div {
   display: inline-block;
   width: 45%;
-}
-
-#policy-mode h3 {
-  font-size: 18pt;
-  margin-left: 0;
-}
-
-#policy-mode h4 {
-  font-size: 14pt;
-  margin-bottom: 0;
-  margin-top: 20pt;
-}
-
-#policy-mode h4:first-child {
-  margin-top: 0;
-}
-
-.policy-mode-hero-box h2 {
-  margin-top: 0px;
 }

@@ -18,15 +18,69 @@ limitations under the License.
  * Comparison mode
  */
 
-.compare-cell {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 14pt;
+.compare-hero-box {
+  margin-top: 12px;
+}
+.compare-presets-container {
+  margin-top: 40px;
 }
 
-.compare-cell-header {
-  font-size: 14pt;
+.compare-table {
+  width: 100%;
+  text-align: left;
+}
+.compare-table th {
+  font-weight: bold;
   text-transform: uppercase;
-  color: rgba(0, 0, 0, .87);
+  color: rgba(0, 0, 0, .67);
+}
+.compare-table th,
+.compare-table td {
+  padding-top: 18px;
+}
+
+.compare-table-column-title {
+  font-size: 14pt;
+  line-height: 1.8;
+  color: rgba(0, 0, 0, .67);
+  /*text-transform: uppercase;*/
+}
+
+.compare-table-section-title {
+  margin-top: 36px;
+  font-size: 14pt;
+  line-height: 1.8;
+  text-align: left;
+}
+
+.compare-table-cell {
+  font-size: 12pt;
+}
+
+/* make the donut chart inner title like the other table titles */
+#compare-mode .c3-chart-arcs-title {
+  text-transform: uppercase;
+  fill: rgba(0,0,0,.31);
+  font-weight: bold;
+}
+
+.compare-cell-units {
+  color: rgba(0, 0, 0, .31);
+}
+
+/* Comparison mode controls */
+
+.compare-presets-container .preset-container {
+  margin-top: 16px;
+}
+
+/* Share your policy widget */
+
+.share-link-holder {
+  width: 400px;
+  font-size: 8pt;
+}
+
+.share-link-container {
+  margin-top: 24px;
 }

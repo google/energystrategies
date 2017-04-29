@@ -19,23 +19,29 @@ limitations under the License.
  *
  */
 
-
 /* Energy source allocation sliders */
 
 .utility-source-legend-tile {
   position: relative;
   top: 2px;
-  width: 14px;
-  height: 14px;
+  width: 16px;
+  height: 16px;
   float: left;
 }
 
 .utility-source-legend-label {
-  margin-left: 8px;
+  margin-left: 16px;
+}
+.utility-source-legend-label .ccs {
+  display: none;
+}
+.utility-source-legend-label .ccs.on {
+  display: inline;
 }
 
 /* Wind slider */
-.option.wind .utility-source-legend-tile-wind,
+
+.option.wind .utility-source-legend-tile,
 .option.wind .mdl-slider__background-lower {
   background-color: #41b6c4;
 }
@@ -50,6 +56,7 @@ limitations under the License.
 }
 
 /* Solar slider */
+
 .option.solar .utility-source-legend-tile,
 .option.solar .mdl-slider__background-lower {
   background-color: #FFD600;
@@ -65,6 +72,7 @@ limitations under the License.
 }
 
 /* Nuclear slider */
+
 .option.nuclear .utility-source-legend-tile,
 .option.nuclear .mdl-slider__background-lower {
   background-color: #a1dab4;
@@ -80,6 +88,7 @@ limitations under the License.
 }
 
 /* Natural gas slider */
+
 .option.ng .utility-source-legend-tile,
 .option.ng .mdl-slider__background-lower
 {
@@ -96,6 +105,7 @@ limitations under the License.
 }
 
 /* Coal slider */
+
 .option.coal .utility-source-legend-tile,
 .option.coal .mdl-slider__background-lower
 {
@@ -113,17 +123,32 @@ limitations under the License.
 
 /* Energy generation summary */
 
-.utility-outcome-summary h2,
-.utility-outcome-summary h3 {
-  float: left;
+.utility-outcome-summary.unmet {
+  opacity: .2;
+}
+
+.utility-outcome-section {
+   display: -webkit-flex;
+   display: flex;
+   -webkit-flex-direction: row;
+   flex-direction: row;
+}
+
+.utility-outcome-section.head {
+  margin-top: -2px;
+}
+
+.utility-outcome-section h2 {
+  margin-top: 0;
 }
 
 .utility-outcome-summary h3 {
-  margin-top: 28px;
+  margin-top: 4px;
   margin-left: 20px;
 }
 
 /* Unmet demand warning default appearance. */
+
 .utility-outcome-summary-unmet {
   display: none;
   margin-top: 24px;
@@ -132,6 +157,49 @@ limitations under the License.
 }
 
 /* Unmet demand warning overrides to apply when unmet demand exists. */
+
 .utility-outcome-summary-unmet.unmet {
   display: block;
+}
+
+.utility-outcome-summary-unmet p,
+.utility-outcome-summary-unmet h2 {
+  color: #f44336;
+}
+.utility-outcome-summary-unmet p {
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.utility-mode-goal-progress {
+  margin-bottom: 16px;
+}
+
+.utility-controls-row {
+  display: flex;
+  display: -webkit-flex;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+}
+
+.utility-controls-option {
+  width: 220px;
+  margin-top: 24px;
+}
+
+.utility-controls-option .option-label {
+  display:block;
+}
+
+/* Leadings for main flow elements */
+
+.utility-hero-box,
+.utility-presets-container {
+  margin-top: 40px;
+}
+
+.utility-controls {
+  margin-top: 24px;
 }

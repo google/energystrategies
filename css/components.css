@@ -20,6 +20,28 @@ limitations under the License.
 
 /* Sliders */
 
+.slider-control-container {
+  display: flex;
+  display: -webkit-flex;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  text-align: center;
+}
+
+.slider-container {
+  width: 100%;
+}
+
+.slider-current-value {
+  color: rgba(0,0,0,.36);
+  font-size: 11px;
+  margin: 10px 4px 0 0;
+  text-align: left;
+  width: 36px;
+}
+
 .slider-tick-container {
   display: -webkit-flex;
   display: flex;
@@ -27,6 +49,9 @@ limitations under the License.
   margin-right: 0%;
   /* Note: the spacing is derived from and matches the mdl-slider track */
   width: 100%;
+  /* TODO: remove the slider tick DOM elements if no longer needed,
+  then this rule can be dropped */
+  display: none;
 }
 
 .slider-tick-value {
@@ -53,7 +78,7 @@ limitations under the License.
 }
 
 .mdl-slider__container {
-  margin-top: 16px;
+  margin-top: 8px;
 }
 
 /* Style overrides for c3.js visualizations */
