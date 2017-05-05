@@ -113,7 +113,7 @@ limitations under the License.
 
 .policy-mode-headline-breakdown tbody td {
   text-align: right;
-  color: rgba(0, 0, 0, .37);
+  color: rgba(0, 0, 0, .6);
   text-transform: uppercase;
 }
 
@@ -175,10 +175,7 @@ limitations under the License.
   margin-top: 24px;
 }
 
-#policy-mode .mode-switch-controls {
-  /* Use a much smaller leading than other mode pages because of the ragged
-  (vertically) set of controls leaves a larger vertical gap in the current
-  layout */
+.policy-controls-toggle  {
   margin-top: 12px;
 }
 
@@ -209,8 +206,24 @@ limitations under the License.
 
 .policy-controls-option .slider-current-value {
   margin-bottom: 0;
-  margin-top: 10px;
-  padding-top: 0;
+  margin-top: 0;
+  padding-top: 1px;
+}
+
+.mdl-slider__container {
+  margin-top: 0;
+}
+
+.policy-slider {
+  margin-top: 16px;
+}
+
+.policy-cost-slider {
+  margin-top: 16px;
+}
+
+.policy-cost-slider .slider-current-value {
+  width: 120px;
 }
 
 .policy-controls-option.small-slider-label .slider-current-value {

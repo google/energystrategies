@@ -156,7 +156,7 @@ limitations under the License.
                   This energy source emits no CO2 but is highly dependent on time of day, weather,
                   and seasons.
                 </span>
-                <div id="solar-slider"></div>
+                <div id="solar-slider" class="utility-slider"></div>
               </div>
               <div class="utility-controls-option option nuclear">
                 <div>
@@ -169,7 +169,7 @@ limitations under the License.
                   This source produces a constant amount of power and cannot dynamically adapt to
                   changes in demand.
                 </span>
-                <div id="nuclear-slider"></div>
+                <div id="nuclear-slider" class="utility-slider"></div>
               </div>
               <div class="utility-controls-option option wind">
                 <div>
@@ -181,7 +181,7 @@ limitations under the License.
                     for="tooltip-launcher-utility-wind">
                   This energy source emits no CO2 but is highly dependent on weather.
                 </span>
-                <div id="wind-slider"></div>
+                <div id="wind-slider" class="utility-slider"></div>
               </div>
             </div>
             <div class="utility-controls-row">
@@ -197,7 +197,7 @@ limitations under the License.
                     for="tooltip-launcher-utility-ng">
                   This source can quickly ramp up-and-down to meet demand.
                 </span>
-                <div id="ng-slider"></div>
+                <div id="ng-slider" class="utility-slider"></div>
               </div>
               <div class="utility-controls-option option coal">
                 <div>
@@ -211,7 +211,7 @@ limitations under the License.
                     for="tooltip-launcher-utility-coal">
                   This energy source is a standard coal plant.
                 </span>
-                <div id="coal-slider"></div>
+                <div id="coal-slider" class="utility-slider"></div>
               </div>
               <div class="utility-controls-option option">
                 <label class="option-label">
@@ -446,51 +446,41 @@ limitations under the License.
                   to “clean” energy in the buttons below.
                 </span>
               </label>
-              <div id="ces-slider"></div>
+              <div id="ces-slider" class="policy-slider"></div>
               <!-- CCS is clean? -->
-              <label class="option-title">
-                Is CCS clean energy?
-                <i id="tooltip-launcher-policy-ccs-is-clean-energy" class="material-icons info">info_outline</i>
-                <span class="tooltip mdl-tooltip mdl-tooltip--top"
-                    for="tooltip-launcher-policy-ccs-is-clean-energy">
-                  Should fossil fuel energy sources that capture carbon
-                  emissions be allowed to contribute towards the clean energy
-                  fraction goal?
+              <label class="policy-controls-toggle mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-ccs-is-clean">
+                <input type="checkbox" id="checkbox-ccs-is-clean" class="mdl-checkbox__input">
+                <span class="mdl-checkbox__label suboption-title">
+                  Clean energy includes CCS
+                  <i id="tooltip-launcher-policy-ccs-is-clean-energy" class="material-icons info">info_outline</i>
+                  <span class="tooltip mdl-tooltip mdl-tooltip--top"
+                      for="tooltip-launcher-policy-ccs-is-clean-energy">
+                    Should fossil fuel energy sources that capture carbon
+                    emissions be allowed to contribute towards the clean energy
+                    fraction goal?
 
-                  Note that CCS-based sources can capture about
-                  90% of their source emissions.Is nuclear clean energy?
+                    Note that CCS-based sources can capture about
+                    90% of their source emissions.
+                  </span>
                 </span>
-              </label>
-              <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="ccs-is-clean-energy-true">
-                <input type="radio" id="ccs-is-clean-energy-true" class="mdl-radio__button" name="ccs-is-clean-energy" value="1" checked>
-                <span class="mdl-radio__label">Yes</span>
-              </label>
-              <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="ccs-is-clean-energy-false">
-                <input type="radio" id="ccs-is-clean-energy-false" class="mdl-radio__button" name="ccs-is-clean-energy" value="0">
-                <span class="mdl-radio__label">No</span>
               </label>
               <!-- Nuclear is clean? -->
-              <label class="option-title">
-                Is nuclear clean energy?
-                <i id="tooltip-launcher-policy-nuclear-is-clean-energy" class="material-icons info">info_outline</i>
-                <span class="tooltip mdl-tooltip mdl-tooltip--top"
-                    for="tooltip-launcher-policy-nuclear-is-clean-energy">
-                  Should nuclear energy sources be allowed to contribute towards
-                  the clean energy fraction goal?
+              <label class="policy-controls-toggle  mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-nuclear-is-clean">
+                <input type="checkbox" id="checkbox-nuclear-is-clean" class="mdl-checkbox__input">
+                <span class="mdl-checkbox__label suboption-title">
+                  Clean energy includes nuclear
+                  <i id="tooltip-launcher-policy-nuclear-is-clean-energy" class="material-icons info">info_outline</i>
+                  <span class="tooltip mdl-tooltip mdl-tooltip--top"
+                      for="tooltip-launcher-policy-nuclear-is-clean-energy">
+                    Should nuclear energy sources be allowed to contribute towards
+                    the clean energy fraction goal?
 
-                  Although nuclear energy is
-                  also a zero-carbon energy source, not all clean energy
-                  fraction policies allow nuclear energy to contribute towards
-                  meeting zero-carbon energy generation goals.
+                    Although nuclear energy is
+                    also a zero-carbon energy source, not all clean energy
+                    fraction policies allow nuclear energy to contribute towards
+                    meeting zero-carbon energy generation goals.
+                  </span>
                 </span>
-              </label>
-              <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="nuclear-is-clean-energy-true">
-                <input type="radio" id="nuclear-is-clean-energy-true" class="mdl-radio__button" name="nuclear-is-clean-energy" value="1" checked>
-                <span class="mdl-radio__label">Yes</span>
-              </label>
-              <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="nuclear-is-clean-energy-false">
-                <input type="radio" id="nuclear-is-clean-energy-false" class="mdl-radio__button" name="nuclear-is-clean-energy" value="0">
-                <span class="mdl-radio__label">No</span>
               </label>
             </div>
             <div class="policy-controls-option option">
@@ -509,171 +499,52 @@ limitations under the License.
                   build with cleaner power sources, albeit at additional cost.
                 </span>
               </label>
-              <div id="carbon-tax-slider"></div>
+              <div id="carbon-tax-slider" class="policy-slider"></div>
               <!-- Storage on/off -->
-              <label class="option-title">
-                Energy storage
-                <i id="tooltip-launcher-policy-storage-is-allowed" class="material-icons info">info_outline</i>
-                <div class="tooltip mdl-tooltip mdl-tooltip--top"
-                    for="tooltip-launcher-policy-storage-is-allowed">
-                  <p>
-                  If energy storage is allowed, then the simulation is allowed
-                  to build energy storage capacity as necessary.
+              <label class="policy-controls-toggle  mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-storage-is-allowed">
+                <input type="checkbox" id="checkbox-storage-is-allowed" class="mdl-checkbox__input" checked>
+                <span class="mdl-checkbox__label suboption-title">
+                  Allow energy storage
+                  <i id="tooltip-launcher-policy-storage-is-allowed" class="material-icons info">info_outline</i>
+                  <span class="tooltip mdl-tooltip mdl-tooltip--top"
+                      for="tooltip-launcher-policy-storage-is-allowed">
+                    If energy storage is allowed, then the simulation is allowed
+                    to build energy storage capacity as necessary.
 
-                  <p>
-                  Storage is
-                  useful for storing energy when there is an excess and putting
-                  it back on the grid when there is high demand.
-                </div>
-              </label>
-              <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect"
-                  for="storage-is-allowed-true">
-                <input type="radio"
-                    id="storage-is-allowed-true"
-                    class="mdl-radio__button"
-                    name="storage-is-allowed"
-                    value="1"
-                    checked>
-                <span class="mdl-radio__label">Allow</span>
-              </label>
-              <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect"
-                  for="storage-is-allowed-false">
-                <input type="radio"
-                    id="storage-is-allowed-false"
-                    class="mdl-radio__button"
-                    name="storage-is-allowed"
-                    value="0">
-                <span class="mdl-radio__label">Disallow</span>
-              </label>
-              <!-- Nuclear on/off -->
-              <label class="option-title">
-                Is nuclear energy allowed?
-                <i id="tooltip-launcher-policy-nuclear-is-allowed" class="material-icons info">info_outline</i>
-                <span class="tooltip mdl-tooltip mdl-tooltip--top"
-                    for="tooltip-launcher-policy-nuclear-is-allowed">
-                  Allow nuclear power in the simulation or disallow it
-                  completely?
+                    Storage is
+                    useful for storing energy when there is an excess and putting
+                    it back on the grid when there is high demand.
+                  </span>
                 </span>
               </label>
-              <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="nuclear-is-allowed-true">
-                <input type="radio" id="nuclear-is-allowed-true" class="mdl-radio__button" name="nuclear-is-allowed" value="1" checked>
-                <span class="mdl-radio__label">Allow</span>
-              </label>
-              <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="nuclear-is-allowed-false">
-                <input type="radio" id="nuclear-is-allowed-false" class="mdl-radio__button" name="nuclear-is-allowed" value="0">
-                <span class="mdl-radio__label">Disallow</span>
+              <!-- Nuclear on/off -->
+              <label class="policy-controls-toggle  mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-nuclear-is-allowed">
+                <input type="checkbox" id="checkbox-nuclear-is-allowed" class="mdl-checkbox__input" checked>
+                <span class="mdl-checkbox__label suboption-title">
+                  Allow nuclear power
+                  <i id="tooltip-launcher-policy-nuclear-is-allowed" class="material-icons info">info_outline</i>
+                  <span class="tooltip mdl-tooltip mdl-tooltip--top"
+                      for="tooltip-launcher-policy-nuclear-is-allowed">
+                    Allow nuclear power in the simulation or disallow it
+                    completely?
+                  </span>
+                </span>
               </label>
             </div>
             <!-- Policy costs -->
-            <div class="policy-controls-option option small-slider-label">
-              <!-- NG cost -->
+            <div class="policy-controls-option option">
               <label class="option-title">
-                Natural gas cost
-                <i id="tooltip-launcher-policy-ng-cost" class="material-icons info">info_outline</i>
+                Energy generation costs
+                <i id="tooltip-launcher-policy-energy-costs" class="material-icons info">info_outline</i>
                 <span class="tooltip mdl-tooltip mdl-tooltip--top"
-                    for="tooltip-launcher-policy-ng-cost">
-                  The cost of natural gas fuel ($USD/MWh):
-                  <ul class="tooltip-definition-list">
-                    <li>
-                      <span class="tooltip-definition-symbol">$</span>
-                      <span class="tooltip-definition-arrow">→</span>
-                      <span class="tooltip-definition-value">$X</span>
-                    </li>
-                    <li>
-                      <span class="tooltip-definition-symbol">$$</span>
-                      <span class="tooltip-definition-arrow">→</span>
-                      <span class="tooltip-definition-value">$Y</span>
-                    </li>
-                    <li>
-                      <span class="tooltip-definition-symbol">$$$</span>
-                      <span class="tooltip-definition-arrow">→</span>
-                      <span class="tooltip-definition-value">$Z</span>
-                    </li>
-                  </ul>
+                    for="tooltip-launcher-policy-energy-costs">
+                    Use the sliders below to specify energy generation costs.
                 </span>
               </label>
-              <div id="ng-cost-slider"></div>
-              <!-- Nuclear cost -->
-              <label class="option-title">
-                Nuclear plant cost
-                <i id="tooltip-launcher-policy-nuclear-cost" class="material-icons info">info_outline</i>
-                <span class="tooltip mdl-tooltip mdl-tooltip--top"
-                    for="tooltip-launcher-policy-nuclear-cost">
-                  The cost of nuclear plant capacity ($USD/MW):
-                  <ul class="tooltip-definition-list">
-                    <li>
-                      <span class="tooltip-definition-symbol">$</span>
-                      <span class="tooltip-definition-arrow">→</span>
-                      <span class="tooltip-definition-value">$X</span>
-                    </li>
-                    <li>
-                      <span class="tooltip-definition-symbol">$$</span>
-                      <span class="tooltip-definition-arrow">→</span>
-                      <span class="tooltip-definition-value">$Y</span>
-                    </li>
-                    <li>
-                      <span class="tooltip-definition-symbol">$$$</span>
-                      <span class="tooltip-definition-arrow">→</span>
-                      <span class="tooltip-definition-value">$Z</span>
-                    </li>
-                  </ul>
-                </span>
-              </label>
-              <div id="nuclear-cost-slider"></div>
-              <!-- Solar cost -->
-              <label class="option-title">
-                Solar farm cost
-                <i id="tooltip-launcher-policy-solar-cost" class="material-icons info">info_outline</i>
-                <span class="tooltip mdl-tooltip mdl-tooltip--top"
-                    for="tooltip-launcher-policy-solar-cost">
-                  The cost of solar farm capacity ($USD/MW):
-                  <ul class="tooltip-definition-list">
-                    <li>
-                      <span class="tooltip-definition-symbol">$</span>
-                      <span class="tooltip-definition-arrow">→</span>
-                      <span class="tooltip-definition-value">$X</span>
-                    </li>
-                    <li>
-                      <span class="tooltip-definition-symbol">$$</span>
-                      <span class="tooltip-definition-arrow">→</span>
-                      <span class="tooltip-definition-value">$Y</span>
-                    </li>
-                    <li>
-                      <span class="tooltip-definition-symbol">$$$</span>
-                      <span class="tooltip-definition-arrow">→</span>
-                      <span class="tooltip-definition-value">$Z</span>
-                    </li>
-                  </ul>
-                </span>
-              </label>
-              <div id="solar-cost-slider"></div>
-              <!-- Wind cost -->
-              <label class="option-title">
-                Wind farm cost
-                <i id="tooltip-launcher-policy-wind-cost" class="material-icons info">info_outline</i>
-                <span class="tooltip mdl-tooltip mdl-tooltip--top"
-                    for="tooltip-launcher-policy-wind-cost">
-                  The cost of wind farm capacity ($USD/MW):
-                  <ul class="tooltip-definition-list">
-                    <li>
-                      <span class="tooltip-definition-symbol">$</span>
-                      <span class="tooltip-definition-arrow">→</span>
-                      <span class="tooltip-definition-value">$X</span>
-                    </li>
-                    <li>
-                      <span class="tooltip-definition-symbol">$$</span>
-                      <span class="tooltip-definition-arrow">→</span>
-                      <span class="tooltip-definition-value">$Y</span>
-                    </li>
-                    <li>
-                      <span class="tooltip-definition-symbol">$$$</span>
-                      <span class="tooltip-definition-arrow">→</span>
-                      <span class="tooltip-definition-value">$Z</span>
-                    </li>
-                  </ul>
-                </span>
-              </label>
-              <div id="wind-cost-slider"></div>
+              <div id="ng-cost-slider" class="policy-cost-slider"></div>
+              <div id="solar-cost-slider" class="policy-cost-slider"></div>
+              <div id="wind-cost-slider" class="policy-cost-slider"></div>
+              <div id="nuclear-cost-slider" class="policy-cost-slider"></div>
             </div>
           </div>
           <div class="mdl-cell mdl-cell--4-col">

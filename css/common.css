@@ -43,6 +43,12 @@ h3 {
   line-height: normal;
 }
 
+p {
+  margin-top: 12px;
+  line-height: 1.4;
+  font-size: 10pt;
+}
+
 a {
   color: #69a4e4;
   font-weight: normal;
@@ -52,8 +58,12 @@ a {
 /* MDL grid spacing and configuration */
 
 .mdl-grid {
-  padding: 8px 0;
-  margin: 36px 0 0 -12px;
+  padding: 0;
+  margin: 0 0 0 -12px;
+}
+
+.mdl-grid.mode-description {
+  margin-top: 0;
 }
 
 .mdl-cell {
@@ -72,6 +82,14 @@ a {
   font-size: 10pt;
 }
 
+.mdl-checkbox__label {
+  font-size: 10pt;
+}
+
+.suboption-title {
+  font-weight: normal;
+}
+
 .mdl-tabs__tab {
   padding-left: 0px;
 }
@@ -84,7 +102,13 @@ a {
 
 main {
   width: 1168px;
-  padding: 0 20px 0 92px;
+  /* Consume the remaining horizontal space on the right-hand-side
+  in order to push the vertical scroll bar to the right; otherwise
+  the scroll bar appears with a big whitespace margin between the
+  <main> element and the actual browser viewport rhs edge. The rhs padding
+  calculation allows for the vertical scroll bar to appear, as opposed to
+  being pushed off of the viewport. */
+  padding: 0 calc(100% - 1168px - 92px) 0 92px;
 }
 
 /* Main page header/banner */
@@ -104,6 +128,12 @@ main {
 .info {
   font-size: 11pt;
   vertical-align: middle;
+  cursor: help;
+}
+
+.mode-switch-controls {
+  margin-top: 40px;
+  margin-bottom: 160px;
 }
 
 /* UI Controls */
@@ -145,4 +175,58 @@ label {
 
 .preset.is-checked .mdl-icon-toggle__label {
   color: #fff;
+}
+
+.preset-container {
+  padding-left: 0;
+  margin-left: -5px;
+}
+
+/* Tooltips */
+
+.tooltip {
+    text-align: left;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 1.8;
+    background: rgba(66, 66, 66, .90);
+    max-width: 320px;
+    padding: 16px;
+}
+
+.tooltip-definition-list {
+  padding-left: 16px;
+}
+
+.tooltip-definition-list li {
+  display: flex;
+  display: -webkit-flex;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  list-style: none;
+  text-align: right;
+}
+
+.tooltip-definition-symbol {
+  width: 24px;
+  text-align: right;
+}
+
+.tooltip-definition-arrow {
+  text-align: center;
+}
+
+.tooltip-definition-value {
+  width: calc(100% - 60px);
+  text-align: left;
+}
+
+/* Icons */
+
+.title-icon {
+  font-size: 1.2em;
+  position: relative;
+  top: 4px;
 }

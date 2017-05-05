@@ -39,8 +39,11 @@ limitations under the License.
   display: inline;
 }
 
-/* Wind slider */
+.utility-slider {
+  margin-top: 8px;
+}
 
+/* Wind slider */
 .option.wind .utility-source-legend-tile,
 .option.wind .mdl-slider__background-lower {
   background-color: #41b6c4;
@@ -56,7 +59,6 @@ limitations under the License.
 }
 
 /* Solar slider */
-
 .option.solar .utility-source-legend-tile,
 .option.solar .mdl-slider__background-lower {
   background-color: #FFD600;
@@ -72,7 +74,6 @@ limitations under the License.
 }
 
 /* Nuclear slider */
-
 .option.nuclear .utility-source-legend-tile,
 .option.nuclear .mdl-slider__background-lower {
   background-color: #a1dab4;
@@ -88,7 +89,6 @@ limitations under the License.
 }
 
 /* Natural gas slider */
-
 .option.ng .utility-source-legend-tile,
 .option.ng .mdl-slider__background-lower
 {
@@ -105,7 +105,6 @@ limitations under the License.
 }
 
 /* Coal slider */
-
 .option.coal .utility-source-legend-tile,
 .option.coal .mdl-slider__background-lower
 {
@@ -122,7 +121,6 @@ limitations under the License.
 }
 
 /* Energy generation summary */
-
 .utility-outcome-summary.unmet {
   opacity: .2;
 }
@@ -148,7 +146,6 @@ limitations under the License.
 }
 
 /* Unmet demand warning default appearance. */
-
 .utility-outcome-summary-unmet {
   display: none;
   margin-top: 24px;
@@ -157,7 +154,6 @@ limitations under the License.
 }
 
 /* Unmet demand warning overrides to apply when unmet demand exists. */
-
 .utility-outcome-summary-unmet.unmet {
   display: block;
 }
