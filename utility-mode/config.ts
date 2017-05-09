@@ -14,20 +14,17 @@ limitations under the License.
 ==============================================================================*/
 
 
-// The baseline outcome for utility mode; California 2015.
+// The default state of the dataset selection and page controls.
 export const BASELINE: ScenarioOutcomeBreakdown<UtilityEnergySource> = {
-  cost: 104e9, // USD
-  co2: 57.0e6, // tonnes
-  energy: 282e6, // MWh
+  cost: 104e9, // $USD
+  co2: 57.0e6, // metric tonnes/year
+  energy: 280e6, // MWh/year
+  // Note: the per-energy source breakdown is currently not utilized by utility
+  // mode, but if required at some future point, the national-level breakdown
+  // would make sense here.
   breakdown: null,
 };
-
 export const POPULATION = 39.1e6; // California; Source: 2015 US Census.
-export const NON_DISPATCHABLE_ENERGY_SOURCES: UtilityEnergySource[] = [
-    'solar', 'wind', 'nuclear', 'coal'];
-export const DISPATCHABLE_ENERGY_SOURCES: UtilityEnergySource[] = ['ng'];
-export const ALL_ENERGY_SOURCES: UtilityEnergySource[] = (
-    DISPATCHABLE_ENERGY_SOURCES.concat(NON_DISPATCHABLE_ENERGY_SOURCES));
 
 // Fixed cost (capital + fixed) per MW of capacity by energy source.
 //
@@ -38,6 +35,8 @@ export const FIXED_COST: UtilityEnergySourceMap<number> = {
   wind: 2181533.,
   nuclear: 4667258.,
   coal: 3388939.,
+  ngccs: 1505159,
+  coalccs: 4559261.,
 };
 
 // Variable cost (including fuel) per MW-hour by energy source.
@@ -49,6 +48,8 @@ export const VARIABLE_COST: UtilityEnergySourceMap<number> = {
   solar: 0.0,
   wind: 0.0,
   coal: 23.3,
+  ngccs: 47.7,
+  coalccs: 42.9,
 };
 
 // Rate of CO2 creation for each energy source.
@@ -60,4 +61,64 @@ export const CO2_RATE: UtilityEnergySourceMap<number> = {
   solar: 0.0,
   wind: 0.0,
   coal: 0.8582,
+  ngccs: 0.0549,
+  coalccs: 0.1013,
 };
+
+// Pre-configured allocations that support the utility-mode preset buttons.
+export type UtilityPresetOption = 'NUCLEAR' | 'WIND' | 'SOLAR' | 'BALANCED';
+export const PRESET_ALLOCATIONS:
+    {[K in UtilityPresetOption]: ProfileAllocations} = {
+  // Nuclear-heavy.
+  NUCLEAR: {
+    solar: 0,
+    wind: 0,
+    ng: .53,
+    nuclear: .71,
+    coal: 0,
+    coalccs: 0,
+    ngccs: 0
+  },
+  // Wind-heavy.
+  WIND: {
+    solar: 0,
+    wind: .66,
+    ng: .76,
+    nuclear: 0,
+    coal: 0,
+    coalccs: 0,
+    ngccs: 0
+  },
+  // Solar-heavy.
+  SOLAR: {
+    solar: .5,
+    wind: 0,
+    ng: 1,
+    nuclear: 0,
+    coal: 0,
+    coalccs: 0,
+    ngccs: 0
+  },
+  // Balanced mix of energy sources.
+  BALANCED: {
+    solar: .19,
+    wind: .26,
+    ng: .50,
+    nuclear: .42,
+    coal: .1,
+    coalccs: 0,
+    ngccs: 0
+  },
+};
+
+// Categorization of energy sources by dispatch capability.
+export const NON_DISPATCHABLE_ENERGY_SOURCES: UtilityEnergySource[] = [
+    'solar', 'wind', 'nuclear', 'coal', 'coalccs'];
+export const DISPATCHABLE_ENERGY_SOURCES: UtilityEnergySource[] = [
+    'ng', 'ngccs'];
+export const ALL_ENERGY_SOURCES: UtilityEnergySource[] = (
+    DISPATCHABLE_ENERGY_SOURCES.concat(NON_DISPATCHABLE_ENERGY_SOURCES));
+// Not all energy sources have a corresponding slider directly controlling;
+// fossil fuel-based sources have multiple variants (ccs/non-ccs).
+export const SLIDER_ENERGY_SOURCES: UtilityEnergySource[] = [
+    'solar', 'wind', 'nuclear', 'coal', 'ng'];

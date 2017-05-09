@@ -27,19 +27,29 @@ describe('Get allocated energy profiles', () => {
       index: [0, 1, 2],
       units: 'MWh',
       series: {
-        demand: [10, 0, 20],
+        demand: [10, 0, 30],
         nuclear: [8, 8, 8],
         solar: [6, 2, 0],
         wind: [4, 8, 0],
         ng: [10, 10, 10],
         coal: [1, 1, 1],
-        supply: [8+6+4+10+1, 8+2+8+10+1, 8+0+0+10+1],
+        ngccs: [4, 4, 4],
+        coalccs: [4, 4, 4],
+        // Note: the supply series here is effectively the "max supply" series
+        // that would occur if supply never exceeded demand; i.e., no dispatch
+        // or excess energy is accounted for in the raw profiles, and thus the
+        // pre-allocation supply series is not necessarily <= demand
+        supply: [
+          8+6+4+10+1+4+4,
+          8+2+8+10+1+4+4,
+          8+0+0+10+1+4+4,
+        ],
         unmet: [0, 0, 0],
       }
     };
   });
 
-  it('when all allocations are non-zero', () => {
+  it('when all unique allocations are non-zero', () => {
     // Allocate half of each energy supply profile.
     const allocated = profiles.getAllocatedEnergyProfiles({
       nuclear: 0.5,
@@ -47,6 +57,9 @@ describe('Get allocated energy profiles', () => {
       wind: 0.5,
       ng: 0.5,
       coal: 0.5,
+      coalccs: 0,
+      // Note: ng and ngccs are mutually exclusive (both dispatchable sources).
+      ngccs: 0,
     }, profileData);
 
     // Verify that non-dispatchable energy supply profiles
@@ -64,12 +77,12 @@ describe('Get allocated energy profiles', () => {
     // There should only be unmet demand at the last time point.
     //
     // unmet[t] := demand[t] - non_dispatchables[t] - dispatchles[t]
-    expect(allocated.series.unmet).toEqual([0, 0, 20 - 4 - 5 - 0.5]);
+    expect(allocated.series.unmet).toEqual([0, 0, 30 - 4 - 5 - 0.5]);
 
     // Verify the pass-through attributes are unchanged.
     expect(allocated.index).toEqual([0, 1, 2]);
     expect(allocated.units).toEqual('MWh');
-    expect(allocated.series.demand).toEqual([10, 0, 20]);
+    expect(allocated.series.demand).toEqual([10, 0, 30]);
 
     // Verify that the total supply profile matches the sum of energy sources.
     expect(allocated.series.supply).toEqual([
@@ -86,10 +99,12 @@ describe('Get allocated energy profiles', () => {
       wind: 0,
       ng: 0,
       coal: 0,
+      coalccs: 0,
+      ngccs: 0,
     }, profileData);
 
     // The unmet profile should match the demand profile.
-    expect(allocated.series.unmet).toEqual([10, 0, 20]);
+    expect(allocated.series.unmet).toEqual([10, 0, 30]);
 
     // All energy supply profiles should be zeroed out.
     expect(allocated.series.nuclear).toEqual([0, 0, 0]);
@@ -99,7 +114,7 @@ describe('Get allocated energy profiles', () => {
     expect(allocated.series.coal).toEqual([0, 0, 0]);
     expect(allocated.series.supply).toEqual([0, 0, 0]);
 
-    expect(allocated.series.demand).toEqual([10, 0, 20]);
+    expect(allocated.series.demand).toEqual([10, 0, 30]);
     expect(allocated.units).toEqual('MWh');
     expect(allocated.index).toEqual([0, 1, 2]);
   });
@@ -111,6 +126,9 @@ describe('Get allocated energy profiles', () => {
       wind: 1,
       ng: 1,
       coal: 1,
+      coalccs: 1,
+      // Note: ng and ngccs are mutually exclusive (both dispatchable sources).
+      ngccs: 0,
     }, profileData);
 
     // All non-dispatchable energy profiles should match the originals.
@@ -118,19 +136,22 @@ describe('Get allocated energy profiles', () => {
     expect(allocated.series.solar).toEqual([6, 2, 0]);
     expect(allocated.series.wind).toEqual([4, 8, 0]);
     expect(allocated.series.coal).toEqual([1, 1, 1]);
+    expect(allocated.series.coalccs).toEqual([4, 4, 4]);
 
     // Dispatchable energy source capped by demand.
     //
     // dispatch[t] = demand[t] - avalable_dispath[t] - nondispatch[t]
     expect(allocated.series.ng).toEqual([0, 0, 10]);
+    // The ngccs source is also dispatchable, but zeroed in this case.
+    expect(allocated.series.ngccs).toEqual([0, 0, 0]);
 
     // Even with full allocation, there is unmet demand at the last time point.
-    expect(allocated.series.unmet).toEqual([0, 0, 1]);
+    expect(allocated.series.unmet).toEqual([0, 0, 7]);
 
     // Verify pass-through attributes are unchanged.
     expect(allocated.index).toEqual([0, 1, 2]);
     expect(allocated.units).toEqual('MWh');
-    expect(allocated.series.demand).toEqual([10, 0, 20]);
+    expect(allocated.series.demand).toEqual([10, 0, 30]);
   });
 
   it('when all non-dispatchables are zero', () => {
@@ -140,6 +161,8 @@ describe('Get allocated energy profiles', () => {
       wind: 0,
       ng: 1,
       coal: 0,
+      coalccs: 0,
+      ngccs: 0,  // Dispatchable, but mutually exclusive with ng source.
     }, profileData);
 
     // All non-dispatchable energy profiles should be zeroed out.
@@ -152,11 +175,24 @@ describe('Get allocated energy profiles', () => {
 
     // Verify pass-through attributes are unchanged.
     expect(allocated.index).toEqual([0, 1, 2]);
-    expect(allocated.series.demand).toEqual([10, 0, 20]);
+    expect(allocated.series.demand).toEqual([10, 0, 30]);
     expect(allocated.units).toEqual('MWh');
 
     // Even at full capacity ng cannot meet demand at last time point.
-    expect(allocated.series.unmet).toEqual([0, 0, 10]);
+    expect(allocated.series.unmet).toEqual([0, 0, 20]);
+  });
+
+  it('when mutually exclusive sources are allocated', () => {
+    // Currently, only a single dispatchable energy source is supported
+    // and allocating multiple dispatchable sources should result in an error.
+    expect(() => {
+      profiles.getAllocatedEnergyProfiles({
+        // Multiple dispatchables set to non-zero allocation.
+        ng: 1, ngccs: 1,
+        // All non-dispatchables set to zero.
+        nuclear: 0, solar: 0, wind: 0, coal: 0, coalccs: 0,
+      }, profileData);
+    }).toThrowError();
   });
 });
 
@@ -172,8 +208,10 @@ describe('Energy generation used for supplying demand', () => {
         solar: [6, 2, 0],
         wind: [4, 8, 0],
         coal: [0, 0, 0],
+        coalccs: [0, 0, 0],
         // Note that dispatch has already been taken into account here.
         ng: [10, 10, 10],
+        ngccs: [0, 0, 0],
         supply: [8+6+4+0+10, 8+2+8+0+10, 8+0+0+0+10],
         unmet: [0, 0, 0],
       }
@@ -203,8 +241,10 @@ describe('Energy generation used for supplying demand', () => {
         solar: [6, 2, 0],
         wind: [4, 8, 0],
         coal: [0, 0, 0],
+        coalccs: [0, 0, 0],
         // Note that dispatch has already been taken into account here.
         ng: [0, 0, 10],
+        ngccs: [0, 0, 0],
         supply: [8+6+4+0+0, 8+2+8+0+0, 8+0+0+0+10],
         unmet: [0, 0, 0],
       }
@@ -258,6 +298,8 @@ describe('Summarize energy profile', () => {
         wind: [4, 8, 0],
         ng: [10, 10, 10],
         coal: [0, 0, 0],
+        coalccs: [0, 0, 0],
+        ngccs: [0, 0, 0],
         supply: [8+6+4+10+0, 8+2+8+10+0, 8+0+0+10+0],
         unmet: [0, 0, 0],
       }
@@ -287,6 +329,8 @@ describe('Summarize energy profile', () => {
         wind: 0,
         ng: 0,
         coal: 0,
+        coalccs: 0,
+        ngccs: 0,
     }, profileData);
     const zeroed = profiles.summarize(zeroProfiles);
 
