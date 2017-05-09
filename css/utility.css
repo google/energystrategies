@@ -32,11 +32,15 @@ limitations under the License.
 .utility-source-legend-label {
   margin-left: 16px;
 }
-.utility-source-legend-label .ccs {
+
+/* Hide or show CCS-related detail elements depending on the page state */
+.option.coal .ccs-label,
+.option.ng .ccs-label {
   display: none;
 }
-.utility-source-legend-label .ccs.on {
-  display: inline;
+.option.coal.ccs .ccs-label,
+.option.ng.ccs .ccs-label {
+  display: inherit;
 }
 
 .utility-slider {
@@ -104,6 +108,22 @@ limitations under the License.
   background-color: #225ea8;
 }
 
+/* Natural gas with CCS slider */
+.option.ng.ccs .utility-source-legend-tile,
+.option.ng.ccs .mdl-slider__background-lower
+{
+  background-color: #1d91c0;
+}
+.option.ng.ccs input[type=range]::-webkit-slider-thumb {
+  background-color: #1d91c0;
+}
+.option.ng.ccs input[type=range]::-moz-range-thumb {
+  background-color: #1d91c0;
+}
+.option.ng.ccs input[type=range]::-ms-thumb {
+  background-color: #1d91c0;
+}
+
 /* Coal slider */
 .option.coal .utility-source-legend-tile,
 .option.coal .mdl-slider__background-lower
@@ -118,6 +138,22 @@ limitations under the License.
 }
 .option.coal input[type=range]::-ms-thumb {
   background-color: #cb181d;
+}
+
+/* Coal with CCS slider */
+.option.coal.ccs .utility-source-legend-tile,
+.option.coal.ccs .mdl-slider__background-lower
+{
+  background-color: #fb6a4a;
+}
+.option.coal.ccs input[type=range]::-webkit-slider-thumb {
+  background-color: #fb6a4a;
+}
+.option.coal.ccs input[type=range]::-moz-range-thumb {
+  background-color: #fb6a4a;
+}
+.option.coal.ccs input[type=range]::-ms-thumb {
+  background-color: #fb6a4a;
 }
 
 /* Energy generation summary */
@@ -198,4 +234,8 @@ limitations under the License.
 
 .utility-controls {
   margin-top: 24px;
+}
+
+.utility-controls-toggle {
+  margin: 8px 0 0 32px;
 }

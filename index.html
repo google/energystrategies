@@ -185,11 +185,11 @@ limitations under the License.
               </div>
             </div>
             <div class="utility-controls-row">
-              <div class="utility-controls-option option ng">
+              <div class="utility-controls-option option ng" id="utility-controls-option-ng">
                 <div>
                   <div class="utility-source-legend-tile"></div>
                   <label class="utility-source-legend-label">
-                    Natural gas <span class="ccs">+ CCS</span>
+                    Natural gas <span class="ccs-label">+ CCS</span>
                   </label>
                   <i id="tooltip-launcher-utility-ng" class="material-icons info">info_outline</i>
                 </div>
@@ -198,12 +198,18 @@ limitations under the License.
                   This source can quickly ramp up-and-down to meet demand.
                 </span>
                 <div id="ng-slider" class="utility-slider"></div>
+                <label class="utility-controls-toggle mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-utility-ng-ccs">
+                  <input type="checkbox" id="checkbox-utility-ng-ccs" class="mdl-checkbox__input">
+                  <span class="mdl-checkbox__label suboption-title">
+                    Enable CCS
+                  </span>
+                </label>
               </div>
-              <div class="utility-controls-option option coal">
+              <div class="utility-controls-option option coal" id="utility-controls-option-coal">
                 <div>
                   <div class="utility-source-legend-tile"></div>
                   <label class="utility-source-legend-label">
-                    Coal <span class="ccs">+ CCS</span>
+                    Coal <span class="ccs-label">+ CCS</span>
                   </label>
                   <i id="tooltip-launcher-utility-coal" class="material-icons info">info_outline</i>
                 </div>
@@ -212,37 +218,14 @@ limitations under the License.
                   This energy source is a standard coal plant.
                 </span>
                 <div id="coal-slider" class="utility-slider"></div>
-              </div>
-              <div class="utility-controls-option option">
-                <label class="option-label">
-                  Carbon capture
-                  <i id="tooltip-launcher-utility-ccs" class="material-icons info">info_outline</i>
-                </label>
-                <span class="tooltip mdl-tooltip mdl-tooltip--top"
-                    for="tooltip-launcher-utility-ccs">
-                  This option enables or disables capturing most of the CO2 from
-                  coal and natural gas, at some cost.
-                </span>
-                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect"
-                    for="utility-uses-ccs-true">
-                  <input type="radio"
-                      id="utility-uses-ccs-true"
-                      class="mdl-radio__button"
-                      name="utility-uses-ccs"
-                      value="1">
-                  <span class="mdl-radio__label">Enable</span>
-                </label>
-                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect"
-                    for="utility-uses-ccs-false">
-                  <input type="radio"
-                      id="utility-uses-ccs-false"
-                      class="mdl-radio__button"
-                      name="utility-uses-ccs"
-                      value="0"
-                      checked>
-                  <span class="mdl-radio__label">Disable</span>
+                <label class="utility-controls-toggle mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-utility-coal-ccs">
+                  <input type="checkbox" id="checkbox-utility-coal-ccs" class="mdl-checkbox__input">
+                  <span class="mdl-checkbox__label suboption-title">
+                    Enable CCS
+                  </span>
                 </label>
               </div>
+              <div class="utility-controls-option option"></div>
             </div>
           </div>
           <div class="mdl-cell mdl-cell--4-col">
