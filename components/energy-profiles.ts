@@ -51,7 +51,9 @@ const DEFAULT_CONFIG: ChartOptions = {
     wind: style.COLORS.WIND,
     nuclear: style.COLORS.NUCLEAR,
     ng: style.COLORS.NG,
+    ngccs: style.COLORS.NGCCS,
     coal: style.COLORS.COAL,
+    coalccs: style.COLORS.COALCCS,
     demand: style.COLORS.DEMAND,
     excess: style.COLORS.EXCESS,
     patternBackground: style.COLORS.EXCESS_LIGHT,
@@ -63,11 +65,13 @@ const DEFAULT_CONFIG: ChartOptions = {
     wind: 'wind-consumed',
     nuclear: 'nuclear-consumed',
     ng: 'ng-consumed',
+    ngccs: 'ngccs-consumed',
     coal: 'coal-consumed',
+    coalccs: 'coalccs-consumed',
     demand: 'demand-primary',
     excess: 'excess-primary',
   },
-  stackingOrder: ['coal', 'nuclear', 'solar', 'wind', 'ng'],
+  stackingOrder: ['coal', 'coalccs', 'nuclear', 'solar', 'wind', 'ng', 'ngccs'],
 };
 
 /**

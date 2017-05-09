@@ -53,6 +53,8 @@ describe('EnergyProfileChart', () => {
           nuclear: [2, 2, 2],
           ng: [5, 0, 6],
           coal: [0, 0, 0],
+          coalccs: [0, 0, 0],
+          ngccs: [0, 0, 0],
         }
       },
 
@@ -68,6 +70,8 @@ describe('EnergyProfileChart', () => {
           nuclear: {cost: 0, energy: 0},
           ng: {cost: 0, energy: 0},
           coal: {cost: 0, energy: 0},
+          coalccs: {cost: 0, energy: 0},
+          ngccs: {cost: 0, energy: 0},
         }
       },
       population: 1000,
@@ -213,7 +217,9 @@ describe('Excess marker layout', () => {
         wind: null,
         coal: null,
         nuclear: null,
-        ng: null
+        ng: null,
+        coalccs: null,
+        ngccs: null,
       }
     };
   });
