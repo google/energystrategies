@@ -37,9 +37,9 @@ limitations under the License.
   <div class="mdl-layout__drawer">
     <span class="mdl-layout-title">Appendix</span>
     <nav class="mdl-navigation">
-      <a class="mdl-navigation__link" href="">Learn more</a>
-      <a class="mdl-navigation__link" href="">See the data</a>
-      <a class="mdl-navigation__link" href="">Get the code</a>
+      <a class="mdl-navigation__link mdl-tabs__tab" href="" id="go-to-about-appendix">Learn more</a>
+      <a class="mdl-navigation__link mdl-tabs__tab" href="" id="go-to-data-appendix">See the data</a>
+      <a class="mdl-navigation__link mdl-tabs__tab" href="" id="go-to-code-appendix">Get the code</a>
     </nav>
   </div>
   <!-- Main page content region -->
@@ -86,15 +86,15 @@ limitations under the License.
               <div class="utility-outcome-section">
                 <h2>
                   Cost impact
-                  <i id="tooltip-launcher-utility-cost" class="material-icons info">info_outline</i>
                 </h2>
                 <h3>
                   <span id="utility-mode-cost"></span>
                   USD/MWh
+                  <i id="tooltip-launcher-utility-cost" class="material-icons info">info_outline</i>
                 </h3>
                 <span class="tooltip mdl-tooltip mdl-tooltip--top"
                     for="tooltip-launcher-utility-cost">
-                  The total cost for a megawatt-hour of electricity (the amount
+                  The total cost to generate a megawatt-hour (MWh) of electricity (the amount
                   a typical household uses in a month).
                 </span>
               </div>
@@ -273,7 +273,7 @@ limitations under the License.
                     for="tooltip-launcher-policy-co2">
                   Your policy choices will affect how much it costs to generate
                   a megawatt-hour of electricity (an amount a typical household
-                  uses in a  month) and the corresponding CO2 emissions.
+                  uses in a month) and the corresponding CO2 emissions.
                 </span>
               </div>
             </div>
@@ -302,6 +302,11 @@ limitations under the License.
                   <div class="eq-value-value" id="policy-mode-cost-eq-total">$Y</div>
                   <div class="eq-value-description">
                     Cost of electricity generation (1 MWh)
+                    <i id="tooltip-launcher-policy-mwh" class="material-icons info">info_outline</i>
+                    <span class="tooltip mdl-tooltip mdl-tooltip--top" for="tooltip-launcher-policy-mwh">
+                      A typical household uses ~1 megawatt-hour (MWh) of
+                      electricity each month.
+                    </span>
                   </div>
                 </div>
               </div>
@@ -693,6 +698,154 @@ limitations under the License.
           </a>
         </div>
       </div> <!-- compare mode -->
+      <!-- Aux mode -->
+      <div class="mdl-tabs__panel" id="aux-mode">
+        <a href="#about-appendix" class="mdl-tabs__tab">
+          <button id="go-to-about-appendix-button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+            About
+          </button>
+        </a>
+        <a href="#data-appendix" class="mdl-tabs__tab">
+          <button id="go-to-data-appendix-button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+            Data
+          </button>
+        </a>
+        <a href="#code-appendix" class="mdl-tabs__tab">
+          <button id="go-to-code-appendix-button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+            Code
+          </button>
+        </a>
+      </div>
+      <!-- About appendix -->
+      <div class="mdl-tabs__panel appendix" id="about-appendix">
+        <div class="appendix-return-controls">
+          <a href="#utility-mode" class="mdl-tabs__tab aux-back-button">
+            <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+              Go back to tool
+            </button>
+          </a>
+        </div>
+        <h1>Learn more</h1>
+        <div class="mdl-grid">
+          <div class="mdl-cell mdl-cell--8-col">
+            <div class="appendix-hero">
+              <div class="appendix-hero-placeholder">
+                Image
+              </div>
+              <p class="appendix-hero-caption">
+                Caption for image, chart or figure above goes here.
+              </p>
+            </div>
+          </div>
+          <div class="mdl-cell mdl-cell--4-col">
+          </div>
+        </div>
+        <div class="mdl-grid">
+          <div class="mdl-cell mdl-cell--8-col">
+            <h2>Lorem ipsum dolor sit amet</h2>
+            <p>Praesent ut posuere nunc. Etiam nec ipsum et odio faucibus mollis ac quis sem. Mauris quis enim sollicitudin, cursus justo vitae, mollis neque. Proin non quam eget enim lobortis sollicitudin quis vitae felis. Donec bibendum pharetra nibh, ut scelerisque sem cursus volutpat. Suspendisse at venenatis est. Donec non libero laoreet, tincidunt risus id, tincidunt dolor. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur sollicitudin arcu eget purus efficitur volutpat vitae sodales urna.
+            <h2>Lorem ipsum dolor sit amet</h2>
+            <p>Sed dignissim, sem gravida porta rhoncus, justo enim commodo magna, nec lobortis augue mauris et mauris. Duis quis nulla nibh. In luctus ex in diam egestas, vel convallis dui tempus. Nunc egestas libero tortor, eu varius orci sodales eget. Maecenas nisi quam, scelerisque sit amet arcu ut, vulputate pulvinar sem. Suspendisse aliquet lacinia rhoncus. Suspendisse sit amet semper lectus. Praesent molestie ipsum ac lorem tempus, id malesuada libero faucibus. Integer aliquet accumsan magna, quis malesuada mi hendrerit sed. In varius, lorem nec molestie ullamcorper, quam est egestas sapien, sit amet volutpat risus velit et justo. Nam eget nisl tincidunt, dictum mauris non, ullamcorper diam. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Duis sed feugiat ex, et fermentum augue. Sed ut eros lorem. In finibus nisi sed dignissim mollis.
+          </div>
+          <div class="mdl-cell mdl-cell--4-col">
+          </div>
+        </div>
+        <div class="mode-switch-controls">
+          <a href="#utility-mode" class="mdl-tabs__tab aux-back-button">
+            <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+              Go back to tool
+            </button>
+          </a>
+        </div>
+      </div>
+      <!-- Data appendix -->
+      <div class="mdl-tabs__panel appendix" id="data-appendix">
+        <div class="appendix-return-controls">
+          <a href="#utility-mode" class="mdl-tabs__tab aux-back-button">
+            <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+              Go back to tool
+            </button>
+          </a>
+        </div>
+        <h1>See the data</h1>
+        <div class="mdl-grid">
+          <div class="mdl-cell mdl-cell--8-col">
+            <div class="appendix-hero">
+              <div class="appendix-hero-placeholder">
+                Chart
+              </div>
+              <p class="appendix-hero-caption">
+                Caption for image, chart or figure above goes here.
+              </p>
+            </div>
+          </div>
+          <div class="mdl-cell mdl-cell--4-col">
+          </div>
+        </div>
+        <div class="mdl-grid">
+          <div class="mdl-cell mdl-cell--8-col">
+            <!-- TODO: placeholder replace text -->
+            <h2>Lorem ipsum dolor sit amet</h2>
+            <p>Donec in pellentesque ante. Nulla et maximus mi. Sed viverra nec enim blandit lobortis. Donec a pellentesque lectus. Integer placerat, justo nec volutpat commodo, lacus nulla vulputate tortor, sed suscipit enim arcu sit amet nisi. Etiam feugiat molestie odio et consequat. Cras scelerisque molestie ligula nec fringilla. Suspendisse euismod, ante consectetur semper facilisis, metus leo ultricies ligula, et viverra augue justo ac est.
+            <h2>Lorem ipsum dolor sit amet</h2>
+            <p>Nunc faucibus nulla diam, vel imperdiet orci pretium sit amet. Pellentesque scelerisque mi non ligula condimentum fringilla. Donec mi purus, finibus quis ante in, malesuada posuere ipsum. In congue nec nisi vitae sodales. In at magna felis. Aliquam faucibus leo justo, quis scelerisque dolor euismod non. Praesent eleifend vitae erat at convallis. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            <p>Vivamus ultrices nisl sed scelerisque sollicitudin. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at sem dolor. Mauris nec mauris velit. Donec sit amet turpis sed nisl porta molestie. Etiam est est, ultrices et varius quis, lacinia nec nibh. Sed in erat sed risus mattis sollicitudin. Proin vitae mauris bibendum, varius diam vel, dignissim nisl.
+          </div>
+          <div class="mdl-cell mdl-cell--4-col">
+          </div>
+        </div>
+        <div class="mode-switch-controls">
+          <a href="#utility-mode" class="mdl-tabs__tab aux-back-button">
+            <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+              Go back to tool
+            </button>
+          </a>
+        </div>
+      </div>
+      <!-- Code appendix -->
+      <div class="mdl-tabs__panel appendix" id="code-appendix">
+        <div class="appendix-return-controls">
+          <a href="#utility-mode" class="mdl-tabs__tab aux-back-button">
+            <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+              Go back to tool
+            </button>
+          </a>
+        </div>
+        <h1>Get the code</h1>
+        <div class="mdl-grid">
+          <div class="mdl-cell mdl-cell--8-col">
+            <div class="appendix-hero">
+              <div class="appendix-hero-placeholder">
+                System diagram
+              </div>
+              <p class="appendix-hero-caption">
+                Caption for image, chart or figure above goes here.
+              </p>
+            </div>
+          </div>
+          <div class="mdl-cell mdl-cell--4-col">
+          </div>
+        </div>
+        <div class="mdl-grid">
+          <div class="mdl-cell mdl-cell--8-col">
+            <!-- TODO: placeholder replace text -->
+            <h2>Lorem ipsum dolor sit amet</h2>
+            <p>Mauris convallis, augue quis semper scelerisque, felis dui luctus augue, vel ultrices arcu enim at odio. Sed mattis ante dolor, sit amet volutpat dui volutpat ut. Suspendisse convallis augue eu enim rutrum, vel accumsan erat ultricies. Sed pulvinar metus ex, vitae molestie dolor rutrum vitae. Sed placerat, lorem non porttitor congue, orci felis pellentesque augue, lobortis mollis risus est iaculis risus. Vestibulum sit amet est magna. Curabitur leo tellus, luctus eget enim id, interdum ornare justo. Donec placerat fermentum purus eu egestas. Pellentesque in erat et magna eleifend laoreet vel id eros. Vestibulum a interdum metus, vel gravida velit. Duis ornare odio ac ipsum viverra, eget pulvinar lectus laoreet. Nullam non quam erat. Morbi venenatis aliquet elit nec aliquam. Vestibulum at neque purus. Morbi sodales nec lorem id fermentum.
+            <h2>Lorem ipsum dolor sit amet</h2>
+            <p>Aliquam tristique placerat odio eu bibendum. Donec eget convallis libero. Cras sollicitudin turpis ac ex interdum facilisis. In hac habitasse platea dictumst. Sed ut dictum nisl. Nullam posuere eu nulla vitae maximus. Ut mollis volutpat risus eu aliquam. Cras molestie ante eu dolor laoreet, sit amet finibus nisl pellentesque. Nullam et mi non erat rutrum fermentum. Aenean in gravida nisi. Vivamus ut facilisis nisl, id vehicula urna. Vestibulum ullamcorper venenatis nulla sit amet malesuada. Praesent dignissim fermentum urna, ut vestibulum est condimentum ut. Proin pulvinar fermentum tortor eu ultrices.
+            <p>Suspendisse at faucibus quam, at auctor erat. Donec lobortis lectus vitae ligula pulvinar gravida. Fusce condimentum ut mauris non tincidunt. Duis sed volutpat arcu. Donec lobortis lectus in tellus egestas, et euismod ex commodo. In ut mattis neque, vitae mattis sem. Nullam nec libero varius, egestas elit vitae, hendrerit libero.
+          </div>
+          <div class="mdl-cell mdl-cell--4-col">
+          </div>
+        </div>
+        <div class="mode-switch-controls">
+          <a href="#utility-mode" class="mdl-tabs__tab aux-back-button">
+            <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+              Go back to tool
+            </button>
+          </a>
+        </div>
+      </div>
     </div> <!-- tabs -->
   </main> <!-- main content -->
 </div> <!-- container -->

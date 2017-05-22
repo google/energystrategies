@@ -94,6 +94,36 @@ a {
   padding-left: 0px;
 }
 
+.mdl-tabs__tab.aux-back-button {
+  float: none;
+  text-align: inherit;
+  padding: 0 0 0 0;
+}
+
+.appendix p {
+  margin-top: 24px;
+  line-height: 1.8;
+  font-size: 12pt;
+}
+
+.appendix-hero-placeholder {
+  margin: 48px 0 0 0;
+  width: 800px;
+  height: 280px;
+  background: rgba(0,0,0,.11);
+  text-align: center;
+  line-height: 4;
+  font-size: 48pt;
+  color: rgba(0,0,0,.2);
+}
+
+.appendix-hero-caption {
+  font-size: 14pt;
+  color: rgba(0,0, 0, .67);
+  font-style: italic;
+  line-height: 2.0;
+}
+
 /* Page layout */
 
 #container {
@@ -132,8 +162,12 @@ main {
 }
 
 .mode-switch-controls {
-  margin-top: 40px;
   margin-bottom: 160px;
+}
+
+.mode-switch-controls,
+.appendix-return-controls {
+  margin-top: 48px;
 }
 
 /* UI Controls */
