@@ -15,22 +15,60 @@ limitations under the License.
 
 /// <reference path="../typings/index.d.ts"/>
 
+import * as mdl from '../mdl';
 import {OptionToggle} from './toggle';
 
 
 describe('Toggle element', () => {
   let checkbox: HTMLInputElement;
+  let container: HTMLElement;
+  let label: HTMLElement;
   let view: SummaryDataView<EnergySource>;
 
   beforeEach(() => {
-    checkbox = document.createElement('input');
-    checkbox.type = 'checkbox';
-    document.body.appendChild(checkbox);
+    container = document.createElement('div');
+    document.body.appendChild(container);
+
+    // Create an MDL checkbox with all associated interactive upgrades to verify
+    // that the toggle also works for a "rich" MDL checkbox.
+    container.innerHTML = `\
+        <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect"
+              for="the-checkbox">
+          <input type="checkbox" id="the-checkbox" class="mdl-checkbox__input">
+        </label>`
+    checkbox = <HTMLInputElement>document.getElementById('the-checkbox');
+    label = <HTMLElement>container.children[0];
+    mdl.components.upgradeElement(label);
   });
 
   afterEach(() => {
     // Destroy the sandbox and its contents.
-    checkbox.remove();
+    container.remove();
+  });
+
+  it('can be disabled/enabled programmatically.', () => {
+    const toggle = new OptionToggle(checkbox);
+
+    // Verify that the underlying checkbox element is being disabled
+    // when the toggle control is disabled.
+    expect(checkbox.disabled).toBe(false);
+    toggle.disable();
+    expect(checkbox.disabled).toBe(true);
+    toggle.enable();
+    expect(checkbox.disabled).toBe(false);
+  });
+
+  it('rejects a vanilla checkbox.', () => {
+    // The toggle expects a MDL checkbox which has additional properties
+    // and methods attached for programmatic control, so verify that
+    // a vanilla checkbox is rejected.
+    container.remove();
+    container = document.createElement('div');
+    document.body.appendChild(container);
+    checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+
+    expect(() => new OptionToggle(checkbox)).toThrowError();
   });
 
   it('calls change listeners when state is changed', () => {

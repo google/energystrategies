@@ -28,7 +28,17 @@ interface MaterialSliderElement extends HTMLInputElement {
      *
      * @param value The new value for the slider.
      */
-    change(value: number)
+    change(value: number);
+
+    /**
+     * Disables the slider element.
+     */
+    disable();
+
+    /**
+     * Enables the slider element.
+     */
+    enable();
   };
 }
 
@@ -63,6 +73,9 @@ export class Slider {
   _container: HTMLElement;
   _range: MaterialSliderElement;
   _onChangeCallbacks: SliderOnChangeCallback[];
+  _scale: string[];
+  _currentValue: number;
+  _currentValueElement: HTMLElement;
 
   /**
    * Constructor.
@@ -78,11 +91,22 @@ export class Slider {
       min: number,
       max: number,
       step: number,
-      initialValue: number) {
+      initialValue: number,
+      scaleDisplayValues?: string[]) {
     this._container = container;
     this._range = null;
     this._onChangeCallbacks = [];
 
+    if (scaleDisplayValues) {
+      // Sanity check that the scale has the same number of stops as the slider.
+      const expectedScaleSize = (max - min) / step + 1;
+      if (scaleDisplayValues.length != expectedScaleSize) {
+        throw new Error(`Expected scale size ${expectedScaleSize}
+            but was ${scaleDisplayValues.length}`);
+      }
+    }
+    this._scale = scaleDisplayValues;
+    this._currentValue = initialValue;
     this._build(min, max, step, initialValue);
   }
 
@@ -103,6 +127,23 @@ export class Slider {
    */
   setValue(value: number) {
     this._range.MaterialSlider.change(value);
+    this._currentValue = value;
+    this._currentValueElement.textContent = this._scale[this._currentValue];
+    this._notifyListeners(value);
+  }
+
+  /**
+   * Disables the slider element.
+   */
+  disable() {
+    this._range.MaterialSlider.disable();
+  }
+
+  /**
+   * Enables the slider element.
+   */
+  enable() {
+    this._range.MaterialSlider.enable();
   }
 
   /**
@@ -114,6 +155,8 @@ export class Slider {
    * @param initialValue The initial value for the slider.
    */
   _build(min, max, step, initialValue) {
+    this._container.classList.add('slider-control-container');
+
     // Create the MDL slider element.
     const range = document.createElement('input');
     range.type = 'range';
@@ -126,13 +169,29 @@ export class Slider {
     }
     range.value = String(initialValue);
 
-    this._container.appendChild(range);
+    this._currentValueElement = document.createElement('p');
+    this._currentValueElement.classList.add('slider-current-value')
+    this._container.appendChild(this._currentValueElement);
+    this._currentValueElement.textContent = this._scale[this._currentValue];
+
+    const sliderContainer = document.createElement('div');
+    sliderContainer.classList.add('slider-container');
+    this._container.appendChild(sliderContainer);
+    sliderContainer.appendChild(range);
     mdl.components.upgradeElement(range);
 
     // Register a callback to handle the underlying range element change
     // events that fire when the slider is moved (and while moving).
-    const throttledChangeHandler = util.throttle(
-      this._handleChangeEvent.bind(this), 50);
+    const throttledChangeHandler = util.animate(
+        // Store the current slider value.
+        (event: RangeInputChangeEvent) => {
+          this._currentValue = parseFloat(event.target.value);
+          this._currentValueElement.textContent = this._scale[this._currentValue];
+        },
+        // Update listeners of the new slider value.
+        () => {
+          this._notifyListeners(this._currentValue);
+        });
     // Use the same throttled entry point for both input and change
     // event callbacks. Either range input event (change or input) will
     // trigger the throttle and cause the state of the slider to update
@@ -146,14 +205,34 @@ export class Slider {
     range.oninput = throttledChangeHandler;
 
     this._range = <any> range;
+    const labelContainer = document.createElement('div');
+    labelContainer.classList.add('slider-tick-container');
+    sliderContainer.appendChild(labelContainer);
+
+    const minLabel = document.createElement('span');
+    minLabel.classList.add('slider-tick-value');
+    minLabel.classList.add('min');
+    if (this._scale) {
+      minLabel.textContent = this._scale[0];
+    } else {
+      minLabel.textContent = String(min);
+    }
+    labelContainer.appendChild(minLabel);
+
+    const maxLabel = document.createElement('span');
+    maxLabel.classList.add('slider-tick-value');
+    maxLabel.classList.add('max');
+    if (this._scale) {
+      maxLabel.textContent = this._scale.slice(-1)[0];
+    } else {
+      maxLabel.textContent = String(max);
+    }
+
+    labelContainer.appendChild(maxLabel);
   }
 
-  _handleChangeEvent(event: RangeInputChangeEvent) {
-    // Extract the current value of the slider from the change event.
-    const newValue = parseFloat(event.target.value);
+  _notifyListeners(newValue) {
     // Notify all listeners that the slider's state has changed.
-    this._onChangeCallbacks.forEach(callback => {
-      callback(newValue);
-    });
+    this._onChangeCallbacks.forEach(callback => callback(newValue));
   }
 }

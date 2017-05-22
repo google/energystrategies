@@ -26,6 +26,17 @@ interface ToggleOnChangeCallback {
   (newValue: boolean): void;
 }
 
+interface MaterialCheckbox {
+  /**
+   * Disables the checkbox.
+   */
+  disable();
+
+  /**
+   * Enables the checkbox.
+   */
+  enable();
+}
 
 /**
  * A component that presents a binary option.
@@ -33,6 +44,7 @@ interface ToggleOnChangeCallback {
 export class OptionToggle {
   _checkbox: HTMLInputElement;
   _onChangeCallbacks: ToggleOnChangeCallback[];
+  _materialCheckbox: MaterialCheckbox;
 
   /**
    * Constructor.
@@ -44,6 +56,13 @@ export class OptionToggle {
 
     // Listen for change events on the underlying DOM checkbox element.
     this._checkbox.onchange = this._handleChangeEvent.bind(this);
+    const materialWrapper: any = this._checkbox.parentElement;
+    if (!materialWrapper || !materialWrapper.MaterialCheckbox) {
+      throw new Error(
+        `Cannot create toggle control from checkbox element ${checkbox.id}`
+        + `because checkbox has not been upgraded to a MDL checkbox.`);
+    }
+    this._materialCheckbox = <MaterialCheckbox>materialWrapper.MaterialCheckbox;
   }
 
   /**
@@ -63,6 +82,20 @@ export class OptionToggle {
    */
   getValue(): boolean {
     return this._checkbox.checked;
+  }
+
+  /**
+   * Enables the toggle element.
+   */
+  enable() {
+    this._materialCheckbox.enable();
+  }
+
+  /**
+   * Disables the toggle element.
+   */
+  disable() {
+    this._materialCheckbox.disable();
   }
 
   /**
