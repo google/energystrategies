@@ -161,6 +161,11 @@ limitations under the License.
   opacity: .2;
 }
 
+.utility-outcome-summary-details {
+  font-size: 10px;
+  color: rgba(0, 0, 0, .67);
+}
+
 .utility-outcome-section {
    display: -webkit-flex;
    display: flex;
