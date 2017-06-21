@@ -1,0 +1,18 @@
+application: energy-playground
+version: prototype
+runtime: python27
+api_version: 1
+threadsafe: yes
+
+handlers:
+  - url: /(.+)
+    static_files: static/\1
+    upload: static/(.*)
+    login: admin
+    secure: always
+
+  - url: /
+    static_files: static/index.html
+    upload: static/index.html
+    login: admin
+    secure: always
