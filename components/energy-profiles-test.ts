@@ -15,7 +15,7 @@ limitations under the License.
 
 /// <reference path="../typings/index.d.ts"/>
 
-import * as util from '../util';
+import * as transforms from '../transforms';
 import * as src from './energy-profiles';
 
 
@@ -83,7 +83,7 @@ describe('EnergyProfileChart', () => {
       },
       deltaToRef: null,
     };
-    view.deltaToRef = util.deltas(view.baseline, view.summary);
+    view.deltaToRef = transforms.deltas(view.baseline, view.summary);
   });
 
   it('after initial data view update', () => {

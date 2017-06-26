@@ -13,6 +13,8 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ==============================================================================*/
 
+import * as util from './util';
+
 
 // Generates an abbreviated string representation of large numeric values.
 const _baseLargeNumberFormatter = d3.format('.3s');
@@ -25,10 +27,11 @@ export const largeNumberFormatter = (value: number) => {
   return _baseLargeNumberFormatter(value);
 }
 
-// Formats a per household cost amount.
-export const householdCostFormatter = householdCost => {
-    return `$${largeNumberFormatter(householdCost)}`;
-};
+// Formats a currency value as a whole number (i.e., whole dollars, no cents).
+export const currencyFormatter =  d3.format('$,.2f');
+
+// Formats a fractional value to a fixed number of decimal places.
+export const fractionFormatter = d3.format('.2f');
 
 // Formats a fractional value to a stock ticker-style percent delta.
 //
@@ -38,7 +41,6 @@ export const percentDeltaFormatter = deltaFraction => {
     return (delta >= 0 ? '▲' : '▼') + Math.abs(delta) + '%';
 };
 
-
 // Gets the sign of the given numeric value.
 function getSign(value: number) {
     return value < 0 ? '-' : '+';
@@ -46,9 +48,19 @@ function getSign(value: number) {
 
 // Formats a fractional value to a signed percentage.
 //
-// e.g., +2.14 => '214%', -0.3 => '-30%'
+// e.g., +2.14 => '+214%', -0.3 => '-30%'
 export function percentFormatter(fraction) {
     return `${getSign(fraction)}${Math.floor(Math.abs(fraction) * 100)}%`;
+}
+
+// Formats a fractional value to a unsigned percentage.
+export function percentFormatterNoSign(fraction) {
+    return `${Math.floor(Math.abs(fraction) * 100)}%`;
+}
+
+// Formats a value as a fractional megawatt-hour.
+export function fractionMWhFormatter(fractionMWh: number) {
+  return `${fractionMWh.toFixed(2)} MWh`;
 }
 
 // The following modifies the default d3 large value formatting to use

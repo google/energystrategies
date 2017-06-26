@@ -16,7 +16,7 @@ limitations under the License.
 
 import * as profiles from './profiles';
 import * as config from './config';
-import * as util from '../util';
+import * as transforms from '../transforms';
 
 
 describe('Get allocated energy profiles', () => {
@@ -311,7 +311,7 @@ describe('Summarize energy profile', () => {
     // Quantities related to energy generation.
     expect(summarized.breakdown.nuclear.energy).toEqual(24);
     expect(summarized.breakdown.nuclear.variableCost).toBeCloseTo(
-        config.VARIABLE_COST.nuclear * util.DISCOUNT_RATE_WEEKLY * 24);
+        config.VARIABLE_COST.nuclear * transforms.DISCOUNT_RATE_WEEKLY * 24);
   });
 
   it('energy capacity.', () => {

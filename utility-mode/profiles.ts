@@ -16,6 +16,7 @@ limitations under the License.
 
 import * as config from './config';
 import * as util from '../util';
+import * as transforms from '../transforms';
 
 
 /**
@@ -99,7 +100,7 @@ function getFixedCost(capacity: number, source: string) {
  */
 function getVariableCost(energy: number, source: string) {
   // Dimensional analysis: MWh * $USD/MWh => $USD
-  return energy * config.VARIABLE_COST[source] * util.DISCOUNT_RATE_WEEKLY;
+  return energy * config.VARIABLE_COST[source] * transforms.DISCOUNT_RATE_WEEKLY;
 }
 
 /**
@@ -115,7 +116,7 @@ function getCo2(energy: number, source: string): number {
   //
   // Note: the 1-week co2 is scaled to the 1-year level for consistency with
   // scenario outcome datasets.
-  return energy * config.CO2_RATE[source] * util.WEEKS_PER_YEAR;
+  return energy * config.CO2_RATE[source] * transforms.WEEKS_PER_YEAR;
 }
 
 /**
@@ -283,7 +284,7 @@ export function summarize(profiles: ProfileDataset): UtilityOutcomeBreakdown {
   // The energy generation from the weekly profile is replicated for a year-long
   // timespan, as is done for the total co2 emissions.
   const totalConsumed = util.sum(Object.keys(breakdown).map(s => {
-    return breakdown[s].energy * util.WEEKS_PER_YEAR;
+    return breakdown[s].energy * transforms.WEEKS_PER_YEAR;
   }));
 
   return {
