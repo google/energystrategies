@@ -90,6 +90,37 @@ limitations under the License.
   padding: 16px;
 }
 
+/* Policy mode modal loading sign */
+
+#policy-mode-loading {
+  display: none;
+  margin-top: 48px;
+  margin-bottom: 96px;
+}
+
+#policy-mode-loading h2 {
+  text-transform: uppercase;
+  color: #3f51b5;
+}
+
+#policy-mode-loading .mdl-progress {
+  height: 4px;
+  margin-top: 24px;
+  width: 100%;
+}
+
+#policy-mode-loading.loading {
+  display: inherit;
+}
+
+#policy-mode-explorer {
+  display: inherit;
+}
+
+#policy-mode-explorer.loading {
+  display: none;
+}
+
 /* Policy mode energy breakdown table. */
 
 .policy-breakdown-table-table {

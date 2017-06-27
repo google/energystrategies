@@ -264,237 +264,247 @@ limitations under the License.
           <div class="mdl-cell mdl-cell--4-col">
           </div>
         </div>
-        <!-- Scenario outcome summary -->
-        <div class="policy-mode-hero-box mdl-grid">
-          <div class="mdl-cell mdl-cell--8-col">
-            <div class="policy-outcome-title-container">
-              <div>
-                <h2 class="policy-outcome-title">
-                  Cost and carbon emissions impact
-                  <i id="tooltip-launcher-policy-co2" class="material-icons info">info_outline</i>
-                </h2>
+        <div id="policy-mode-loading" class="loading">
+          <div class="mdl-grid">
+            <div class="mdl-cell mdl-cell--8-col">
+              <h2 class="loading-message">Loading policy outcomes...</h2>
+              <div class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
+            </div>
+          </div>
+        </div>
+        <div id="policy-mode-explorer" class="loading">
+          <!-- Scenario outcome summary -->
+          <div class="policy-mode-hero-box mdl-grid">
+            <div class="mdl-cell mdl-cell--8-col">
+              <div class="policy-outcome-title-container">
+                <div>
+                  <h2 class="policy-outcome-title">
+                    Cost and carbon emissions impact
+                    <i id="tooltip-launcher-policy-co2" class="material-icons info">info_outline</i>
+                  </h2>
+                  <span class="tooltip mdl-tooltip mdl-tooltip--top"
+                      for="tooltip-launcher-policy-co2">
+                    Your policy choices will affect how much it costs to generate
+                    a megawatt-hour of electricity (an amount a typical household
+                    uses in a month) and the corresponding CO2 emissions.
+                  </span>
+                </div>
+              </div>
+              <div id="policy-mode-goal-chart" class="policy-mode-goal-chart"></div>
+              <div class="policy-mode-budget-box policy-outcome-title-container">
+                <div class="cost-eq">
+                  <div class="cost-eq-value">
+                    <div class="eq-value-value" id="policy-mode-cost-eq-baseline">
+                      $X
+                    </div>
+                    <div class="eq-value-description">
+                      Today's cost
+                    </div>
+                  </div>
+                  <div class="cost-eq-symbol">+</div>
+                  <div class="cost-eq-value">
+                    <div class="eq-value-value" id="policy-mode-cost-eq-delta">
+                      $Y
+                    </div>
+                    <div class="eq-value-description">
+                      Cost of policy
+                    </div>
+                  </div>
+                  <div class="cost-eq-symbol">=</div>
+                  <div class="cost-eq-value">
+                    <div class="eq-value-value" id="policy-mode-cost-eq-total">$Y</div>
+                    <div class="eq-value-description">
+                      Cost of electricity generation (1 MWh)
+                      <i id="tooltip-launcher-policy-mwh" class="material-icons info">info_outline</i>
+                      <span class="tooltip mdl-tooltip mdl-tooltip--top" for="tooltip-launcher-policy-mwh">
+                        A typical household uses ~1 megawatt-hour (MWh) of
+                        electricity each month.
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Energy breakdown table -->
+            <div class="mdl-cell mdl-cell--4-col policy-mode-aux-pane">
+              <h2 class="policy-outcome-title">
+                Energy generation by source
+                <i id="tooltip-launcher-policy-energy-breakdown" class="material-icons info">info_outline</i>
                 <span class="tooltip mdl-tooltip mdl-tooltip--top"
-                    for="tooltip-launcher-policy-co2">
-                  Your policy choices will affect how much it costs to generate
-                  a megawatt-hour of electricity (an amount a typical household
-                  uses in a month) and the corresponding CO2 emissions.
+                    for="tooltip-launcher-policy-energy-breakdown">
+                  Based upon your policy choices, an optimal mix of energy
+                  sources is used to fulfill energy demand for one year, at
+                  lowest cost.
+
+                  The table below shows how much each source
+                  contributes to the cost and energy consumed.
+                </span>
+              </h2>
+              <div id="policy-mode-breakdown-table"></div>
+            </div>
+          </div>
+          <!-- Policy presets -->
+          <div class="mdl-grid policy-presets-container">
+            <div class="mdl-cell mdl-cell--8-col">
+              <div class="preset-container">
+                <label class="preset mdl-icon-toggle mdl-js-icon-toggle" for="preset-balanced-low-carbon">
+                  <input type="checkbox" id="preset-balanced-low-carbon" class="mdl-icon-toggle__input">
+                  <span class="mdl-icon-toggle__label">Balanced low-carbon</span>
+                </label>
+                <label class="preset mdl-icon-toggle mdl-js-icon-toggle" for="preset-favor-renewables">
+                  <input type="checkbox" id="preset-favor-renewables" class="mdl-icon-toggle__input">
+                  <span class="mdl-icon-toggle__label">Favor renewables</span>
+                </label>
+                <label class="preset mdl-icon-toggle mdl-js-icon-toggle" for="preset-favor-carbon-capture">
+                  <input type="checkbox" id="preset-favor-carbon-capture" class="mdl-icon-toggle__input">
+                  <span class="mdl-icon-toggle__label">Favor carbon capture</span>
+                </label>
+                <label class="preset mdl-icon-toggle mdl-js-icon-toggle" for="preset-favor-nuclear">
+                  <input type="checkbox" id="preset-favor-nuclear" class="mdl-icon-toggle__input">
+                  <span class="mdl-icon-toggle__label">Favor nuclear</span>
+                </label>
+                <i id="tooltip-launcher-policy-presets" class="material-icons info">info_outline</i>
+                <span class="tooltip mdl-tooltip mdl-tooltip--top"
+                    for="tooltip-launcher-policy-presets">
+                  The buttons to the left select different combinations of energy policies
+                  and anticipated future costs.
                 </span>
               </div>
             </div>
-            <div id="policy-mode-goal-chart" class="policy-mode-goal-chart"></div>
-            <div class="policy-mode-budget-box policy-outcome-title-container">
-              <div class="cost-eq">
-                <div class="cost-eq-value">
-                  <div class="eq-value-value" id="policy-mode-cost-eq-baseline">
-                    $X
-                  </div>
-                  <div class="eq-value-description">
-                    Today's cost
-                  </div>
-                </div>
-                <div class="cost-eq-symbol">+</div>
-                <div class="cost-eq-value">
-                  <div class="eq-value-value" id="policy-mode-cost-eq-delta">
-                    $Y
-                  </div>
-                  <div class="eq-value-description">
-                    Cost of policy
-                  </div>
-                </div>
-                <div class="cost-eq-symbol">=</div>
-                <div class="cost-eq-value">
-                  <div class="eq-value-value" id="policy-mode-cost-eq-total">$Y</div>
-                  <div class="eq-value-description">
-                    Cost of electricity generation (1 MWh)
-                    <i id="tooltip-launcher-policy-mwh" class="material-icons info">info_outline</i>
-                    <span class="tooltip mdl-tooltip mdl-tooltip--top" for="tooltip-launcher-policy-mwh">
-                      A typical household uses ~1 megawatt-hour (MWh) of
-                      electricity each month.
+            <div class="mdl-cell mdl-cell--4-col">
+              <!--empty-->
+            </div>
+          </div>
+          <!-- Policy options -->
+          <div class="mdl-grid policy-controls">
+            <div class="mdl-cell mdl-cell--8-col policy-controls-row">
+              <div class="policy-controls-option option">
+                <!-- CES -->
+                <label class="option-title">
+                  Clean energy fraction
+                  <i id="tooltip-launcher-policy-ces" class="material-icons info">info_outline</i>
+                  <span class="tooltip mdl-tooltip mdl-tooltip--top"
+                      for="tooltip-launcher-policy-ces">
+                    This slider sets a goal for the minimum fraction of energy
+                    generated by clean sources.
+
+                    This is known as a “Clean Energy Standard” or “Renewable
+                    Portfolio Standard”.
+
+                    By default,
+                    “clean” is solar and wind energy. You can add CCS and Nuclear
+                    to “clean” energy in the buttons below.
+                  </span>
+                </label>
+                <div id="ces-slider" class="policy-slider"></div>
+                <!-- CCS is clean? -->
+                <label class="policy-controls-toggle mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-ccs-is-clean">
+                  <input type="checkbox" id="checkbox-ccs-is-clean" class="mdl-checkbox__input">
+                  <span class="mdl-checkbox__label suboption-title">
+                    Clean energy includes CCS
+                    <i id="tooltip-launcher-policy-ccs-is-clean-energy" class="material-icons info">info_outline</i>
+                    <span class="tooltip mdl-tooltip mdl-tooltip--top"
+                        for="tooltip-launcher-policy-ccs-is-clean-energy">
+                      Should fossil fuel energy sources that capture carbon
+                      emissions be allowed to contribute towards the clean energy
+                      fraction goal?
+
+                      Note that CCS-based sources can capture about
+                      90% of their source emissions.
                     </span>
-                  </div>
+                  </span>
+                </label>
+                <!-- Nuclear is clean? -->
+                <label class="policy-controls-toggle  mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-nuclear-is-clean">
+                  <input type="checkbox" id="checkbox-nuclear-is-clean" class="mdl-checkbox__input">
+                  <span class="mdl-checkbox__label suboption-title">
+                    Clean energy includes nuclear
+                    <i id="tooltip-launcher-policy-nuclear-is-clean-energy" class="material-icons info">info_outline</i>
+                    <span class="tooltip mdl-tooltip mdl-tooltip--top"
+                        for="tooltip-launcher-policy-nuclear-is-clean-energy">
+                      Should nuclear energy sources be allowed to contribute towards
+                      the clean energy fraction goal?
+
+                      Although nuclear energy is
+                      also a zero-carbon energy source, not all clean energy
+                      fraction policies allow nuclear energy to contribute towards
+                      meeting zero-carbon energy generation goals.
+                    </span>
+                  </span>
+                </label>
+              </div>
+              <div class="policy-controls-option option">
+                <!-- Carbon tax -->
+                <label class="option-title">
+                  Carbon price
+                  <i id="tooltip-launcher-policy-carbon-tax" class="material-icons info">info_outline</i>
+                  <span class="tooltip mdl-tooltip mdl-tooltip--top"
+                      for="tooltip-launcher-policy-carbon-tax">
+                    This slider represents an extra price or tax on carbon emissions ranging from:
+                    $0 up to $100 per metric ton.
+
+                    Since the simulation builds a grid which keeps the lights on at the lowest cost,
+                    higher carbon prices will drive the simulation to build with cleaner power sources,
+                    albeit at additional cost.
+                  </span>
+                </label>
+                <div id="carbon-tax-slider" class="policy-slider"></div>
+                <!-- Storage on/off -->
+                <label class="policy-controls-toggle  mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-storage-is-allowed">
+                  <input type="checkbox" id="checkbox-storage-is-allowed" class="mdl-checkbox__input" checked>
+                  <span class="mdl-checkbox__label suboption-title">
+                    Allow energy storage
+                    <i id="tooltip-launcher-policy-storage-is-allowed" class="material-icons info">info_outline</i>
+                    <span class="tooltip mdl-tooltip mdl-tooltip--top"
+                        for="tooltip-launcher-policy-storage-is-allowed">
+                      If energy storage is allowed, then the simulation is allowed to build energy
+                      storage capacity as necessary. Storage is useful when there is an excess and
+                      putting it back on the grid when there is high demand.
+                    </span>
+                  </span>
+                </label>
+                <!-- Nuclear on/off -->
+                <label class="policy-controls-toggle  mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-nuclear-is-allowed">
+                  <input type="checkbox" id="checkbox-nuclear-is-allowed" class="mdl-checkbox__input" checked>
+                  <span class="mdl-checkbox__label suboption-title">
+                    Allow nuclear power
+                    <i id="tooltip-launcher-policy-nuclear-is-allowed" class="material-icons info">info_outline</i>
+                    <span class="tooltip mdl-tooltip mdl-tooltip--top"
+                        for="tooltip-launcher-policy-nuclear-is-allowed">
+                      Allow nuclear power in the simulation or disallow it
+                      completely?
+                    </span>
+                  </span>
+                </label>
+              </div>
+              <!-- Policy costs -->
+              <div class="policy-controls-option option">
+                <label class="option-title">
+                  Energy generation costs
+                  <i id="tooltip-launcher-policy-energy-costs" class="material-icons info">info_outline</i>
+                  <span class="tooltip mdl-tooltip mdl-tooltip--top"
+                      for="tooltip-launcher-policy-energy-costs">
+                      Use the sliders below to specify energy generation costs.
+                  </span>
+                </label>
+                <div id="ng-cost-slider" class="policy-cost-slider">
+                  <div id="ng-cost-slider-value" class="policy-cost-slider-value"></div>
                 </div>
+                <div id="solar-cost-slider" class="policy-cost-slider">
+                  <div id="solar-cost-slider-value" class="policy-cost-slider-value"></div>
+                </div>
+                <div id="wind-cost-slider" class="policy-cost-slider">
+                  <div id="wind-cost-slider-value" class="policy-cost-slider-value"></div>
+                </div>
+                <div id="nuclear-cost-slider" class="policy-cost-slider">
+                  <div id="nuclear-cost-slider-value" class="policy-cost-slider-value"></div>
+                </div>
+                <a href="" id="cost-slider-about-appendix">More cost details</a>
               </div>
             </div>
-          </div>
-          <!-- Energy breakdown table -->
-          <div class="mdl-cell mdl-cell--4-col policy-mode-aux-pane">
-            <h2 class="policy-outcome-title">
-              Energy generation by source
-              <i id="tooltip-launcher-policy-energy-breakdown" class="material-icons info">info_outline</i>
-              <span class="tooltip mdl-tooltip mdl-tooltip--top"
-                  for="tooltip-launcher-policy-energy-breakdown">
-                Based upon your policy choices, an optimal mix of energy
-                sources is used to fulfill energy demand for one year, at
-                lowest cost.
-
-                The table below shows how much each source
-                contributes to the cost and energy consumed.
-              </span>
-            </h2>
-            <div id="policy-mode-breakdown-table"></div>
-          </div>
-        </div>
-        <!-- Policy presets -->
-        <div class="mdl-grid policy-presets-container">
-          <div class="mdl-cell mdl-cell--8-col">
-            <div class="preset-container">
-              <label class="preset mdl-icon-toggle mdl-js-icon-toggle" for="preset-balanced-low-carbon">
-                <input type="checkbox" id="preset-balanced-low-carbon" class="mdl-icon-toggle__input">
-                <span class="mdl-icon-toggle__label">Balanced low-carbon</span>
-              </label>
-              <label class="preset mdl-icon-toggle mdl-js-icon-toggle" for="preset-favor-renewables">
-                <input type="checkbox" id="preset-favor-renewables" class="mdl-icon-toggle__input">
-                <span class="mdl-icon-toggle__label">Favor renewables</span>
-              </label>
-              <label class="preset mdl-icon-toggle mdl-js-icon-toggle" for="preset-favor-carbon-capture">
-                <input type="checkbox" id="preset-favor-carbon-capture" class="mdl-icon-toggle__input">
-                <span class="mdl-icon-toggle__label">Favor carbon capture</span>
-              </label>
-              <label class="preset mdl-icon-toggle mdl-js-icon-toggle" for="preset-favor-nuclear">
-                <input type="checkbox" id="preset-favor-nuclear" class="mdl-icon-toggle__input">
-                <span class="mdl-icon-toggle__label">Favor nuclear</span>
-              </label>
-              <i id="tooltip-launcher-policy-presets" class="material-icons info">info_outline</i>
-              <span class="tooltip mdl-tooltip mdl-tooltip--top"
-                  for="tooltip-launcher-policy-presets">
-                The buttons to the left select different combinations of energy policies
-                and anticipated future costs.
-              </span>
+            <div class="mdl-cell mdl-cell--4-col">
+              <!--empty-->
             </div>
-          </div>
-          <div class="mdl-cell mdl-cell--4-col">
-            <!--empty-->
-          </div>
-        </div>
-        <!-- Policy options -->
-        <div class="mdl-grid policy-controls">
-          <div class="mdl-cell mdl-cell--8-col policy-controls-row">
-            <div class="policy-controls-option option">
-              <!-- CES -->
-              <label class="option-title">
-                Clean energy fraction
-                <i id="tooltip-launcher-policy-ces" class="material-icons info">info_outline</i>
-                <span class="tooltip mdl-tooltip mdl-tooltip--top"
-                    for="tooltip-launcher-policy-ces">
-                  This slider sets a goal for the minimum fraction of energy
-                  generated by clean sources.
-
-                  This is known as a “Clean Energy Standard” or “Renewable
-                  Portfolio Standard”.
-
-                  By default,
-                  “clean” is solar and wind energy. You can add CCS and Nuclear
-                  to “clean” energy in the buttons below.
-                </span>
-              </label>
-              <div id="ces-slider" class="policy-slider"></div>
-              <!-- CCS is clean? -->
-              <label class="policy-controls-toggle mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-ccs-is-clean">
-                <input type="checkbox" id="checkbox-ccs-is-clean" class="mdl-checkbox__input">
-                <span class="mdl-checkbox__label suboption-title">
-                  Clean energy includes CCS
-                  <i id="tooltip-launcher-policy-ccs-is-clean-energy" class="material-icons info">info_outline</i>
-                  <span class="tooltip mdl-tooltip mdl-tooltip--top"
-                      for="tooltip-launcher-policy-ccs-is-clean-energy">
-                    Should fossil fuel energy sources that capture carbon
-                    emissions be allowed to contribute towards the clean energy
-                    fraction goal?
-
-                    Note that CCS-based sources can capture about
-                    90% of their source emissions.
-                  </span>
-                </span>
-              </label>
-              <!-- Nuclear is clean? -->
-              <label class="policy-controls-toggle  mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-nuclear-is-clean">
-                <input type="checkbox" id="checkbox-nuclear-is-clean" class="mdl-checkbox__input">
-                <span class="mdl-checkbox__label suboption-title">
-                  Clean energy includes nuclear
-                  <i id="tooltip-launcher-policy-nuclear-is-clean-energy" class="material-icons info">info_outline</i>
-                  <span class="tooltip mdl-tooltip mdl-tooltip--top"
-                      for="tooltip-launcher-policy-nuclear-is-clean-energy">
-                    Should nuclear energy sources be allowed to contribute towards
-                    the clean energy fraction goal?
-
-                    Although nuclear energy is
-                    also a zero-carbon energy source, not all clean energy
-                    fraction policies allow nuclear energy to contribute towards
-                    meeting zero-carbon energy generation goals.
-                  </span>
-                </span>
-              </label>
-            </div>
-            <div class="policy-controls-option option">
-              <!-- Carbon tax -->
-              <label class="option-title">
-                Carbon price
-                <i id="tooltip-launcher-policy-carbon-tax" class="material-icons info">info_outline</i>
-                <span class="tooltip mdl-tooltip mdl-tooltip--top"
-                    for="tooltip-launcher-policy-carbon-tax">
-                  This slider represents an extra price or tax on carbon emissions ranging from:
-                  $0 up to $100 per metric ton.
-
-                  Since the simulation builds a grid which keeps the lights on at the lowest cost,
-                  higher carbon prices will drive the simulation to build with cleaner power sources,
-                  albeit at additional cost.
-                </span>
-              </label>
-              <div id="carbon-tax-slider" class="policy-slider"></div>
-              <!-- Storage on/off -->
-              <label class="policy-controls-toggle  mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-storage-is-allowed">
-                <input type="checkbox" id="checkbox-storage-is-allowed" class="mdl-checkbox__input" checked>
-                <span class="mdl-checkbox__label suboption-title">
-                  Allow energy storage
-                  <i id="tooltip-launcher-policy-storage-is-allowed" class="material-icons info">info_outline</i>
-                  <span class="tooltip mdl-tooltip mdl-tooltip--top"
-                      for="tooltip-launcher-policy-storage-is-allowed">
-                    If energy storage is allowed, then the simulation is allowed to build energy
-                    storage capacity as necessary. Storage is useful when there is an excess and
-                    putting it back on the grid when there is high demand.
-                  </span>
-                </span>
-              </label>
-              <!-- Nuclear on/off -->
-              <label class="policy-controls-toggle  mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-nuclear-is-allowed">
-                <input type="checkbox" id="checkbox-nuclear-is-allowed" class="mdl-checkbox__input" checked>
-                <span class="mdl-checkbox__label suboption-title">
-                  Allow nuclear power
-                  <i id="tooltip-launcher-policy-nuclear-is-allowed" class="material-icons info">info_outline</i>
-                  <span class="tooltip mdl-tooltip mdl-tooltip--top"
-                      for="tooltip-launcher-policy-nuclear-is-allowed">
-                    Allow nuclear power in the simulation or disallow it
-                    completely?
-                  </span>
-                </span>
-              </label>
-            </div>
-            <!-- Policy costs -->
-            <div class="policy-controls-option option">
-              <label class="option-title">
-                Energy generation costs
-                <i id="tooltip-launcher-policy-energy-costs" class="material-icons info">info_outline</i>
-                <span class="tooltip mdl-tooltip mdl-tooltip--top"
-                    for="tooltip-launcher-policy-energy-costs">
-                    Use the sliders below to specify energy generation costs.
-                </span>
-              </label>
-              <div id="ng-cost-slider" class="policy-cost-slider">
-                <div id="ng-cost-slider-value" class="policy-cost-slider-value"></div>
-              </div>
-              <div id="solar-cost-slider" class="policy-cost-slider">
-                <div id="solar-cost-slider-value" class="policy-cost-slider-value"></div>
-              </div>
-              <div id="wind-cost-slider" class="policy-cost-slider">
-                <div id="wind-cost-slider-value" class="policy-cost-slider-value"></div>
-              </div>
-              <div id="nuclear-cost-slider" class="policy-cost-slider">
-                <div id="nuclear-cost-slider-value" class="policy-cost-slider-value"></div>
-              </div>
-              <a href="" id="cost-slider-about-appendix">More cost details</a>
-            </div>
-          </div>
-          <div class="mdl-cell mdl-cell--4-col">
-            <!--empty-->
           </div>
         </div>
         <!-- Mode switch buttons for policy page-->
