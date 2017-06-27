@@ -1,0 +1,71 @@
+/* Copyright 2016 Google Inc. All Rights Reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+==============================================================================*/
+
+
+/* CO2 bar chart */
+
+.co2-chart {
+  margin-top: 8px;
+}
+
+.co2-chart-bar {
+  fill: #595e71;
+  stroke: #263238;
+}
+
+.co2-chart-bar-box {
+  fill: rgba(0,0,0,.21);
+  stroke: rgba(0,0,0,.87);
+  stroke-width: 0.5px;
+  image-rendering: crisp-edges;
+}
+
+.co2-chart-ticks-tick {
+  stroke-width: 1;
+  stroke: rgba(0,0,0,.36);
+  fill: none;
+}
+
+.co2-chart-ticks-value {
+  fill: rgba(0,0,0,.56);
+  text-transform: uppercase;
+}
+
+.co2-chart-ticks-name {
+  text-transform: uppercase;
+  font-size: 8pt;
+  fill: rgba(0,0,0,.67);
+}
+
+.co2-chart-ticks-label-current {
+  opacity: .37;
+}
+
+.co2-chart-title {
+  font-size: 13pt;
+  fill: #fff;
+}
+
+/* Customize the co2 goal chart for large outcome area */
+
+#policy-mode .co2-chart-title {
+  font-size: 12pt;
+  font-weight: lighter;
+  text-transform: uppercase;
+}
+
+#policy-mode .co2-chart {
+  margin-top: 0px;
+}

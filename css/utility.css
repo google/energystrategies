@@ -188,10 +188,14 @@ limitations under the License.
 
 /* Unmet demand warning default appearance. */
 .utility-outcome-summary-unmet {
+  line-height: 1.5;
   display: none;
   margin-top: 24px;
   /* Avoid pushing down the content for the main column due to card appearing */
   margin-bottom: -100%;
+}
+.utility-outcome-summary-unmet .title-icon {
+  margin-right: 4px;
 }
 
 /* Unmet demand warning overrides to apply when unmet demand exists. */
@@ -219,6 +223,7 @@ limitations under the License.
   justify-content: space-between;
   -webkit-flex-direction: row;
   flex-direction: row;
+  margin-top: 24px;
 }
 
 .utility-controls-option {

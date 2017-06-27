@@ -31,12 +31,12 @@ limitations under the License.
   fill: rgba(0,0,0,.26);
 }
 
-.energy-profiles-chart .y text,
-.energy-profiles-chart .x .tick text {
+.energy-profiles-chart .y text {
   fill: rgba(0,0,0,.67);
 }
 
 .energy-profiles-chart .x .tick text {
+  fill: rgba(0,0,0,.67);
   text-transform: uppercase;
   font-size: 10px;
 }
@@ -74,9 +74,9 @@ limitations under the License.
   font-size: 10pt;
   text-transform: uppercase;
   z-index: 10;
+  opacity: .7;
 }
 
-.energy-profiles-chart .warning-marker-label,
 .energy-profiles-chart .warning-marker-arrow {
   opacity: .7;
 }

@@ -52,7 +52,7 @@ limitations under the License.
 
 .policy-mode-budget-box {
   /* Align bottom of the budget box with text baseline of the breakdown table */
-  margin-top: 48px;
+  margin-top: 72px;
 }
 
 .cost-eq {
@@ -82,80 +82,49 @@ limitations under the License.
   text-transform: uppercase;
 }
 
+.cost-eq .cost-eq-value .eq-value-description .tooltip {
+  font-size: 12px;
+  max-width: 320px;
+  line-height: 1.8;
+  text-transform: none;
+  padding: 16px;
+}
+
 /* Policy mode energy breakdown table. */
 
-.policy-mode-headline-breakdown {
+.policy-breakdown-table-table {
   width: 100%;
   margin-top: 12px;
   border-collapse: collapse;
 }
 
-.policy-mode-headline-breakdown {
+.policy-breakdown-table-table {
   font-size: 11px;
   line-height: 1.6;
 }
 
-.policy-mode-headline-breakdown thead {
+.policy-breakdown-table-table .policy-breakdown-table-row.header {
   color: rgba(0, 0, 0, .67);
   text-transform: uppercase;
 }
 
-.policy-mode-headline-breakdown thead td {
-  width: auto;
-  text-align: right;
+.policy-breakdown-table-table .policy-breakdown-table-row.header td {
   border-bottom: 1px solid rgba(0, 0, 0, .16);
 }
 
-.policy-mode-headline-breakdown thead td.sources {
+.policy-breakdown-table-table .policy-breakdown-table-row.footer td {
+    border-top: 1px solid rgba(0, 0, 0, .16);
+}
+
+.policy-breakdown-table-table td.title {
    width: 100px;
    text-align: left;
 }
 
-.policy-mode-headline-breakdown tbody td {
+.policy-breakdown-table-table td {
   text-align: right;
   color: rgba(0, 0, 0, .6);
   text-transform: uppercase;
-}
-
-.policy-mode-headline-breakdown .solar,
-.policy-mode-headline-breakdown .wind,
-.policy-mode-headline-breakdown .nuclear,
-.policy-mode-headline-breakdown .ng,
-.policy-mode-headline-breakdown .ngccs,
-.policy-mode-headline-breakdown .coal,
-.policy-mode-headline-breakdown .coalccs,
-.policy-mode-headline-breakdown .hydro,
-.policy-mode-headline-breakdown .storage {
-  text-align: left;
-}
-
-.policy-mode-headline-breakdown .solar {
-  /* note: slightly darker amber for contrast (from same material color ramp) */
-  color: #FFAB00;
-}
-.policy-mode-headline-breakdown .wind {
-  color: #41b6c4;
-}
-.policy-mode-headline-breakdown .nuclear {
-  color: #4DB6AC;
-}
-.policy-mode-headline-breakdown .hydro {
-  color: #9ecae1;
-}
-.policy-mode-headline-breakdown .ng {
-  color: #225ea8;
-}
-.policy-mode-headline-breakdown .ngccs {
-  color: #1d91c0;
-}
-.policy-mode-headline-breakdown .coal {
-  color: #ef3b2c;
-}
-.policy-mode-headline-breakdown .coalccs {
-  color: #fb6a4a;
-}
-.policy-mode-headline-breakdown .storage {
-  color: #8c6bb1;
 }
 
 /* Footnotes for energy breakdown table */
@@ -168,7 +137,7 @@ limitations under the License.
 /* Policy mode UI controls */
 
 .policy-presets-container {
-  margin-top: 40px;
+  margin-top: 48px;
 }
 
 .policy-controls {
@@ -214,16 +183,44 @@ limitations under the License.
   margin-top: 0;
 }
 
+.policy-controls-option .slider-control-container .mdl-slider__background-lower {
+  background-color: #3F51B5;
+}
+.policy-controls-option .slider-control-container input[type=range]::-webkit-slider-thumb {
+  background-color: #3F51B5;
+}
+.policy-controls-option .slider-control-container input[type=range]::-moz-range-thumb {
+  background-color: #3F51B5;
+}
+.policy-controls-option .slider-control-container input[type=range]::-ms-thumb {
+  background-color: #3F51B5;
+}
+
 .policy-slider {
   margin-top: 16px;
 }
 
+/* Policy cost slider customizations */
+
 .policy-cost-slider {
   margin-top: 16px;
+  position: relative;
 }
 
 .policy-cost-slider .slider-current-value {
-  width: 120px;
+  width: 90px;
+}
+
+.policy-cost-slider .slider-container {
+  width: 75px;
+}
+
+.policy-cost-slider-value {
+  position: absolute;
+  left: 180px;
+  min-width: 100px;
+  font-size: 10px;
+  text-align: left;
 }
 
 .policy-controls-option.small-slider-label .slider-current-value {
@@ -235,4 +232,10 @@ limitations under the License.
 .horizontal-label-slider > div {
   display: inline-block;
   width: 45%;
+}
+
+#cost-slider-about-appendix {
+  display: block;
+  margin-top: 16px;
+  color: #3f51b5;
 }

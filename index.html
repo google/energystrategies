@@ -31,23 +31,20 @@ limitations under the License.
   <header class="mdl-layout__header">
     <div class="mdl-layout__header-row">
       <span class="mdl-layout-title">Energy strategies</span>
+      <div class="mdl-layout-spacer"></div>
+      <nav class="mdl-navigation">
+        <a class="mdl-navigation__link" href="" id="title-about-appendix">About</a>
+        <a class="mdl-navigation__link" href="" id="title-data-appendix">Data</a>
+        <a class="mdl-navigation__link" href="" id="title-code-appendix">Code</a>
+      </nav>
     </div>
   </header>
-  <!-- Expandable menu under the "hamburger" icon -->
-  <div class="mdl-layout__drawer">
-    <span class="mdl-layout-title">Appendix</span>
-    <nav class="mdl-navigation">
-      <a class="mdl-navigation__link mdl-tabs__tab" href="" id="go-to-about-appendix">Learn more</a>
-      <a class="mdl-navigation__link mdl-tabs__tab" href="" id="go-to-data-appendix">See the data</a>
-      <a class="mdl-navigation__link mdl-tabs__tab" href="" id="go-to-code-appendix">Get the code</a>
-    </nav>
-  </div>
   <!-- Main page content region -->
   <main id="scroll-container" class="mdl-layout__content">
     <div class="mdl-tabs mdl-js-tabs">
       <!-- Utility mode -->
       <div class="mdl-tabs__panel is-active" id="utility-mode">
-        <h1>Utility simulation</h1>
+        <h1>Utility Simulation</h1>
         <div id="utility-mode-columns" class="mdl-grid mode-description">
           <div class="mdl-cell mdl-cell--8-col">
             <h2>Choose your energy source to always fulfill demand</h2>
@@ -200,7 +197,12 @@ limitations under the License.
                 <label class="utility-controls-toggle mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-utility-ng-ccs">
                   <input type="checkbox" id="checkbox-utility-ng-ccs" class="mdl-checkbox__input">
                   <span class="mdl-checkbox__label suboption-title">
-                    Enable CCS
+                    Enable carbon capture
+                    <i id="tooltip-launcher-utility-ng-ccs" class="material-icons info">info_outline</i>
+                  </span>
+                  <span class="tooltip mdl-tooltip mdl-tooltip--top"
+                    for="tooltip-launcher-utility-ng-ccs">
+                    CO2 is captured from the exhaust and sent underground.
                   </span>
                 </label>
               </div>
@@ -220,7 +222,13 @@ limitations under the License.
                 <label class="utility-controls-toggle mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-utility-coal-ccs">
                   <input type="checkbox" id="checkbox-utility-coal-ccs" class="mdl-checkbox__input">
                   <span class="mdl-checkbox__label suboption-title">
-                    Enable CCS
+                    Enable carbon capture
+                    <i id="tooltip-launcher-utility-coal-ccs" class="material-icons info">info_outline</i>
+                  </span>
+                  </span>
+                  <span class="tooltip mdl-tooltip mdl-tooltip--top"
+                    for="tooltip-launcher-utility-coal-ccs">
+                    CO2 is captured from the exhaust and sent underground.
                   </span>
                 </label>
               </div>
@@ -247,13 +255,10 @@ limitations under the License.
           <div class="mdl-cell mdl-cell--8-col">
             <h2>Choose your policies to reduce cost and CO2</h2>
             <p class="description">
-              Now take the role of a policymaker. You can change policies that
-              affect utility planning. You can also change the cost assumptions
-              for future energy sources. On this page, the utility planning is
-              automatic: the utility planner will always keep the lights on at
-              the least cost.
-              See how your policies and cost assumptions affect CO2 and costs to
-              consumers.
+              Now take the role of a policymaker.
+              You can change policies that affect utility planning.
+              You can also change the cost assumptions for future energy sources.
+              On this page, the utility planning is automatic: the utility planner will always keep the lights on at the least cost. See how your policies and cost assumptions affect CO2 and costs to consumers across the United States.
             </p>
           </div>
           <div class="mdl-cell mdl-cell--4-col">
@@ -318,87 +323,36 @@ limitations under the License.
               <i id="tooltip-launcher-policy-energy-breakdown" class="material-icons info">info_outline</i>
               <span class="tooltip mdl-tooltip mdl-tooltip--top"
                   for="tooltip-launcher-policy-energy-breakdown">
-                 Based upon your policy choices, an optimal mix of energy
-                 sources is used to fulfill energy demand for one year, at
-                 lowest cost.
+                Based upon your policy choices, an optimal mix of energy
+                sources is used to fulfill energy demand for one year, at
+                lowest cost.
 
-                 The table below shows how much each source
-                 contributes to the cost and energy consumed.
+                The table below shows how much each source
+                contributes to the cost and energy consumed.
               </span>
             </h2>
-            <table class="policy-mode-headline-breakdown">
-              <thead>
-                <tr>
-                  <td class="sources">Source</td>
-                  <td class="field">% Total Energy</td>
-                  <td class="field">% Total Cost</td>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td class="nuclear">Nuclear</td>
-                  <td id="policy-mode-breakdown-nuclear">5</td>
-                  <td id="policy-mode-breakdown-nuclear-percent">10%</td>
-                </tr>
-                <tr>
-                  <td class="solar">Solar</td>
-                  <td id="policy-mode-breakdown-solar">10</td>
-                  <td id="policy-mode-breakdown-solar-percent">20%</td>
-                </tr>
-                <tr>
-                  <td class="wind">Wind</td>
-                  <td id="policy-mode-breakdown-wind">30</td>
-                  <td id="policy-mode-breakdown-wind-percent">60%</td>
-                </tr>
-                <tr>
-                  <td class="hydro">Hydropower</td>
-                  <td id="policy-mode-breakdown-hydro">30</td>
-                  <td id="policy-mode-breakdown-hydro-percent">60%</td>
-                </tr>
-                <tr>
-                  <td class="ng">Natural gas</td>
-                  <td id="policy-mode-breakdown-ng">5</td>
-                  <td id="policy-mode-breakdown-ng-percent">10%</td>
-                </tr>
-                <tr>
-                  <td class="ngccs">NG + CCS</td>
-                  <td id="policy-mode-breakdown-ngccs">30</td>
-                  <td id="policy-mode-breakdown-ngccs-percent">60%</td>
-                </tr>
-                <tr>
-                  <td class="coal">Coal</td>
-                  <td id="policy-mode-breakdown-coal">30</td>
-                  <td id="policy-mode-breakdown-coal-percent">60%</td>
-                </tr>
-                <tr>
-                  <td class="coalccs">Coal + CCS</td>
-                  <td id="policy-mode-breakdown-coalccs">30</td>
-                  <td id="policy-mode-breakdown-coalccs-percent">60%</td>
-                </tr>
-                <tr>
-                  <td class="storage">Storage</td>
-                  <td>-</td>
-                  <td id="policy-mode-breakdown-storage-percent">60%</td>
-                </tr>
-              </tbody>
-            </table>
+            <div id="policy-mode-breakdown-table"></div>
           </div>
         </div>
         <!-- Policy presets -->
         <div class="mdl-grid policy-presets-container">
           <div class="mdl-cell mdl-cell--8-col">
             <div class="preset-container">
-              <label class="preset mdl-icon-toggle mdl-js-icon-toggle" for="preset-high-renewables">
-                <input type="checkbox" id="preset-high-renewables" class="mdl-icon-toggle__input">
-                <span class="mdl-icon-toggle__label">High renewables</span>
+              <label class="preset mdl-icon-toggle mdl-js-icon-toggle" for="preset-balanced-low-carbon">
+                <input type="checkbox" id="preset-balanced-low-carbon" class="mdl-icon-toggle__input">
+                <span class="mdl-icon-toggle__label">Balanced low-carbon</span>
               </label>
-              <label class="preset mdl-icon-toggle mdl-js-icon-toggle" for="preset-high-carbon-capture">
-                <input type="checkbox" id="preset-high-carbon-capture" class="mdl-icon-toggle__input">
-                <span class="mdl-icon-toggle__label">High carbon capture</span>
+              <label class="preset mdl-icon-toggle mdl-js-icon-toggle" for="preset-favor-renewables">
+                <input type="checkbox" id="preset-favor-renewables" class="mdl-icon-toggle__input">
+                <span class="mdl-icon-toggle__label">Favor renewables</span>
               </label>
-              <label class="preset mdl-icon-toggle mdl-js-icon-toggle" for="preset-high-nuclear">
-                <input type="checkbox" id="preset-high-nuclear" class="mdl-icon-toggle__input">
-                <span class="mdl-icon-toggle__label">High nuclear</span>
+              <label class="preset mdl-icon-toggle mdl-js-icon-toggle" for="preset-favor-carbon-capture">
+                <input type="checkbox" id="preset-favor-carbon-capture" class="mdl-icon-toggle__input">
+                <span class="mdl-icon-toggle__label">Favor carbon capture</span>
+              </label>
+              <label class="preset mdl-icon-toggle mdl-js-icon-toggle" for="preset-favor-nuclear">
+                <input type="checkbox" id="preset-favor-nuclear" class="mdl-icon-toggle__input">
+                <span class="mdl-icon-toggle__label">Favor nuclear</span>
               </label>
               <i id="tooltip-launcher-policy-presets" class="material-icons info">info_outline</i>
               <span class="tooltip mdl-tooltip mdl-tooltip--top"
@@ -477,13 +431,12 @@ limitations under the License.
                 <i id="tooltip-launcher-policy-carbon-tax" class="material-icons info">info_outline</i>
                 <span class="tooltip mdl-tooltip mdl-tooltip--top"
                     for="tooltip-launcher-policy-carbon-tax">
-                  This slider represents an extra price or tax on carbon
-                  emissions ranging from:$0 up to $100 per tonne.
+                  This slider represents an extra price or tax on carbon emissions ranging from:
+                  $0 up to $100 per metric ton.
 
-                  Since the
-                  simulation builds a grid which keeps the lights on at the
-                  lowest cost, higher carbon prices will drive the simulation to
-                  build with cleaner power sources, albeit at additional cost.
+                  Since the simulation builds a grid which keeps the lights on at the lowest cost,
+                  higher carbon prices will drive the simulation to build with cleaner power sources,
+                  albeit at additional cost.
                 </span>
               </label>
               <div id="carbon-tax-slider" class="policy-slider"></div>
@@ -495,12 +448,9 @@ limitations under the License.
                   <i id="tooltip-launcher-policy-storage-is-allowed" class="material-icons info">info_outline</i>
                   <span class="tooltip mdl-tooltip mdl-tooltip--top"
                       for="tooltip-launcher-policy-storage-is-allowed">
-                    If energy storage is allowed, then the simulation is allowed
-                    to build energy storage capacity as necessary.
-
-                    Storage is
-                    useful for storing energy when there is an excess and putting
-                    it back on the grid when there is high demand.
+                    If energy storage is allowed, then the simulation is allowed to build energy
+                    storage capacity as necessary. Storage is useful when there is an excess and
+                    putting it back on the grid when there is high demand.
                   </span>
                 </span>
               </label>
@@ -528,10 +478,19 @@ limitations under the License.
                     Use the sliders below to specify energy generation costs.
                 </span>
               </label>
-              <div id="ng-cost-slider" class="policy-cost-slider"></div>
-              <div id="solar-cost-slider" class="policy-cost-slider"></div>
-              <div id="wind-cost-slider" class="policy-cost-slider"></div>
-              <div id="nuclear-cost-slider" class="policy-cost-slider"></div>
+              <div id="ng-cost-slider" class="policy-cost-slider">
+                <div id="ng-cost-slider-value" class="policy-cost-slider-value"></div>
+              </div>
+              <div id="solar-cost-slider" class="policy-cost-slider">
+                <div id="solar-cost-slider-value" class="policy-cost-slider-value"></div>
+              </div>
+              <div id="wind-cost-slider" class="policy-cost-slider">
+                <div id="wind-cost-slider-value" class="policy-cost-slider-value"></div>
+              </div>
+              <div id="nuclear-cost-slider" class="policy-cost-slider">
+                <div id="nuclear-cost-slider-value" class="policy-cost-slider-value"></div>
+              </div>
+              <a href="" id="cost-slider-about-appendix">More cost details</a>
             </div>
           </div>
           <div class="mdl-cell mdl-cell--4-col">
@@ -555,9 +514,9 @@ limitations under the License.
 
       <!-- Compare mode -->
       <div class="mdl-tabs__panel" id="compare-mode">
-        <h1>Compare policies</h1>
+        <h1>Compare Policies</h1>
         <div class="mdl-grid mode-description">
-          <div class="mdl-cell mdl-cell--8-col">
+          <div class="mdl-cell mdl-cell--12-col">
             <h2>Compare the carbon and cost impact of your policy</h2>
             <p class="description">
               Your policy can be compared to several different reference
@@ -565,98 +524,17 @@ limitations under the License.
               emissions and budget impact.
             </p>
           </div>
-          <div class="mdl-cell mdl-cell--4-col">
-          </div>
+          <!--<div class="mdl-cell mdl-cell--4-col"></div>-->
         </div>
         <!-- Compare presets -->
         <div class="mdl-grid compare-hero-box">
-          <div class="mdl-cell mdl-cell--8-col">
-            <table class="compare-table">
-              <thead>
-                <tr>
-                  <td></td>
-                  <td class="compare-table-column-title">
-                    Reference policy outcome
-                  </td>
-                  <td class="compare-table-column-title">
-                    Your policy outcome
-                  </td>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th>
-                    CO2 emissions impact
-                  </th>
-                  <td class="compare-table-cell compare-table-cell-ref">
-                    <span id="compare-ref-co2"></span>
-                    <span class="compare-cell-units">Mt/year</span>
-                  </td>
-                  <td class="compare-table-cell compare-table-cell-user">
-                    <span id="compare-user-co2"></span>
-                    <span class="compare-cell-units">Mt/year</span>
-                  </td>
-                </tr>
-                <tr>
-                  <th>
-                    Cost impact
-                  </th>
-                  <td class="compare-table-cell compare-table-cell-ref">
-                    <span id="compare-ref-cost"></span>
-                    <span class="compare-cell-units">USD/MWh</span>
-                  </td>
-                  <td class="compare-table-cell compare-table-cell-user">
-                    <span id="compare-user-cost"></span>
-                    <span class="compare-cell-units">USD/MWh</span>
-                  </td>
-                </tr>
-                <tr>
-                  <th>
-                    Energy generation
-                  </th>
-                  <td class="compare-table-cell compare-table-cell-ref">
-                    <div id="compare-ref-generated"></div>
-                  </td>
-                  <td class="compare-table-cell compare-table-cell-user">
-                    <div id="compare-user-generated"></div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+          <div class="mdl-cell mdl-cell--12-col">
+            <div id="compare-mode-summary-table"></div>
+            <div id="compare-mode-policy-table"></div>
+            <div id="compare-mode-cost-table"></div>
+            <div id="compare-mode-energy-table"></div>
           </div>
-          <div class="mdl-cell mdl-cell--4-col">
-          </div>
-        </div>
-        <div class="mdl-grid compare-presets-container">
-          <div class="mdl-cell mdl-cell--8-col">
-            <div>
-              <h2>
-                Select a reference policy to compare against
-                <i id="tooltip-launcher-compare-presets" class="material-icons info">info_outline</i>
-                <span class="tooltip mdl-tooltip mdl-tooltip--top"
-                    for="tooltip-launcher-compare-presets">
-                  Each of these options selects a policy that will be compared
-                  against your own choices.
-                </span>
-              </h2>
-              <div class="preset-container">
-                <label class="preset mdl-icon-toggle mdl-js-icon-toggle" for="compare-high-renewables">
-                  <input type="checkbox" id="compare-high-renewables" class="mdl-icon-toggle__input">
-                  <span class="mdl-icon-toggle__label">High renewables</span>
-                </label>
-                <label class="preset mdl-icon-toggle mdl-js-icon-toggle" for="compare-high-carbon-capture">
-                  <input type="checkbox" id="compare-high-carbon-capture" class="mdl-icon-toggle__input">
-                  <span class="mdl-icon-toggle__label">High carbon capture</span>
-                </label>
-                <label class="preset mdl-icon-toggle mdl-js-icon-toggle" for="compare-high-nuclear">
-                  <input type="checkbox" id="compare-high-nuclear" class="mdl-icon-toggle__input">
-                  <span class="mdl-icon-toggle__label">High nuclear</span>
-                </label>
-              </div>
-            </div>
-          </div>
-          <div class="mdl-cell mdl-cell--4-col">
-          </div>
+          <!--<div class="mdl-cell mdl-cell--4-col"></div>-->
         </div>
 
         <div class="share-link-container">
@@ -724,27 +602,479 @@ limitations under the License.
             </button>
           </a>
         </div>
-        <h1>Learn more</h1>
+        <h1>About</h1>
         <div class="mdl-grid">
           <div class="mdl-cell mdl-cell--8-col">
-            <div class="appendix-hero">
-              <div class="appendix-hero-placeholder">
-                Image
-              </div>
-              <p class="appendix-hero-caption">
-                Caption for image, chart or figure above goes here.
-              </p>
-            </div>
-          </div>
-          <div class="mdl-cell mdl-cell--4-col">
-          </div>
-        </div>
-        <div class="mdl-grid">
-          <div class="mdl-cell mdl-cell--8-col">
-            <h2>Lorem ipsum dolor sit amet</h2>
-            <p>Praesent ut posuere nunc. Etiam nec ipsum et odio faucibus mollis ac quis sem. Mauris quis enim sollicitudin, cursus justo vitae, mollis neque. Proin non quam eget enim lobortis sollicitudin quis vitae felis. Donec bibendum pharetra nibh, ut scelerisque sem cursus volutpat. Suspendisse at venenatis est. Donec non libero laoreet, tincidunt risus id, tincidunt dolor. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur sollicitudin arcu eget purus efficitur volutpat vitae sodales urna.
-            <h2>Lorem ipsum dolor sit amet</h2>
-            <p>Sed dignissim, sem gravida porta rhoncus, justo enim commodo magna, nec lobortis augue mauris et mauris. Duis quis nulla nibh. In luctus ex in diam egestas, vel convallis dui tempus. Nunc egestas libero tortor, eu varius orci sodales eget. Maecenas nisi quam, scelerisque sit amet arcu ut, vulputate pulvinar sem. Suspendisse aliquet lacinia rhoncus. Suspendisse sit amet semper lectus. Praesent molestie ipsum ac lorem tempus, id malesuada libero faucibus. Integer aliquet accumsan magna, quis malesuada mi hendrerit sed. In varius, lorem nec molestie ullamcorper, quam est egestas sapien, sit amet volutpat risus velit et justo. Nam eget nisl tincidunt, dictum mauris non, ullamcorper diam. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Duis sed feugiat ex, et fermentum augue. Sed ut eros lorem. In finibus nisi sed dignissim mollis.
+            <h2>Policy Simulation</h2>
+            <p>
+              In Policy Simulation, a <a href="https://en.wikipedia.org/wiki/Linear_programming">Linear Program</a>  takes on the task of fulfilling demand while minimizing costs, which the user was doing on the preceding Utility Simulation page.  Policy Simulation does the calculation over an entire year's worth of electricity data in 13 regions within the Continental United States.
+            </p>
+            <p>
+              In addition to minimizing costs and fulfilling demand, the linear program also ensures that a specified amount of "Clean Energy" is consumed where Clean Energy is defined as Solar and Wind. Optionally, the user can add Nuclear Power or Carbon Capture and Sequestration (CCS) to the definition of Clean Energy.
+            </p>
+            <p>
+              If the user selects different cost assumptions for power generation, or a different carbon tax, then the site will show updated results.
+            </p>
+
+            <h2>CO2 outcomes reported by the tool</h2>
+            <p>
+              The amount of CO2 reported by the tool assumes the latest and most efficient power plants.
+              Utility Simulation reports CO2 for California electricity consumption, counting imports.
+              Thus, the 65.3 million metric tons we report is lower than the 83.1 million metric tons
+              <a href="https://www.arb.ca.gov/cc/inventory/data/tables/ghg_inventory_sector_sum_2000-15co2.pdf">
+                reported
+              </a>
+              by CalEPA for 2015. In Policy Simulation, the tool reports that the United States electricity sector produces 1.61 billion metric tons of CO2, while the EIA reports 1.82 billion for 2016
+            </p>
+            <p>
+              In both cases, the tool’s number is what our model would report if we reproduced today’s mixture of generation and capacity. The increased efficiency would reduce CO2 emissions by 12-22%.
+            </p>
+            <p>
+              Further, the default settings for Policy Simulation show 914 million tons. The tool reports the CO2 caused by a complete rebuild of the grid, in the least-cost way. Assuming moderate future costs and no other policies, new natural gas plants would displace coal and reduce CO2 by an additional 44%.
+            </p>
+            <p>
+              The goals shown in the tool are not driven by a specific policy, but are suggested targets for users to try to attain.
+            </p>
+
+            <h2>Cost outcomes reported by the tool</h2>
+            <p>
+              The costs reported by the tool are an estimate of the cost to generate a megawatt-hour of electricity, about 1.1 times the amount of electricity used by a typical U.S. household.
+            </p>
+            <p>
+              The cost presented is the
+              <a href="https://en.wikipedia.org/wiki/Cost_of_electricity_by_source#Levelized_cost_of_electricity">
+                Levelized Cost of Electricity
+              </a>
+              (LCOE). LCOE estimates the cost based on three factors: the cost of building the generation plants (per megawatt-hour of capacity), the cost to maintain the plants (per megawatt-hour of capacity per year), and the cost to actually generate the electricity (per megawatt-hour of produced electricity).
+            </p>
+            <p>
+              We assume that the building cost and the fixed maintenance cost are amortized over a 30-year lifespan of the plant. We use a net-present-value calculation for this amortization, with an assumed (real) discount rate of 6%.
+            </p>
+            <p>
+              Because the tool is computing LCOE, it will not reflect the price charged to industrial, commercial, or residential customers. Prices for those customers are typically higher than the cost to build and operate the generating plants. The tool doesn’t model how increased costs of generation are passed to customers.
+            </p>
+
+            <h2>Energy generation cost assumptions</h2>
+            <p>
+              To simplify Policy Simulations, we reduced the choices for energy generation costs to three per technology. For solar, wind, and nuclear power, these are labeled “optimistic future”, “moderate future”, and “today”; to reflect possible future reductions in the capital cost in building these kinds of plants. For natural gas, the choices are “low cost”, “medium cost”, and “high cost”; which reflect future volatility in natural gas fuel prices.
+            </p>
+            <h3>Power Sources</h3>
+            <p>
+              For all power sources, we model costs arising from the following sources:
+            </p>
+            <ul>
+              <li>
+                Capital: Cost to build the plant ($ per Kilowatt of capacity)
+              </li>
+              <li>
+                Fixed: Cost to maintain the plant ($ per Kilowatt of capacity per year)
+              </li>
+              <li>
+                Variable: Cost to generate energy ($ per Megawatt hour)
+              </li>
+            </ul>
+            <p>For fossil fuel plants, the variable costs are determined from:</p>
+            <ul>
+              <li>
+                Fuel: Cost of fuel ($ per MMBTU)
+              </li>
+              <li>
+                Heat-rate: Fuel to electricity efficiency (btu per kilowatt hour)
+              </li>
+            </ul>
+            <p>
+              For simulations with a carbon tax, we also source the CO2 generated:
+            </p>
+            <ul>
+              <li>CO<sub>2</sub>; Tonnes of CO<sub>2</sub> per Megawatt hour</li>
+            </ul>
+
+            <h3>Zero CO<sub>2</sub> sources</h3>
+            <p>
+              Costs for solar and wind production have fallen significantly over the past few years and are expected to get even cheaper over time.  The price for nuclear power has remained the same over time, but recent startups and developments are working on ‘Advanced Nuclear’ technology which may make nuclear power cheaper in the future.
+            </p>
+            <table class="appendix-table">
+              <thead>
+                <tr>
+                  <td>Source</td><td>Capital ($ / kW)</td><td>Fixed ($ / kW-year)</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Solar Optimistic Future</td>
+                  <td>630<sup>4</sup></td>
+                  <td>21.66<sup>1</sup></td>
+                </tr>
+                <tr>
+                  <td>Solar Moderate Future</td>
+                  <td>1040<sup>4</sup></td>
+                  <td>21.66<sup>1</sup></td>
+                </tr>
+                <tr>
+                  <td>Solar Today</td>
+                  <td>2277<sup>1</sup></td>
+                  <td>21.66<sup>1</sup></td>
+                </tr>
+                <tr>
+                  <td>Wind Optimistic Future</td>
+                  <td>1370<sup>4</sup></td>
+                  <td>46.71<sup>1</sup></td>
+                </tr>
+                <tr>
+                  <td>Wind Moderate Future</td>
+                  <td>1500<sup>4</sup></td>
+                  <td>46.71<sup>1</sup></td>
+                </tr>
+                <tr>
+                  <td>Wind Today</td>
+                  <td>1686<sup>1</sup></td>
+                  <td>46.71<sup>1</sup></td>
+                </tr>
+              </tbody>
+            </table>
+            <table class="appendix-table">
+              <thead>
+                <tr>
+                  <td>Source</td>
+                  <td>Capital ($ / kW)</td>
+                  <td>Fixed ($ / kW-year)</td>
+                  <td>Variable Costs ($ / MWh)</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Nuclear Optimistic Future</td>
+                  <td>2000<sup>3</sup></td>
+                  <td>60<sup>3</sup></td>
+                  <td>12<sup>3</sup></td>
+                </tr>
+                <tr>
+                  <td>Nuclear Moderate Future</td>
+                  <td>3500<sup>3</sup></td>
+                  <td>80<sup>3</sup></td>
+                  <td>12<sup>3</sup></td>
+                </tr>
+                <tr>
+                  <td>Nuclear Today</td>
+                  <td>5880<sup>1</sup></td>
+                  <td>99.65<sup>1</sup></td>
+                  <td>10<sup>1,5</sup></td>
+                </tr>
+              </tbody>
+            </table>
+            <p>
+              We treat hydropower as a legacy resource, assuming that all economic sites for building dams have already been exploited. This caps the total amount of hydropower available to be the existing capacity in each region in the United States.
+            </p>
+            <table class="appendix-table">
+              <thead>
+                <tr>
+                  <td>Source</td>
+                  <td>Capital ($ / kW)</td>
+                  <td>Fixed ($ / kW-year)</td>
+                  <td>Variable Costs ($ / MWh)</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Hydropower</td>
+                  <td>0 (already built)</td>
+                  <td>14.93<sup>1</sup></td>
+                  <td>2.66<sup>1</sup></td>
+                </tr>
+              </tbody>
+            </table>
+
+            <h3>Fossil fuel</h3>
+            <p>
+              Fossil fuel technology is mature, with efficiency slowly improving.  The biggest factor that affects natural-gas-based electricity is the cost of the natural gas itself. With the widespread use of hydraulic fracturing in the United States, natural gas prices have reached historic lows. For natural gas, we set “low cost” to be the price paid by utilities for natural gas in the second quarter of 2016. However, natural gas prices are volatile in both time and across different countries. To represent this volatility, we set “medium cost” to be a typical European fuel price (January 2016) and “high cost” be $13.5/MMBTU (higher than the highest monthly price in the United States since 2002, but lower than the peak Japanese cost for LNG).  We set capital costs to today’s technology to be the same across all three fuel costs.
+            </p>
+            <p>
+              For natural gas, we consider two types of plant Natural Gas Combined Cycle (NGCC) and Natural Gas Conventional Turbine (NGCT)
+            </p>
+            <p>
+              For coal, we see very little price changes over time and have fixed coal costs at a single value.
+            </p>
+            <table class="appendix-table">
+              <thead>
+                <tr>
+                  <td>Source</td>
+                  <td>Capital ($ / kW)</td>
+                  <td>Fixed ($ / kW-year)</td>
+                  <td>Fuel ($ / MMBTU)</td>
+                  <td>Heat rate (BTU / kWh)</td>
+                  <td>CO<sub>2</sub> (kg / MMBTU)</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>NGCT $</td>
+                  <td>672<sup>1</sup></td>
+                  <td>6.76<sup>1</sup></td>
+                  <td>2.51<sup>6</sup></td>
+                  <td>8550<sup>1</sup></td>
+                  <td>53<sup>7</sup></td>
+                </tr>
+                <tr>
+                  <td>NGCT $$</td>
+                  <td>672<sup>1</sup></td>
+                  <td>6.76<sup>1</sup></td>
+                  <td>2.51<sup>6</sup></td>
+                  <td>8550<sup>1</sup></td>
+                  <td>53<sup>7</sup></td>
+                </tr>
+                <tr>
+                  <td>NGCT $$</td>
+                  <td>672<sup>1</sup></td>
+                  <td>6.76<sup>1</sup></td>
+                  <td>2.51<sup>6</sup></td>
+                  <td>8550<sup>1</sup></td>
+                  <td>53<sup>7</sup></td>
+                </tr>
+                <tr>
+                  <td>NGCC $</td>
+                  <td>1094<sup>1</sup></td>
+                  <td>9.94<sup>1</sup></td>
+                  <td>2.51<sup>6</sup></td>
+                  <td>6200<sup>1</sup></td>
+                  <td>53<sup>7</sup></td>
+                </tr>
+                <tr>
+                  <td>NGCC $$</td>
+                  <td>1094<sup>1</sup></td>
+                  <td>9.94<sup>1</sup></td>
+                  <td>2.51<sup>6</sup></td>
+                  <td>6200<sup>1</sup></td>
+                  <td>53<sup>7</sup></td>
+                </tr>
+                <tr>
+                  <td>NGCC $$</td>
+                  <td>1094<sup>1</sup></td>
+                  <td>9.94<sup>1</sup></td>
+                  <td>2.51<sup>6</sup></td>
+                  <td>6200<sup>1</sup></td>
+                  <td>53<sup>7</sup></td>
+                </tr>
+                <tr>
+                  <td>Coal</td>
+                  <td>2934<sup>2</sup></td>
+                  <td>31.18<sup>2</sup></td>
+                  <td>2.14<sup>2</sup></td>
+                  <td>8800<sup>2</sup></td>
+                  <td>98<sup>7</sup></td>
+                </tr>
+              </tbody>
+            </table>
+
+            <h3>Carbon capture and sequestration (CCS)</h3>
+            <p>
+              Carbon Capture and Sequestration captures CO2 in the exhaust of fossil fuel plants, then transports it to geological storage where it can be sequestered.  The additional machinery to capture the CO2 requires energy from the fossil fuel plant, which lowers overall plant efficiency. In addition, carbon capture equipment costs extra capital.
+            </p>
+            <p>
+              For this simulation, we consider cryogenic capture methods.  For different fuel type we add Additional Capital and Fixed Costs to the values in the chart above. We increase the heat rate of the plants, which reflects decrease inefficiency; and multiply Fossil Fuel CO2 output by a CO2 Multiplier to represent the amount of CO2 which escapes the flue at CCS plants.
+            </p>
+            <table class="appendix-table">
+              <thead>
+                <tr>
+                  <td>Fuel Type</td>
+                  <td>Additional Capital ($ / kW)</td>
+                  <td>Additional Fixed ($ / kW-year)</td>
+                  <td>Additional Variable ($ / kW)</td>
+                  <td>Heat Rate Multiple</td>
+                  <td>CO<sub>2</sub> Multiplier</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>NGCT + CCS</td>
+                  <td>395<sup>9,1,2</sup></td>
+                  <td>23.27</td>
+                  <td>5.09<sup>1,2</sup></td>
+                  <td>1.21<sup>1</sup></td>
+                  <td>0.10</td>
+                </tr>
+                <tr>
+                  <td>NGCC + CCS</td>
+                  <td>395<sup>9,1,2</sup></td>
+                  <td>23.27</td>
+                  <td>5.09<sup>1,2</sup></td>
+                  <td>1.15<sup>1</sup></td>
+                  <td>0.10</td>
+                </tr>
+                <tr>
+                  <td>Coal + CCS</td>
+                  <td>656<sup>9,1,2</sup></td>
+                  <td>35.25</td>
+                  <td>5.04<sup>1,2</sup></td>
+                  <td>1.18<sup>1</sup></td>
+                  <td>0.10</td>
+                </tr>
+              </tbody>
+            </table>
+            <p>
+              We also assume that CO<sub>2</sub> costs $11/tonne to transport and store underground.<sup>8</sup>
+            </p>
+
+            <h2>Storage cost assumptions</h2>
+            <p>
+              Storage costs can arise from one of three sources:
+            </p>
+            <ul>
+              <li>
+                Capital: Net present cost (over 30 years) to build the storage element ($ / Megawatt hour), assuming a 10-year lifespan for Li-Ion batteries.11
+              </li>
+              <li>
+                Charge Capital: Cost to build the charging element ($ / Megawatt)
+              </li>
+              <li>
+                Discharge Capital: Cost to build the discharging element ($ / Megawatt)
+              </li>
+            </ul>
+
+            <p>We categorize costs for Storage as:</p>
+            <ul>
+              <li>Capital: Net present cost to build the storage element ($ / Megawatt hour), assuming a 10-year lifespan</li>
+              <li>Charge Capital: Cost to build the charging element ($ / Megawatt)</li>
+              <li>Discharge Capital: Cost to build the discharging element ($ / Megawatt)</li>
+            </ul>
+            <p>Storage also has efficiency losses:</p>
+            <ul>
+              <li>
+                Storage efficiency: amount of energy maintained in untouched system over time: (Storage<sub>t+1</sub> - Storage<sub>t</sub>) / t
+              </li>
+              <li>
+                Charge efficiency: amount of energy added to storage per energy taken from the grid.
+              </li>
+              <li>
+                Discharge efficiency: amount of energy added to the grid per energy taken from storage.
+              </li>
+            </ul>
+
+            <table class="appendix-table">
+              <thead>
+                <tr>
+                  <td>Storage Type</td>
+                  <td>Capital ($ / kWh)</td>
+                  <td>Charge Capital  ($ / kW)</td>
+                  <td>Discharge Capital ($ / kW)</td>
+                  <td>Charge Efficiency</td>
+                  <td>Discharge Efficiency</td>
+                  <td>Storage Efficiency</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Li-Ion batteries</td>
+                  <td>187</td>
+                  <td>100</td>
+                  <td>100</td>
+                  <td>0.9</td>
+                  <td>0.9</td>
+                  <td>1.0</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <h2>Transmission cost assumptions</h2>
+            <p>
+              We assume long-range transmission is accomplished by High-Voltage DC lines, which cost $334 / MW / km of line, and incur a
+              3% efficiency loss for every 1000km of line.<sup>12</sup>
+            </p>
+
+            <h2>Hydropower limits</h2>
+            <p>
+              When simulating Hydropower, we considered it fully dispatchable with total capacity and generation limits determined by
+              actual 2015 capacity and generation totals.<sup>13</sup> Note that 2015 was an El Nino year, although per wikipedia,
+              “During the winter of 2014-15, the typical precipitation and impacts of an El Niño event, did not occur over
+              North America, as the event was weak and on the borderline of being an event.” <sup>14</sup>
+            </p>
+
+            <h2>Sources</h2>
+            <ol>
+              <li>
+                U.S. Energy Information Administration,
+                <a href="https://www.eia.gov/outlooks/aeo/assumptions/pdf/table_8.2.pdf">
+                  Cost and Performance Characteristics of New Generating Technologies, Annual Energy Outlook 2017
+                </a>, (2017).
+              </li>
+              <li>
+                U.S. Energy Information Administration.
+                <a href="https://www.eia.gov/outlooks/capitalcost/pdf/updated_capcost.pdf">
+                  Updated capital cost estimates for utility scale electricity generating plants
+                </a>, (2013).
+              </li>
+              <li>
+                IRENA,
+                <a href="http://www.irena.org/DocumentDownloads/Publications/IRENA_Power_to_Change_2016.pdf">
+                  The power to change: Solar and wind cost reduction potential to 2025
+                </a>, (2016).
+              </li>
+              <li>
+                Clean Air Task Force,
+                <a href="http://www.catf.us/resources/publications/files/Advanced_Nuclear_Energy.pdf">
+                  Advanced nuclear energy: Need, characteristics, projected costs, and opportunities
+                </a> (2016).
+              </li>
+              <li>
+                U.S. Energy Information Administration,
+                <a href="http://www.eia.gov/electricity/annual/html/epa_08_04.html">
+                  Average Power Plant Operating Expenses for Major U.S. Investor-Owned Electric Utilities
+                </a>, (2014).
+              </li>
+              <li>
+                U.S. Energy Information Administration,
+                <a href="https://www.eia.gov/forecasts/steo/tables/pdf/2tab.pdf">
+                  Short-Term Energy Outlook, Table 2. Energy Prices
+                </a> (2017).
+              </li>
+              <li>
+                World Bank,
+                <a href="http://pubdocs.worldbank.org/en/561011486076393416/CMO-Historical-Data-Monthly.xlsx">
+                  Commodity Price Data (The Pink Sheet)
+                </a>, (2017).
+              </li>
+              <li>
+                T. Grant, D. Morgan, and K. Gerdes.
+                <a href="https://www.netl.doe.gov/File%20Library/Research/Energy%20Analysis/Publications/QGESS_CO2T-S_Rev3_20140514.pdf">
+                  Carbon dioxide transport and storage costs in NETL studies.
+                </a> Technical Report DOE/NETL-2013/1614, National Energy Technology Laboratory, (2014).
+              </li>
+              <li>
+                Mark J. Jensen, Christopher S. Russell, David Bergeson, Christopher D. Hoeger, David J. Frankman, Christopher S. Bence, and Larry L. Baxter.
+                <a href="https://www.researchgate.net/publication/282742068_Prediction_and_validation_of_external_cooling_loop_cryogenic_carbon_capture_CCC-ECL_for_full-scale_coal-fired_power_plant_retrofit">
+                  Prediction and validation of external cooling loop cryogenic carbon capture (CCC-ECL) for full-scale coal-fired power plant retrofit.
+                </a> International Journal of Greenhouse Gas Control, 42:200–212, (2015).
+              </li>
+              <li>
+                IRENA.
+                <a href="http://www.irena.org/DocumentDownloads/Publications/IRENA_REthinking_Energy_2017.pdf">
+                  REthinking energy 2017: Accelerating the global energy transformation
+                </a> (2017).
+              </li>
+              <li>
+                W.G. Manuel.
+                <a href="http://www.energy.ca.gov/assessments/ab2514_reports/Turlock_Irrigation_District/2014-10-28_Turlock_Irrigation_District_Energy_Storage_Study.pdf">
+                  Energy storage study
+                </a>, Turlock Irrigation District, (2014).
+              </li>
+              <li>
+                Ryan Pletka, Jagmeet Khangura, Andy Rawlins, Elizabeth Waldren, and Dan Wilson.
+                <a href="https://www.wecc.biz/Reliability/2014_TEPPC_Transmission_CapCost_Report_B+V.pdf">
+                  Capital costs for transmission and substations
+                </a>. Western Electricity Coordinating Council, (2014).
+              </li>
+              <li>
+                U.S. Energy Information Administration.
+                <a href="https://www.eia.gov/electricity/data/eia860/">
+                  Form EIA-860 detailed data
+                </a>, (2016).
+              </li>
+              <li>
+                Wikipedia,
+                <a href="https://en.wikipedia.org/wiki/2014%E2%80%9316_El_Ni%C3%B1o_event?section=6#North_America">
+                  2014–16 El Niño event
+                </a>, (2017).
+              </li>
+            </ol>
           </div>
           <div class="mdl-cell mdl-cell--4-col">
           </div>
@@ -766,29 +1096,112 @@ limitations under the License.
             </button>
           </a>
         </div>
-        <h1>See the data</h1>
+        <h1>Data</h1>
         <div class="mdl-grid">
           <div class="mdl-cell mdl-cell--8-col">
-            <div class="appendix-hero">
-              <div class="appendix-hero-placeholder">
-                Chart
-              </div>
-              <p class="appendix-hero-caption">
-                Caption for image, chart or figure above goes here.
-              </p>
-            </div>
-          </div>
-          <div class="mdl-cell mdl-cell--4-col">
-          </div>
-        </div>
-        <div class="mdl-grid">
-          <div class="mdl-cell mdl-cell--8-col">
-            <!-- TODO: placeholder replace text -->
-            <h2>Lorem ipsum dolor sit amet</h2>
-            <p>Donec in pellentesque ante. Nulla et maximus mi. Sed viverra nec enim blandit lobortis. Donec a pellentesque lectus. Integer placerat, justo nec volutpat commodo, lacus nulla vulputate tortor, sed suscipit enim arcu sit amet nisi. Etiam feugiat molestie odio et consequat. Cras scelerisque molestie ligula nec fringilla. Suspendisse euismod, ante consectetur semper facilisis, metus leo ultricies ligula, et viverra augue justo ac est.
-            <h2>Lorem ipsum dolor sit amet</h2>
-            <p>Nunc faucibus nulla diam, vel imperdiet orci pretium sit amet. Pellentesque scelerisque mi non ligula condimentum fringilla. Donec mi purus, finibus quis ante in, malesuada posuere ipsum. In congue nec nisi vitae sodales. In at magna felis. Aliquam faucibus leo justo, quis scelerisque dolor euismod non. Praesent eleifend vitae erat at convallis. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            <p>Vivamus ultrices nisl sed scelerisque sollicitudin. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at sem dolor. Mauris nec mauris velit. Donec sit amet turpis sed nisl porta molestie. Etiam est est, ultrices et varius quis, lacinia nec nibh. Sed in erat sed risus mattis sollicitudin. Proin vitae mauris bibendum, varius diam vel, dignissim nisl.
+
+            <h2>Non-dispatchable Profiles</h2>
+            <p>In “Policy Simulation”, in addition to a demand profile, we assumed non-dispatchable profiles for the following sources:</p>
+            <ul>
+              <li>Coal</li>
+              <li>Coal + CCS</li>
+              <li>Nuclear</li>
+              <li>Solar</li>
+              <li>Wind</li>
+            </ul>
+
+            <h2>Coal and Coal + CCS Profiles</h2>
+            <p>
+              We set Coal and Coal + CCS profiles to be “always-on” due to the slow ramp-up and ramp down nature of coal.
+            </p>
+
+            <h2>Nuclear Profiles</h2>
+            <p>
+              We set Nuclear to be “always-on” except for days 275 - 316 when we set it to half-power.  This mimicked profiles we saw from California (CALISO) and Midcontinent Independent Service Operator (MISO) where the nuclear plant was throttled down presumably for repairs and refueling.
+            </p>
+
+            <h2>Solar Profiles</h2>
+            <p>
+              Solar profiles were generated by assuming profiles matched the
+              <a href="https://www.nrel.gov/grid/solar-power-data.html">https://www.nrel.gov/grid/solar-power-data.html</a>
+              which simulated 6000 sites in the US.  Our simulation assumes that for each region, solar would be distributed equally over the sites in that region.
+            </p>
+
+            <h2>Wind Profiles</h2>
+            <p>
+              Wind profiles were generated by assuming profiles matched the <a href="https://www.nrel.gov/grid/wind-toolkit.html">NREL Wind Toolkit data from 2012</a> which simulated 126,000 sites in the US.  Our simulation assumes that for each region, wind would be distributed equally over the sites in that region.
+            </p>
+
+            <h2>Demand Profiles</h2>
+            <p>
+              Demand profiles were generated from queries to the EIA open data database.  (<a hredf="https://www.eia.gov/beta/realtime_grid/#/summary/demand?end=20170530&start=20170430">GUI version available here</a>)
+            </p>
+
+            <h2>Regions</h2>
+            <p>
+              Because EIA groups demand by region all of our simulations were done to match those regions as closely as possible.  NREL locations were grouped by states and the states were merged into regions in the following manner:
+            </p>
+            <table class="appendix-table">
+              <thead>
+                <tr>
+                  <td>Region</td>
+                  <td>States</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>California</td>
+                  <td>CA</td>
+                </tr>
+                <tr>
+                  <td>Carolinas</td>
+                  <td>NC, SC</td>
+                </tr>
+                <tr>
+                  <td>Central</td>
+                  <td>KS, ND, NE, OK, SD</td>
+                <tr>
+                  <td>ERCOT</td>
+                  <td>TX</td>
+                </tr>
+                <tr>
+                  <td>Florida</td>
+                  <td>FL</td>
+                </tr>
+                <tr>
+                  <td>Midatlantic</td>
+                  <td>DE, MD, NJ, OH, PA, VA, WV</td>
+                </tr>
+                <tr>
+                  <td>Midwest</td>
+                  <td>AR, IA, IL, IN, LA, MI, MN, MO, WI</td>
+                </tr>
+                <tr>
+                  <td>NEISO</td>
+                  <td>CT, MA, ME, NH, RI, VT</td>
+                </tr>
+                <tr>
+                  <td>Northwest</td>
+                  <td>CO, ID, MT, OR, UT, WA, WY</td>
+                </tr>
+                <tr>
+                  <td>NYISO</td>
+                  <td>NY</td>
+                </tr>
+                <tr>
+                  <td>Southeast</td>
+                  <td>AL, GA, MS</td>
+                </tr>
+                <tr>
+                  <td>Southwest</td>
+                  <td>AZ, NM, NV</td>
+                </tr>
+                <tr>
+                  <td>Tennessee  Valley Authority</td>
+                  <td>KY, TN</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
           <div class="mdl-cell mdl-cell--4-col">
           </div>
@@ -810,29 +1223,43 @@ limitations under the License.
             </button>
           </a>
         </div>
-        <h1>Get the code</h1>
+        <h1>Code</h1>
         <div class="mdl-grid">
           <div class="mdl-cell mdl-cell--8-col">
-            <div class="appendix-hero">
-              <div class="appendix-hero-placeholder">
-                System diagram
-              </div>
-              <p class="appendix-hero-caption">
-                Caption for image, chart or figure above goes here.
-              </p>
-            </div>
-          </div>
-          <div class="mdl-cell mdl-cell--4-col">
-          </div>
-        </div>
-        <div class="mdl-grid">
-          <div class="mdl-cell mdl-cell--8-col">
-            <!-- TODO: placeholder replace text -->
-            <h2>Lorem ipsum dolor sit amet</h2>
-            <p>Mauris convallis, augue quis semper scelerisque, felis dui luctus augue, vel ultrices arcu enim at odio. Sed mattis ante dolor, sit amet volutpat dui volutpat ut. Suspendisse convallis augue eu enim rutrum, vel accumsan erat ultricies. Sed pulvinar metus ex, vitae molestie dolor rutrum vitae. Sed placerat, lorem non porttitor congue, orci felis pellentesque augue, lobortis mollis risus est iaculis risus. Vestibulum sit amet est magna. Curabitur leo tellus, luctus eget enim id, interdum ornare justo. Donec placerat fermentum purus eu egestas. Pellentesque in erat et magna eleifend laoreet vel id eros. Vestibulum a interdum metus, vel gravida velit. Duis ornare odio ac ipsum viverra, eget pulvinar lectus laoreet. Nullam non quam erat. Morbi venenatis aliquet elit nec aliquam. Vestibulum at neque purus. Morbi sodales nec lorem id fermentum.
-            <h2>Lorem ipsum dolor sit amet</h2>
-            <p>Aliquam tristique placerat odio eu bibendum. Donec eget convallis libero. Cras sollicitudin turpis ac ex interdum facilisis. In hac habitasse platea dictumst. Sed ut dictum nisl. Nullam posuere eu nulla vitae maximus. Ut mollis volutpat risus eu aliquam. Cras molestie ante eu dolor laoreet, sit amet finibus nisl pellentesque. Nullam et mi non erat rutrum fermentum. Aenean in gravida nisi. Vivamus ut facilisis nisl, id vehicula urna. Vestibulum ullamcorper venenatis nulla sit amet malesuada. Praesent dignissim fermentum urna, ut vestibulum est condimentum ut. Proin pulvinar fermentum tortor eu ultrices.
-            <p>Suspendisse at faucibus quam, at auctor erat. Donec lobortis lectus vitae ligula pulvinar gravida. Fusce condimentum ut mauris non tincidunt. Duis sed volutpat arcu. Donec lobortis lectus in tellus egestas, et euismod ex commodo. In ut mattis neque, vitae mattis sem. Nullam nec libero varius, egestas elit vitae, hendrerit libero.
+            <h2>Code Availability</h2>
+            <p>The policy simulation code is publicly available via GitHub at
+              <a href="https://github.com/google/energysimulation">https://github.com/google/energysimulation</a>
+            </p>
+
+            <h2>Policy Simulations</h2>
+            <p>
+              The Policy Simulation was performed across the entire United States. We segmented the United States into 13 regions and ran the linear program in each region separately, so that we could run the simulation over an entire year of supply and demand. Each region can get renewable energy from other regions, paying the price for an HVDC line to import the energy. The results of the linear program from every region were summed together to provide the results shown on the web page.
+            </p>
+            <p>
+              The clean energy fraction slider enforces the  same fraction on all regions. That is, a clean energy fraction of X% means that every region generated at least X% of its demand using clean energy (where the definition of clean energy is up to the user).
+            </p>
+            <h2>Sources Local to Region</h2>
+            <p>Local sources in the simulations included:</p>
+            <ul>
+              <li>Coal</li>
+              <li>Coal + CCS</li>
+              <li>Hydropower</li>
+              <li>NGCC</li>
+              <li>NGCT</li>
+              <li>NGCC + CCS</li>
+              <li>NGCT + CCS</li>
+              <li>Nuclear (If “Allow Nuclear” was selected)</li>
+              <li>Local Solar</li>
+              <li>Local Wind</li>
+            </ul>
+
+            <h2>Today’s Costs and CO<sub>2</sub></h2>
+            <p>
+              Today’s Costs are calculated by using existing generation and capacity numbers for 2015.  To match them up with simulated costs, we used the same costs, efficiencies and profiles for  non-dispatchable sources and demand as we did for our future cost simulations.  For example, we assumed that all of the 2015 solar power followed the solar profile of evenly building out all possible solar sites.  As another example, we also assumed that efficiency of all natural gas plants matched 2015 technology.
+            </p>
+            <p>
+              Thus numbers calculated for “Today’s” Costs will be slightly different than actual numbers for 2015.  The biggest discrepancy is CO2 emitted because our present-day heat-rate numbers are more efficient than overall numbers for the existing fleet which has been built over the last 30 years.
+            </p>
           </div>
           <div class="mdl-cell mdl-cell--4-col">
           </div>
