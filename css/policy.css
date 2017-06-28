@@ -193,6 +193,12 @@ limitations under the License.
   min-height: 60px;
 }
 
+.policy-controls-option:first-child {
+  /* Work-around for MDL rendering bug where tooltips appear below enhanced
+     MDL components (e.g., MDL slider knob, MDL checkbox) */
+  z-index: 2;
+}
+
 .policy-controls-option .option-title {
   display: block;
   margin-top: 12px;
