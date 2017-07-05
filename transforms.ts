@@ -55,19 +55,6 @@ export function asMonthlyPerHouseholdCost(cost: number, population: number) {
 };
 
 /**
- * Gets the yearly CO2 emissions level goal for the region.
- *
- * @param population The population of the region.
- * @param yearlyCO2 The current CO2 emissions level for the region in metric
- *   tonnes per year.
- * @returns The target CO2 level in metric tonnes per year.
- */
-export function goalCO2(population: number, yearlyCO2: number) {
-  // i.e., half metric tonne per person + 8% of today's emission's levels
-  return 0.5 * population + 0.08 * yearlyCO2;  // metric tonnes/year
-}
-
-/**
  * Gets the relative change of the current scenario versus the baseline outcome.
  *
  * @param baseline The reference outcome for relative comparison.

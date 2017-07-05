@@ -13,6 +13,16 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ==============================================================================*/
 
+import {COLORS} from '../style';
+import * as transforms from '../transforms';
+
+
+// CO2 emissions (Mt/year) for today (actual, not rebuilt outcome).
+export const CO2_EMISSIONS_TODAY_ACTUAL = 1.82e9;
+// CO2 emissions (Mt/year) for maximal NG scenario (hydro + NG).
+export const CO2_EMISSIONS_MAX_NG = 1.25e9;
+// CO2 emissions (Mt/year) goal.
+export const CO2_EMISSIONS_GOAL = 218e6
 
 // Initial configuration of policy choices to display.
 export const INITIAL_POLICY: PolicyConfig = {
@@ -169,4 +179,3 @@ export const dimensionLevelFormatters:
   nuclear_price: techPriceDimensionFormatter,
   ng_price: marketPriceFormatter,
 };
-
