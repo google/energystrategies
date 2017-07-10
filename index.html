@@ -34,6 +34,7 @@ limitations under the License.
       <div class="mdl-layout-spacer"></div>
       <nav class="mdl-navigation">
         <a class="mdl-navigation__link" href="" id="title-about-appendix">About</a>
+        <a class="mdl-navigation__link" href="" id="title-details-appendix">Details</a>
         <a class="mdl-navigation__link" href="" id="title-data-appendix">Data</a>
         <a class="mdl-navigation__link" href="" id="title-code-appendix">Code</a>
         <a class="mdl-navigation__link" href="https://github.com/google/energystrategies/issues">Issues</a>
@@ -45,15 +46,12 @@ limitations under the License.
     <div class="mdl-tabs mdl-js-tabs">
       <!-- Utility mode -->
       <div class="mdl-tabs__panel is-active" id="utility-mode">
-        <h1>Utility Simulation</h1>
+        <h1>Understand Electricity Generation</h1>
         <div id="utility-mode-columns" class="mdl-grid mode-description">
           <div class="mdl-cell mdl-cell--8-col">
-            <h2>Choose your energy source to always fulfill demand</h2>
+            <h2>Choose your mix of energy sources to always fulfill demand</h2>
             <p class="description">
-              In the first simulation, you are taking the role of a utility planner. You choose how much
-              of each source of electric power to build. The graph shows a week of demand. Did your choice
-              of power plants always fulfill demand? See if you can find a low-cost, low-carbon allocation
-              that keeps the lights on.
+              In the first simulation, you are taking the role of a utility planner. You choose how much of each source of electric power to build. The graph shows a sample week of demand from California’s grid. Did your choice of power plants always fulfill demand? Some energy sources can respond quickly to changing demand (dispatchable) while others do not (non-dispatchable). See if you can find a low-cost, low-carbon allocation that keeps the lights on.
             </p>
           </div>
           <div class="mdl-cell mdl-cell--4-col">
@@ -150,8 +148,8 @@ limitations under the License.
                 </div>
                 <span class="tooltip mdl-tooltip mdl-tooltip--top"
                     for="tooltip-launcher-utility-solar">
-                  This energy source emits no CO2 but is highly dependent on time of day, weather,
-                  and seasons.
+                  This energy source emits no CO2 but is highly dependent on time of day, weather, and seasons
+                  (intermittent, non-dispatchable power).
                 </span>
                 <div id="solar-slider" class="utility-slider"></div>
               </div>
@@ -163,8 +161,8 @@ limitations under the License.
                 </div>
                 <span class="tooltip mdl-tooltip mdl-tooltip--top"
                     for="tooltip-launcher-utility-nuclear">
-                  This source produces a constant amount of power and cannot dynamically adapt to
-                  changes in demand.
+                  This energy source produces a constant amount of power and cannot dynamically adapt to changes
+                  in demand (baseload, non-dispatchable power).
                 </span>
                 <div id="nuclear-slider" class="utility-slider"></div>
               </div>
@@ -176,7 +174,8 @@ limitations under the License.
                 </div>
                 <span class="tooltip mdl-tooltip mdl-tooltip--top"
                     for="tooltip-launcher-utility-wind">
-                  This energy source emits no CO2 but is highly dependent on weather.
+                  This energy source emits no CO2 but is highly dependent on weather
+                  (intermittent, non-dispatchable power).
                 </span>
                 <div id="wind-slider" class="utility-slider"></div>
               </div>
@@ -192,7 +191,8 @@ limitations under the License.
                 </div>
                 <span class="tooltip mdl-tooltip mdl-tooltip--top"
                     for="tooltip-launcher-utility-ng">
-                  This source can quickly ramp up-and-down to meet demand.
+                  This energy source can be quickly ramped up or down as necessary to meet demand
+                  (dispatchable power).
                 </span>
                 <div id="ng-slider" class="utility-slider"></div>
                 <label class="utility-controls-toggle mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-utility-ng-ccs">
@@ -217,7 +217,8 @@ limitations under the License.
                 </div>
                 <span class="tooltip mdl-tooltip mdl-tooltip--top"
                     for="tooltip-launcher-utility-coal">
-                  This energy source is a standard coal plant.
+                  This energy source produces a constant amount of power and cannot dynamically adapt to changes in
+                  demand (baseload, non-dispatchable power).
                 </span>
                 <div id="coal-slider" class="utility-slider"></div>
                 <label class="utility-controls-toggle mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-utility-coal-ccs">
@@ -243,7 +244,7 @@ limitations under the License.
         <div class="mode-switch-controls">
           <a href="#policy-mode" class="mdl-tabs__tab">
             <button id="go-to-policy-mode-button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
-              Go to policy simulation
+              Explore future assumptions
             </button>
           </a>
         </div>
@@ -251,15 +252,16 @@ limitations under the License.
 
       <!-- Policy mode -->
       <div class="mdl-tabs__panel" id="policy-mode">
-        <h1>Policy Simulation</h1>
+        <h1>Explore Future Assumptions</h1>
         <div class="mdl-grid mode-description">
           <div class="mdl-cell mdl-cell--8-col">
             <h2>Choose your policies to reduce cost and CO2</h2>
             <p class="description">
-              Now take the role of a policymaker.
-              You can change policies that affect utility planning.
-              You can also change the cost assumptions for future energy sources.
-              On this page, the utility planning is automatic: the utility planner will always keep the lights on at the least cost. See how your policies and cost assumptions affect CO2 and costs to consumers across the United States.
+              Now you can explore how assumptions about policies and future costs
+              affect the optimal generation mix. On this page, the utility planning
+              is automatic: the utility planner will always keep the lights on at
+              the least cost. See how your assumptions affect CO2 and costs to
+              consumers across the United States.
             </p>
           </div>
           <div class="mdl-cell mdl-cell--4-col">
@@ -268,7 +270,7 @@ limitations under the License.
         <div id="policy-mode-loading" class="loading">
           <div class="mdl-grid">
             <div class="mdl-cell mdl-cell--8-col">
-              <h2 class="loading-message">Loading policy outcomes...</h2>
+              <h2 class="loading-message">Loading scenario outcomes...</h2>
               <div class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
             </div>
           </div>
@@ -512,7 +514,7 @@ limitations under the License.
         <div class="mode-switch-controls">
           <a href="#utility-mode" class="mdl-tabs__tab">
             <button id="go-to-utility-mode-button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
-              Back to utility simulation
+              Back to electricity generation
             </button>
           </a>
           <a href="#compare-mode" class="mdl-tabs__tab">
@@ -581,7 +583,7 @@ limitations under the License.
           </a>
           <a href="#utility-mode" class="mdl-tabs__tab">
             <button id="go-to-utility-mode-button-2" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
-              Back to utility simulation
+              Back to electricity generation
             </button>
           </a>
         </div>
@@ -591,6 +593,11 @@ limitations under the License.
         <a href="#about-appendix" class="mdl-tabs__tab">
           <button id="go-to-about-appendix-button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
             About
+          </button>
+        </a>
+        <a href="#details-appendix" class="mdl-tabs__tab">
+          <button id="go-to-details-appendix-button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+            Details
           </button>
         </a>
         <a href="#data-appendix" class="mdl-tabs__tab">
@@ -616,9 +623,53 @@ limitations under the License.
         <h1>About</h1>
         <div class="mdl-grid">
           <div class="mdl-cell mdl-cell--8-col">
-            <h2>Policy Simulation</h2>
             <p>
-              In Policy Simulation, a <a href="https://en.wikipedia.org/wiki/Linear_programming">Linear Program</a>  takes on the task of fulfilling demand while minimizing costs, which the user was doing on the preceding Utility Simulation page.  Policy Simulation does the calculation over an entire year's worth of electricity data in 13 regions within the Continental United States.
+              The goal of the Climate and Energy team in Google Research is to find
+              abundant energy for everyone on the planet. We cannot reach this goal
+              based on today’s fossil fuel technology, because the atmosphere can
+              only absorb a limited amount of CO2 in the near-term. At the current
+              rate CO2 production from combustion, humans will pass the
+              <a href="https://www.carbonbrief.org/analysis-only-five-years-left-before-one-point-five-c-budget-is-blown">limit for  2℃ average warming</a>
+              in less than 27 years. To reach the goal of abundant
+              energy for everyone, we need to find a source of zero- (or very-low-)
+              carbon electricity that is available 24x7 for all of world’s needs.
+            </p>
+            <p>
+              Energy is an important part of the world economy: collectively, we spend about $6 trillion dollars a year on it. If we had a zero-carbon 24x7 source of electricity that was much more expensive than fossil fuels are today, then we would not reach the goal of abundant energy for everyone. Such an expensive solution will not give the benefits of plentiful energy to billions of people on the planet.
+            </p>
+            <p>
+              What is the least expensive way to decarbonize electricity? Many analysts have come up with different answers to this question: 100% renewables plus storage, nuclear power, sequestering carbon from fossil fuels, or a mixture of these.
+            </p>
+            <p>
+              At Google, we realized that the different answers came from different assumptions that people were making about the future of technology and policies. To help us understand, we created this tool that allows us to quickly see how different assumptions affect the future cost to generate electricity and the amount of carbon dioxide emitted.
+            </p>
+          </div>
+          <div class="mdl-cell mdl-cell--4-col">
+          </div>
+        </div>
+        <div class="mode-switch-controls">
+          <a href="#utility-mode" class="mdl-tabs__tab aux-back-button">
+            <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+              Go back to tool
+            </button>
+          </a>
+        </div>
+      </div>
+      <!-- Details appendix -->
+      <div class="mdl-tabs__panel appendix" id="details-appendix">
+        <div class="appendix-return-controls">
+          <a href="#utility-mode" class="mdl-tabs__tab aux-back-button">
+            <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+              Go back to tool
+            </button>
+          </a>
+        </div>
+        <h1>Details</h1>
+        <div class="mdl-grid">
+          <div class="mdl-cell mdl-cell--8-col">
+            <h2>Explore Future Assumptions</h2>
+            <p>
+              On the "Explore Future Assumptions" page, a <a href="https://en.wikipedia.org/wiki/Linear_programming">Linear Program</a>  takes on the task of fulfilling demand while minimizing costs, which the user was doing on the preceding "Understand electricity generation"page.  The  linear program does the calculation over an entire year's worth of electricity data in 13 regions within the Continental United States.
             </p>
             <p>
               In addition to minimizing costs and fulfilling demand, the linear program also ensures that a specified amount of "Clean Energy" is consumed where Clean Energy is defined as Solar and Wind. Optionally, the user can add Nuclear Power or Carbon Capture and Sequestration (CCS) to the definition of Clean Energy.
@@ -629,22 +680,17 @@ limitations under the License.
 
             <h2>CO2 outcomes reported by the tool</h2>
             <p>
-              The amount of CO2 reported by the tool assumes the latest and most efficient power plants.
-              Utility Simulation reports CO2 for California electricity consumption, counting imports.
-              Thus, the 65.3 million metric tons we report is lower than the 83.1 million metric tons
-              <a href="https://www.arb.ca.gov/cc/inventory/data/tables/ghg_inventory_sector_sum_2000-15co2.pdf">
-                reported
-              </a>
-              by CalEPA for 2015. In Policy Simulation, the tool reports that the United States electricity sector produces 1.61 billion metric tons of CO2, while the EIA reports 1.82 billion for 2016
+              The “Understand Electricity Generation” page reports CO2 for California electricity consumption, including imports. Today’s value of 83.1 million metric tons is
+              <a href="https://www.arb.ca.gov/cc/inventory/data/tables/ghg_inventory_sector_sum_2000-15co2.pdf">reported</a>
+              by CalEPA for 2015. The amount of CO2 reported by the tool assumes the latest and most efficient power plants. If we today’s capacity mixture could be reproduced using these latest plants, they would only generate 65.3 million metric tons of CO2. Using efficient natural gas (NG) plants plus hydropower would produce 91.3 million metric tons, which is an increase from today because California uses a large amount of zero-carbon energy.
             </p>
             <p>
-              In both cases, the tool’s number is what our model would report if we reproduced today’s mixture of generation and capacity. The increased efficiency would reduce CO2 emissions by 12-22%.
+              The CO2 goal in the “Understanding Generation” page comes from the U.S. Deep Decarbonization Pathway Report 15, which projects that in 2050, electricity should generate no more than 0.054 metric tons of CO2 per MWh of electricity (in the most lenient case --- other scenarios may force emissions as low as 0.014).
             </p>
             <p>
-              Further, the default settings for Policy Simulation show 914 million tons. The tool reports the CO2 caused by a complete rebuild of the grid, in the least-cost way. Assuming moderate future costs and no other policies, new natural gas plants would displace coal and reduce CO2 by an additional 44%.
-            </p>
-            <p>
-              The goals shown in the tool are not driven by a specific policy, but are suggested targets for users to try to attain.
+              The “Explore Future Assumptions” page reports CO2 for electricity consumption across the United States. The EIA
+              <a href="https://www.eia.gov/tools/faqs/faq.php?id=77&t=11">reports</a>
+              this as 1.82 billion metric tons for 2016. Using the most efficient plants would reduce this to 1.61 billion metric tons. Implementing efficient NG plus hydropower would reduce it further to 1.25 billion metric tons. As in “Understand Generation”, the CO2 goal comes from the U.S. Deep Decarbonization Pathway Report.
             </p>
 
             <h2>Cost outcomes reported by the tool</h2>
@@ -656,7 +702,10 @@ limitations under the License.
               <a href="https://en.wikipedia.org/wiki/Cost_of_electricity_by_source#Levelized_cost_of_electricity">
                 Levelized Cost of Electricity
               </a>
-              (LCOE). LCOE estimates the cost based on three factors: the cost of building the generation plants (per megawatt-hour of capacity), the cost to maintain the plants (per megawatt-hour of capacity per year), and the cost to actually generate the electricity (per megawatt-hour of produced electricity).
+              (LCOE). LCOE estimates the cost based on three factors: the cost of building the generation plants (per megawatt-hour of capacity), the cost to maintain the plants (per megawatt-hour of capacity per year), and the cost to actually generate the electricity (per megawatt-hour of produced electricity). The LCOE estimate assumes a complete rebuild of the grid, when new plants have replaced old ones.
+            </p>
+            <p>
+              We assume that the building cost and the fixed maintenance cost are amortized over a 30-year lifespan of the plant. We use a net-present-value calculation for this amortization, with an assumed (real) discount rate of 6%.
             </p>
             <p>
               We assume that the building cost and the fixed maintenance cost are amortized over a 30-year lifespan of the plant. We use a net-present-value calculation for this amortization, with an assumed (real) discount rate of 6%.
@@ -1084,6 +1133,11 @@ limitations under the License.
                 <a href="https://en.wikipedia.org/wiki/2014%E2%80%9316_El_Ni%C3%B1o_event?section=6#North_America">
                   2014–16 El Niño event
                 </a>, (2017).
+              </li>
+              <li>
+                Williams, J.H.,	B. Haley, F. Kahrl, J. Moore, A.D. Jones, M.S. Torn,	H. McJeon,
+                <a href="http://unsdsn.org/wp-content/uploads/2014/09/US-Deep-Decarbonization-Report.pdf">Pathways to deep decarbonization in the United States</a>
+                . The U.S. report of the Deep	Decarbonization Pathways  Project of the Sustainable Development Solutions Network and the Institute for Sustainable Development and International Relations.  (2014).
               </li>
             </ol>
           </div>

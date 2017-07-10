@@ -156,6 +156,13 @@ limitations under the License.
   background-color: #fb6a4a;
 }
 
+.utility-controls-option.ng {
+  /* Workaround for MDL rendering bug where slider knob appears on top of
+  tooltips from neighboring divs. */
+  z-index: 2;
+}
+
+
 /* Energy generation summary */
 .utility-outcome-summary.unmet {
   opacity: .2;
