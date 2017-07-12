@@ -41,7 +41,7 @@ interface ChartOptions {
 const DEFAULT_CONFIG: ChartOptions = {
   size: {width: 760, height: 330},
   padding: {top: 5, left: 50, bottom: 30, right: 0},
-  labels: {yAxis: 'Power (MegaWatts)', excessMarker: 'Excess'},
+  labels: {yAxis: 'Power (Gigawatts)', excessMarker: 'Excess'},
   layout: {
     markers: {labelYOffset: -12, labelYGap: -6, labelMaxYValue: 28000}
   },
@@ -265,6 +265,7 @@ export class SupplyDemandProfilesChart implements UtilityDataComponent {
     this._yAxisGenerator = d3.svg.axis()
         .scale(this._powerScale)
         .orient('left')
+        .tickFormat(d => String(d / 1e3))  // Convert megawatts to gigawatts.
         .tickValues(yTicks);
   }
 
