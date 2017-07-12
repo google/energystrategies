@@ -14,6 +14,13 @@ limitations under the License.
 ==============================================================================*/
 
 
+// CO2 emissions (Mt/year) for today.
+export const CO2_EMISSIONS_TODAY = 81.1e6;
+// CO2 emissions (Mt/year) goal.
+export const CO2_EMISSIONS_GOAL = 15.8e6;
+// Max CO2 emissions value to display.
+export const CO2_EMISSIONS_MAX = 180e6;
+
 // The default state of the dataset selection and page controls.
 export const BASELINE: ScenarioOutcomeBreakdown<UtilityEnergySource> = {
   cost: 104e9, // $USD
