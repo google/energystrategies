@@ -17,6 +17,7 @@ limitations under the License.
 // Policy-related type definitions.
 type PolicyEnergySource = 'hydro' | 'coalccs' | 'ngccs' | EnergySource;
 type PolicyBreakdownEntry = 'storage' | PolicyEnergySource;
+type PolicyBreakdownDisplayNames = {[K in PolicyBreakdownEntry]?: string};
 
 type PolicyDimension =
     'solar_price' |
@@ -29,6 +30,23 @@ type PolicyDimension =
     'rps_includes_nuclear_energy' |
     'nuclear_allowed' |
     'storage_allowed';
+
+// A scale maps an ordinal dimension level to the associated units.
+//
+// For example, a 3-level cost scale for solar power would be represented as
+// `solar = [cost_point_0_USD, cost_point_1_USD, cost_point_2_USD]`
+// such that `solar[1]` maps the ordinal dimension level `1` to the
+// corresponding cost point in USD.
+type PolicyDimensionScales = {[K in PolicyDimension]: number[]};
+
+interface PolicyDimensionFormatter {
+  /**
+   * @param dimensionLevel A zero-based ordinal value (int).
+   * @returns A formatted string representation of the dimension level; e.g.,
+   *   for solar capital price "$$".
+   */
+  (dimensionLevel: number): string;
+}
 
 type PolicyFact =
     'co2' |
@@ -62,6 +80,9 @@ interface PolicyDataView extends SummaryDataView<PolicyBreakdownEntry> {
   // The policy view configuration state is determined by the set of
   // user-selectable "dimensions".
   choices: PolicyConfig;
+
+  // Scales for rendering the policy dimensions.
+  scales?: PolicyDimensionScales;
 }
 
 interface PolicyDataComponent {
@@ -94,12 +115,7 @@ interface PolicyDatasetSchema {
   facts: PolicyFact[];
 
   // A scale maps an ordinal dimension level to the associated units.
-  //
-  // For example, a 3-level cost scale for solar power would be represented as
-  // `solar = [cost_point_0_USD, cost_point_1_USD, cost_point_2_USD]`
-  // such that `solar[1]` maps the ordinal dimension level `1` to the
-  // corresponding cost point in USD.
-  scales: {[K in PolicyDimension]: number[]},
+  scales: PolicyDimensionScales,
 
   // The shape of the n-dimensional array for the dataset.
   //
@@ -109,6 +125,18 @@ interface PolicyDatasetSchema {
 
   baseline: PolicyDataRow<number>,
   population: number,
+  stats: {[K in PolicyFact]?: PolicyDatasetStats}
+}
+
+/**
+ * Summary statistics for a single dataset fact/attribute.
+ *
+ * e.g., stats across all policy outcomes for scenariou outcome cost.
+ */
+interface PolicyDatasetStats {
+  min: number,
+  median: number,
+  max: number,
 }
 
 /**
@@ -137,3 +165,7 @@ type PolicyDataRow<T> = {[K in PolicyFact]: T};
 type PolicyDataRowCSV = PolicyDataRow<string>;
 type PolicyDataTable = PolicyDataRowCSV[];
 
+type PolicyPresetKey = 'BALANCED_LOW_CARBON' |
+    'FAVOR_RENEWABLES' |
+    'FAVOR_CARBON_CAPTURE' |
+    'FAVOR_NUCLEAR';

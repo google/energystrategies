@@ -45,7 +45,7 @@ type CompareDisplayPolicyNames = {[s: string]: string};
 
 
 // A single attribute of a given policy scenario.
-type PolicyField = PolicyDimension | PolicyFact;
+type PolicyField = PolicyDimension | PolicyFact | 'energy';
 
 /**
  * A struct that bundles accessors, formatters and display details for a field.

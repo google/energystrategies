@@ -25,8 +25,10 @@ export const COLORS = {
   // Energy source colors.
   SOLAR: '#FFD600',
   SOLAR_LIGHT: '#FFF59D',
+  SOLAR_DARK: '#FFAB00',
   WIND: '#41b6c4',
   NUCLEAR: '#a1dab4',
+  NUCLEAR_DARK: '#4DB6AC',
   NG: '#225ea8',
   NGCCS: '#1d91c0',
   COAL: '#cb181d',
@@ -39,10 +41,4 @@ export const COLORS = {
   DEMAND: '#F0F0F0',
   EXCESS_LIGHT: '#ffffff',
   EXCESS: '#BDBDBD',
-};
-
-// Goal chart container element size dimensions.
-export const SCENARIO_GOAL_CHART_SIZE = {
-  width: 165,
-  height: 250,
 };

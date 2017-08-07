@@ -22,6 +22,9 @@ import * as config from './config';
 import {PRESET_POLICY_DISPLAY_NAMES} from '../policy-mode/config';
 
 
+/**
+ * Controller for compare mode.
+ */
 export class CompareController {
 
   _view: CompareDataView;

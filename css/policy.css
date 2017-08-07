@@ -167,12 +167,9 @@ limitations under the License.
 
 /* Policy mode UI controls */
 
-.policy-presets-container {
-  margin-top: 48px;
-}
-
+.policy-presets-container,
 .policy-controls {
-  margin-top: 24px;
+  margin-top: 40px;
 }
 
 .policy-controls-toggle  {

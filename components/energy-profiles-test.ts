@@ -15,6 +15,7 @@ limitations under the License.
 
 /// <reference path="../typings/index.d.ts"/>
 
+import * as util from '../util';
 import * as transforms from '../transforms';
 import * as src from './energy-profiles';
 

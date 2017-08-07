@@ -69,6 +69,7 @@ describe('App state', () => {
       shape: [2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
       baseline: null,
       population: null,
+      stats: null,
     };
 
     fakeLocation = <Location>{

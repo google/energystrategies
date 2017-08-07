@@ -16,6 +16,7 @@ limitations under the License.
 
 import * as profiles from './profiles';
 import * as config from './config';
+import * as util from '../util';
 import * as transforms from '../transforms';
 
 
@@ -58,7 +59,7 @@ describe('Get allocated energy profiles', () => {
       ng: 0.5,
       coal: 0.5,
       coalccs: 0,
-      // Note: ng and ngccs are mutually exclusive (both dispatchable sources).
+      // Note: ng and ngccs are mutually exclusive (both dispatchable soruces).
       ngccs: 0,
     }, profileData);
 
@@ -127,7 +128,7 @@ describe('Get allocated energy profiles', () => {
       ng: 1,
       coal: 1,
       coalccs: 1,
-      // Note: ng and ngccs are mutually exclusive (both dispatchable sources).
+      // Note: ng and ngccs are mutually exclusive (both dispatchable soruces).
       ngccs: 0,
     }, profileData);
 

@@ -81,6 +81,7 @@ describe('Sweep dataset index', () => {
       ],
       baseline: null,
       population: null,
+      stats: null,
     };
   });
 

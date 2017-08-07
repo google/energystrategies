@@ -14,24 +14,22 @@ limitations under the License.
 ==============================================================================*/
 
 
-// Declare that we expect ES6 Object features to be available.
-declare const Object: ObjectConstructorES6;
-
-
 /**
  * Copies the entries from the source object to the destination object.
  *
  * If a key exists in both source and destination, the source value will
  * overwrite the existing value in the destination object.
  *
- * Note: this utility function only exists as a shim to Object.assign and
- * can be dropped in the future in lieu of using Object.assign directly.
+ * Note: this utility function only exists in lieu of Object.assign (requires
+ * es6 support).
  *
- * @param source
- * @param dest
+ * @param source The source object.
+ * @param dest The destination object.
+ * @return The destination object.
  */
 export const shallowCopy = (source: Object, dest: Object) => {
-  return Object.assign(dest, source);
+  Object.keys(source).forEach(k => dest[k] = source[k]);
+  return dest;
 };
 
 /**
@@ -92,7 +90,6 @@ export function throttle(fn: Function, delay: number) {
     }
   };
 }
-
 
 /**
  * Recursively merges the keys of two objects.

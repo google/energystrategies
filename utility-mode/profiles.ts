@@ -274,6 +274,7 @@ export function summarize(profiles: ProfileDataset): UtilityOutcomeBreakdown {
       variableCost: getVariableCost(profileEnergy, source),
       co2: getCo2(profileEnergy, source),
     };
+    breakdown[source].cost = breakdown[source].fixedCost + breakdown[source].variableCost;
   });
 
   // Compute rollups across all energy sources.
@@ -284,7 +285,7 @@ export function summarize(profiles: ProfileDataset): UtilityOutcomeBreakdown {
   // The energy generation from the weekly profile is replicated for a year-long
   // timespan, as is done for the total co2 emissions.
   const totalConsumed = util.sum(Object.keys(breakdown).map(s => {
-    return breakdown[s].energy * transforms.WEEKS_PER_YEAR;
+    return breakdown[s].consumed * transforms.WEEKS_PER_YEAR;
   }));
 
   return {

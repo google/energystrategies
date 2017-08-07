@@ -30,3 +30,25 @@ export class TextView {
     this.element.textContent = this.formatter(newValue);
   }
 }
+
+
+export class InputTextView {
+  element: HTMLInputElement;
+  formatter: Function;
+
+  constructor(element: HTMLInputElement, formatter?: Function) {
+    this.element = element;
+    this.formatter = formatter || (value => String(value));
+  }
+
+  update(newValue) {
+    const MAX_LENGTH = 1000;
+    this.element.value = this.formatter(newValue);
+    this.element.selectionDirection = 'forward';
+    this.element.selectionStart = 0;
+    this.element.selectionEnd = MAX_LENGTH;
+    this.element.maxLength = MAX_LENGTH;
+
+    this.element.width = String(300);
+  }
+}

@@ -51,7 +51,7 @@ limitations under the License.
   /* Note: the spacing is derived from and matches the mdl-slider track */
   width: 100%;
   /* TODO: remove the slider tick DOM elements if no longer needed,
-  then this rule can be dropped */
+  then remove this rule can be dropped */
   display: none;
 }
 

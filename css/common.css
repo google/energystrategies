@@ -231,9 +231,10 @@ label {
   color: #fff;
 }
 
-.preset-container {
-  padding-left: 0;
-  margin-left: -5px;
+.preset-label {
+  font-size: 18px;
+  padding-right: 16px;
+  color: rgba(0,0,0,.87);
 }
 
 /* Tooltips */
@@ -283,4 +284,14 @@ label {
   font-size: 1.2em;
   position: relative;
   top: 4px;
+}
+
+/* Bounding box around page controls */
+
+.mode-data-controls {
+  width: calc(100% - 36px);
+  border: 1px solid #ccc;
+  margin-top: 40px;
+  padding-left: 24px;
+  padding-bottom: 36px;
 }

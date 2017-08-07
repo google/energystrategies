@@ -4,10 +4,10 @@
     "c3-extra": "file:typings/c3.d.ts",
     "common": "file:common.d.ts",
     "d3": "registry:dt/d3#0.0.0+20160315011939",
-    "es6": "file:typings/es6.d.ts",
     "jasmine": "registry:dt/jasmine#2.5.0+20161003201800",
     "ndarray": "file:typings/ndarray.d.ts",
+    "utility": "file:utility-mode/utility.d.ts",
     "policy": "file:policy-mode/policy.d.ts",
-    "utility": "file:utility-mode/utility.d.ts"
+    "compare": "file:compare-mode/compare.d.ts"
   }
 }

@@ -18,6 +18,45 @@ import * as util from './util';
 import * as testing from './testing';
 
 
+describe('Shallow object merge', () => {
+  it('when both objects are empty', () => {
+    const src = {};
+    const dest = {};
+    util.shallowCopy(src, dest);
+    expect(dest).toEqual({});
+  });
+
+  it('when source object is empty', () => {
+    const src = {};
+    const dest = {a: 1, b: 2};
+    util.shallowCopy(src, dest);
+    expect(dest).toEqual({a: 1, b: 2});
+  });
+
+  it('when dest object is empty', () => {
+    const src = {a: 1, b: 2};
+    const dest = {};
+    util.shallowCopy(src, dest);
+    expect(dest).toEqual({a: 1, b: 2});
+  });
+
+  it('when source overwrites existing key', () => {
+    const src = {a: 1, b: 2};
+    const dest = {a: 7, b: 2};
+    util.shallowCopy(src, dest);
+    expect(dest).toEqual({a: 1, b: 2});
+  });
+
+  it('when values are objects', () => {
+    const src = {a: [1, 2, 3]};
+    const dest = {};
+    util.shallowCopy(src, dest);
+    expect(dest['a']).toBe(src['a']);
+    src['a'].push(7);
+    expect(dest['a']).toEqual([1, 2, 3, 7]);
+  });
+});
+
 describe('Deep object merge', () => {
   it('when both objects are empty', () => {
     const src = {};

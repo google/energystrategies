@@ -128,6 +128,19 @@ export const POLICY_BREAKDOWN_DISPLAY_NAMES: PolicyBreakdownDisplayNames = {
   storage: 'Storage',
 };
 
+// Select colors to use per-resource for the energy breakdown table.
+export const BREAKDOWN_COLORS: {[K in PolicyBreakdownEntry]: string} = {
+  solar: COLORS.SOLAR_DARK,
+  wind: COLORS.WIND,
+  nuclear: COLORS.NUCLEAR_DARK,
+  ng: COLORS.NG,
+  ngccs: COLORS.NGCCS,
+  coal: COLORS.COAL,
+  coalccs: COLORS.COALCCS,
+  hydro: COLORS.HYDRO,
+  storage: COLORS.STORAGE,
+};
+
 // Display strings corresponding to boolean policy configuration choices.
 // e.g., for boolean dimension "nuclear_allowed".
 const BOOLEAN_DISPLAY_VALUES = ['False', 'True'];

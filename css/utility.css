@@ -230,12 +230,10 @@ limitations under the License.
   justify-content: space-between;
   -webkit-flex-direction: row;
   flex-direction: row;
-  margin-top: 24px;
 }
 
 .utility-controls-option {
   width: 220px;
-  margin-top: 24px;
 }
 
 .utility-controls-option .option-label {
@@ -244,13 +242,13 @@ limitations under the License.
 
 /* Leadings for main flow elements */
 
-.utility-hero-box,
-.utility-presets-container {
+.utility-hero-box {
   margin-top: 40px;
 }
 
-.utility-controls {
-  margin-top: 24px;
+.utility-controls-row,
+.utility-presets-container {
+  margin-top: 40px;
 }
 
 .utility-controls-toggle {

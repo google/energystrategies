@@ -107,137 +107,140 @@ limitations under the License.
           </div>
         </div>
         <!-- Utility mode energy source allocation sliders -->
-        <div class="mdl-grid utility-presets-container">
+        <div class="mode-data-controls">
+          <div class="mdl-grid utility-presets-container">
+            <div class="mdl-cell mdl-cell--8-col">
+              <div class="preset-container">
+                <span class="preset-label">Presets</span>
+                <label class="preset mdl-icon-toggle mdl-js-icon-toggle" for="preset-util-nuclear">
+                  <input type="checkbox" id="preset-util-nuclear" class="mdl-icon-toggle__input">
+                  <span class="mdl-icon-toggle__label">Nuclear-heavy</span>
+                </label>
+                <label class="preset mdl-icon-toggle mdl-js-icon-toggle" for="preset-util-wind">
+                  <input type="checkbox" id="preset-util-wind" class="mdl-icon-toggle__input">
+                  <span class="mdl-icon-toggle__label">Wind-heavy</span>
+                </label>
+                <label class="preset mdl-icon-toggle mdl-js-icon-toggle" for="preset-util-solar">
+                  <input type="checkbox" id="preset-util-solar" class="mdl-icon-toggle__input">
+                  <span class="mdl-icon-toggle__label">Solar-heavy</span>
+                </label>
+                <label class="preset mdl-icon-toggle mdl-js-icon-toggle" for="preset-util-balanced">
+                  <input type="checkbox" id="preset-util-balanced" class="mdl-icon-toggle__input">
+                  <span class="mdl-icon-toggle__label">Balanced low-carbon</span>
+                </label>
+                <i id="tooltip-launcher-utility-presets" class="material-icons info">info_outline</i>
+                <span class="tooltip mdl-tooltip mdl-tooltip--right"
+                    for="tooltip-launcher-utility-presets">
+                  The buttons to the left select different combinations of each energy
+                  source that collectively fulfill demand.
+                </span>
+              </div>
+            </div>
+            <div class="mdl-cell mdl-cell--4-col">
+            </div>
+          </div>
+          <div class="mdl-grid utility-controls">
           <div class="mdl-cell mdl-cell--8-col">
-            <div class="preset-container">
-              <label class="preset mdl-icon-toggle mdl-js-icon-toggle" for="preset-util-nuclear">
-                <input type="checkbox" id="preset-util-nuclear" class="mdl-icon-toggle__input">
-                <span class="mdl-icon-toggle__label">Nuclear-heavy</span>
-              </label>
-              <label class="preset mdl-icon-toggle mdl-js-icon-toggle" for="preset-util-wind">
-                <input type="checkbox" id="preset-util-wind" class="mdl-icon-toggle__input">
-                <span class="mdl-icon-toggle__label">Wind-heavy</span>
-              </label>
-              <label class="preset mdl-icon-toggle mdl-js-icon-toggle" for="preset-util-solar">
-                <input type="checkbox" id="preset-util-solar" class="mdl-icon-toggle__input">
-                <span class="mdl-icon-toggle__label">Solar-heavy</span>
-              </label>
-              <label class="preset mdl-icon-toggle mdl-js-icon-toggle" for="preset-util-balanced">
-                <input type="checkbox" id="preset-util-balanced" class="mdl-icon-toggle__input">
-                <span class="mdl-icon-toggle__label">Balanced low-carbon</span>
-              </label>
-              <i id="tooltip-launcher-utility-presets" class="material-icons info">info_outline</i>
-              <span class="tooltip mdl-tooltip mdl-tooltip--right"
-                  for="tooltip-launcher-utility-presets">
-                The buttons to the left select different combinations of each energy
-                source that collectively fulfill demand.
-              </span>
-            </div>
-          </div>
-          <div class="mdl-cell mdl-cell--4-col">
-          </div>
-        </div>
-        <div class="mdl-grid utility-controls">
-         <div class="mdl-cell mdl-cell--8-col">
-            <div class="utility-controls-row">
-              <div class="utility-controls-option option solar">
-                <div>
-                  <div class="utility-source-legend-tile"></div>
-                  <label class="utility-source-legend-label">Solar power (GW)</label>
-                  <i id="tooltip-launcher-utility-solar" class="material-icons info">info_outline</i>
-                </div>
-                <span class="tooltip mdl-tooltip mdl-tooltip--top"
-                    for="tooltip-launcher-utility-solar">
-                  This energy source emits no CO2 but is highly dependent on time of day, weather, and seasons
-                  (intermittent, non-dispatchable power).
-                </span>
-                <div id="solar-slider" class="utility-slider"></div>
-              </div>
-              <div class="utility-controls-option option nuclear">
-                <div>
-                  <div class="utility-source-legend-tile"></div>
-                  <label class="utility-source-legend-label">Nuclear power (GW)</label>
-                  <i id="tooltip-launcher-utility-nuclear" class="material-icons info">info_outline</i>
-                </div>
-                <span class="tooltip mdl-tooltip mdl-tooltip--top"
-                    for="tooltip-launcher-utility-nuclear">
-                  This energy source produces a constant amount of power and cannot dynamically adapt to changes
-                  in demand (baseload, non-dispatchable power).
-                </span>
-                <div id="nuclear-slider" class="utility-slider"></div>
-              </div>
-              <div class="utility-controls-option option wind">
-                <div>
-                  <div class="utility-source-legend-tile"></div>
-                  <label class="utility-source-legend-label">Wind power (GW)</label>
-                  <i id="tooltip-launcher-utility-wind" class="material-icons info">info_outline</i>
-                </div>
-                <span class="tooltip mdl-tooltip mdl-tooltip--top"
-                    for="tooltip-launcher-utility-wind">
-                  This energy source emits no CO2 but is highly dependent on weather
-                  (intermittent, non-dispatchable power).
-                </span>
-                <div id="wind-slider" class="utility-slider"></div>
-              </div>
-            </div>
-            <div class="utility-controls-row">
-              <div class="utility-controls-option option ng" id="utility-controls-option-ng">
-                <div>
-                  <div class="utility-source-legend-tile"></div>
-                  <label class="utility-source-legend-label">
-                    Natural gas <span class="ccs-label">+ CCS</span> (GW)
-                  </label>
-                  <i id="tooltip-launcher-utility-ng" class="material-icons info">info_outline</i>
-                </div>
-                <span class="tooltip mdl-tooltip mdl-tooltip--top"
-                    for="tooltip-launcher-utility-ng">
-                  This energy source can be quickly ramped up or down as necessary to meet demand
-                  (dispatchable power).
-                </span>
-                <div id="ng-slider" class="utility-slider"></div>
-                <label class="utility-controls-toggle mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-utility-ng-ccs">
-                  <input type="checkbox" id="checkbox-utility-ng-ccs" class="mdl-checkbox__input">
-                  <span class="mdl-checkbox__label suboption-title">
-                    Enable carbon capture
-                    <i id="tooltip-launcher-utility-ng-ccs" class="material-icons info">info_outline</i>
-                  </span>
+              <div class="utility-controls-row">
+                <div class="utility-controls-option option solar">
+                  <div>
+                    <div class="utility-source-legend-tile"></div>
+                    <label class="utility-source-legend-label">Solar power (GW)</label>
+                    <i id="tooltip-launcher-utility-solar" class="material-icons info">info_outline</i>
+                  </div>
                   <span class="tooltip mdl-tooltip mdl-tooltip--top"
-                    for="tooltip-launcher-utility-ng-ccs">
-                    CO2 is captured from the exhaust and sent underground.
+                      for="tooltip-launcher-utility-solar">
+                    This energy source emits no CO2 but is highly dependent on time of day, weather, and seasons
+                    (intermittent, non-dispatchable power).
                   </span>
-                </label>
-              </div>
-              <div class="utility-controls-option option coal" id="utility-controls-option-coal">
-                <div>
-                  <div class="utility-source-legend-tile"></div>
-                  <label class="utility-source-legend-label">
-                    Coal <span class="ccs-label">+ CCS</span> power (GW)
-                  </label>
-                  <i id="tooltip-launcher-utility-coal" class="material-icons info">info_outline</i>
+                  <div id="solar-slider" class="utility-slider"></div>
                 </div>
-                <span class="tooltip mdl-tooltip mdl-tooltip--top"
-                    for="tooltip-launcher-utility-coal">
-                  This energy source produces a constant amount of power and cannot dynamically adapt to changes in
-                  demand (baseload, non-dispatchable power).
-                </span>
-                <div id="coal-slider" class="utility-slider"></div>
-                <label class="utility-controls-toggle mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-utility-coal-ccs">
-                  <input type="checkbox" id="checkbox-utility-coal-ccs" class="mdl-checkbox__input">
-                  <span class="mdl-checkbox__label suboption-title">
-                    Enable carbon capture
-                    <i id="tooltip-launcher-utility-coal-ccs" class="material-icons info">info_outline</i>
-                  </span>
-                  </span>
+                <div class="utility-controls-option option nuclear">
+                  <div>
+                    <div class="utility-source-legend-tile"></div>
+                    <label class="utility-source-legend-label">Nuclear power (GW)</label>
+                    <i id="tooltip-launcher-utility-nuclear" class="material-icons info">info_outline</i>
+                  </div>
                   <span class="tooltip mdl-tooltip mdl-tooltip--top"
-                    for="tooltip-launcher-utility-coal-ccs">
-                    CO2 is captured from the exhaust and sent underground.
+                      for="tooltip-launcher-utility-nuclear">
+                    This energy source produces a constant amount of power and cannot dynamically adapt to changes
+                    in demand (baseload, non-dispatchable power).
                   </span>
-                </label>
+                  <div id="nuclear-slider" class="utility-slider"></div>
+                </div>
+                <div class="utility-controls-option option wind">
+                  <div>
+                    <div class="utility-source-legend-tile"></div>
+                    <label class="utility-source-legend-label">Wind power (GW)</label>
+                    <i id="tooltip-launcher-utility-wind" class="material-icons info">info_outline</i>
+                  </div>
+                  <span class="tooltip mdl-tooltip mdl-tooltip--top"
+                      for="tooltip-launcher-utility-wind">
+                    This energy source emits no CO2 but is highly dependent on weather
+                    (intermittent, non-dispatchable power).
+                  </span>
+                  <div id="wind-slider" class="utility-slider"></div>
+                </div>
               </div>
-              <div class="utility-controls-option option"></div>
+              <div class="utility-controls-row">
+                <div class="utility-controls-option option ng" id="utility-controls-option-ng">
+                  <div>
+                    <div class="utility-source-legend-tile"></div>
+                    <label class="utility-source-legend-label">
+                      Natural gas <span class="ccs-label">+ CCS</span> (GW)
+                    </label>
+                    <i id="tooltip-launcher-utility-ng" class="material-icons info">info_outline</i>
+                  </div>
+                  <span class="tooltip mdl-tooltip mdl-tooltip--top"
+                      for="tooltip-launcher-utility-ng">
+                    This energy source can be quickly ramped up or down as necessary to meet demand
+                    (dispatchable power).
+                  </span>
+                  <div id="ng-slider" class="utility-slider"></div>
+                  <label class="utility-controls-toggle mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-utility-ng-ccs">
+                    <input type="checkbox" id="checkbox-utility-ng-ccs" class="mdl-checkbox__input">
+                    <span class="mdl-checkbox__label suboption-title">
+                      Enable carbon capture
+                      <i id="tooltip-launcher-utility-ng-ccs" class="material-icons info">info_outline</i>
+                    </span>
+                    <span class="tooltip mdl-tooltip mdl-tooltip--top"
+                      for="tooltip-launcher-utility-ng-ccs">
+                      CO2 is captured from the exhaust and sent underground.
+                    </span>
+                  </label>
+                </div>
+                <div class="utility-controls-option option coal" id="utility-controls-option-coal">
+                  <div>
+                    <div class="utility-source-legend-tile"></div>
+                    <label class="utility-source-legend-label">
+                      Coal <span class="ccs-label">+ CCS</span> power (GW)
+                    </label>
+                    <i id="tooltip-launcher-utility-coal" class="material-icons info">info_outline</i>
+                  </div>
+                  <span class="tooltip mdl-tooltip mdl-tooltip--top"
+                      for="tooltip-launcher-utility-coal">
+                    This energy source produces a constant amount of power and cannot dynamically adapt to changes in
+                    demand (baseload, non-dispatchable power).
+                  </span>
+                  <div id="coal-slider" class="utility-slider"></div>
+                  <label class="utility-controls-toggle mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-utility-coal-ccs">
+                    <input type="checkbox" id="checkbox-utility-coal-ccs" class="mdl-checkbox__input">
+                    <span class="mdl-checkbox__label suboption-title">
+                      Enable carbon capture
+                      <i id="tooltip-launcher-utility-coal-ccs" class="material-icons info">info_outline</i>
+                    </span>
+                    </span>
+                    <span class="tooltip mdl-tooltip mdl-tooltip--top"
+                      for="tooltip-launcher-utility-coal-ccs">
+                      CO2 is captured from the exhaust and sent underground.
+                    </span>
+                  </label>
+                </div>
+                <div class="utility-controls-option option"></div>
+              </div>
             </div>
-          </div>
-          <div class="mdl-cell mdl-cell--4-col">
+            <div class="mdl-cell mdl-cell--4-col">
+            </div>
           </div>
         </div>
 
@@ -255,7 +258,6 @@ limitations under the License.
         <h1>Explore Future Assumptions</h1>
         <div class="mdl-grid mode-description">
           <div class="mdl-cell mdl-cell--8-col">
-            <h2>Choose your policies to reduce cost and CO2</h2>
             <p class="description">
               Now you can explore how assumptions about policies and future costs
               affect the optimal generation mix. On this page, the utility planning
@@ -346,167 +348,170 @@ limitations under the License.
               <div id="policy-mode-breakdown-table"></div>
             </div>
           </div>
-          <!-- Policy presets -->
-          <div class="mdl-grid policy-presets-container">
-            <div class="mdl-cell mdl-cell--8-col">
-              <div class="preset-container">
-                <label class="preset mdl-icon-toggle mdl-js-icon-toggle" for="preset-balanced-low-carbon">
-                  <input type="checkbox" id="preset-balanced-low-carbon" class="mdl-icon-toggle__input">
-                  <span class="mdl-icon-toggle__label">Balanced low-carbon</span>
-                </label>
-                <label class="preset mdl-icon-toggle mdl-js-icon-toggle" for="preset-favor-renewables">
-                  <input type="checkbox" id="preset-favor-renewables" class="mdl-icon-toggle__input">
-                  <span class="mdl-icon-toggle__label">Favor renewables</span>
-                </label>
-                <label class="preset mdl-icon-toggle mdl-js-icon-toggle" for="preset-favor-carbon-capture">
-                  <input type="checkbox" id="preset-favor-carbon-capture" class="mdl-icon-toggle__input">
-                  <span class="mdl-icon-toggle__label">Favor carbon capture</span>
-                </label>
-                <label class="preset mdl-icon-toggle mdl-js-icon-toggle" for="preset-favor-nuclear">
-                  <input type="checkbox" id="preset-favor-nuclear" class="mdl-icon-toggle__input">
-                  <span class="mdl-icon-toggle__label">Favor nuclear</span>
-                </label>
-                <i id="tooltip-launcher-policy-presets" class="material-icons info">info_outline</i>
-                <span class="tooltip mdl-tooltip mdl-tooltip--top"
-                    for="tooltip-launcher-policy-presets">
-                  The buttons to the left select different combinations of energy policies
-                  and anticipated future costs.
-                </span>
+          <div class="mode-data-controls">
+            <!-- Policy presets -->
+            <div class="mdl-grid policy-presets-container">
+              <div class="mdl-cell mdl-cell--8-col">
+                <div class="preset-container">
+                  <span class="preset-label">Presets</span>
+                  <label class="preset mdl-icon-toggle mdl-js-icon-toggle" for="preset-balanced-low-carbon">
+                    <input type="checkbox" id="preset-balanced-low-carbon" class="mdl-icon-toggle__input">
+                    <span class="mdl-icon-toggle__label">Balanced low-carbon</span>
+                  </label>
+                  <label class="preset mdl-icon-toggle mdl-js-icon-toggle" for="preset-favor-renewables">
+                    <input type="checkbox" id="preset-favor-renewables" class="mdl-icon-toggle__input">
+                    <span class="mdl-icon-toggle__label">Favor renewables</span>
+                  </label>
+                  <label class="preset mdl-icon-toggle mdl-js-icon-toggle" for="preset-favor-carbon-capture">
+                    <input type="checkbox" id="preset-favor-carbon-capture" class="mdl-icon-toggle__input">
+                    <span class="mdl-icon-toggle__label">Favor carbon capture</span>
+                  </label>
+                  <label class="preset mdl-icon-toggle mdl-js-icon-toggle" for="preset-favor-nuclear">
+                    <input type="checkbox" id="preset-favor-nuclear" class="mdl-icon-toggle__input">
+                    <span class="mdl-icon-toggle__label">Favor nuclear</span>
+                  </label>
+                  <i id="tooltip-launcher-policy-presets" class="material-icons info">info_outline</i>
+                  <span class="tooltip mdl-tooltip mdl-tooltip--top"
+                      for="tooltip-launcher-policy-presets">
+                    The buttons to the left select different combinations of energy policies
+                    and anticipated future costs.
+                  </span>
+                </div>
+              </div>
+              <div class="mdl-cell mdl-cell--4-col">
+                <!--empty-->
               </div>
             </div>
-            <div class="mdl-cell mdl-cell--4-col">
-              <!--empty-->
-            </div>
-          </div>
-          <!-- Policy options -->
-          <div class="mdl-grid policy-controls">
-            <div class="mdl-cell mdl-cell--8-col policy-controls-row">
-              <div class="policy-controls-option option">
-                <!-- CES -->
-                <label class="option-title">
-                  Clean energy fraction
-                  <i id="tooltip-launcher-policy-ces" class="material-icons info">info_outline</i>
-                  <span class="tooltip mdl-tooltip mdl-tooltip--top"
-                      for="tooltip-launcher-policy-ces">
-                    This slider sets a goal for the minimum fraction of energy
-                    generated by clean sources.
-
-                    This is known as a “Clean Energy Standard” or “Renewable
-                    Portfolio Standard”.
-
-                    By default,
-                    “clean” is solar and wind energy. You can add CCS and Nuclear
-                    to “clean” energy in the buttons below.
-                  </span>
-                </label>
-                <div id="ces-slider" class="policy-slider"></div>
-                <!-- CCS is clean? -->
-                <label class="policy-controls-toggle mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-ccs-is-clean">
-                  <input type="checkbox" id="checkbox-ccs-is-clean" class="mdl-checkbox__input">
-                  <span class="mdl-checkbox__label suboption-title">
-                    Clean energy includes CCS
-                    <i id="tooltip-launcher-policy-ccs-is-clean-energy" class="material-icons info">info_outline</i>
+            <!-- Policy options -->
+            <div class="mdl-grid policy-controls">
+              <div class="mdl-cell mdl-cell--8-col policy-controls-row">
+                <div class="policy-controls-option option">
+                  <!-- CES -->
+                  <label class="option-title">
+                    Clean energy fraction
+                    <i id="tooltip-launcher-policy-ces" class="material-icons info">info_outline</i>
                     <span class="tooltip mdl-tooltip mdl-tooltip--top"
-                        for="tooltip-launcher-policy-ccs-is-clean-energy">
-                      Should fossil fuel energy sources that capture carbon
-                      emissions be allowed to contribute towards the clean energy
-                      fraction goal?
+                        for="tooltip-launcher-policy-ces">
+                      This slider sets a goal for the minimum fraction of energy
+                      generated by clean sources.
 
-                      Note that CCS-based sources can capture about
-                      90% of their source emissions.
+                      This is known as a “Clean Energy Standard” or “Renewable
+                      Portfolio Standard”.
+
+                      By default,
+                      “clean” is solar and wind energy. You can add CCS and Nuclear
+                      to “clean” energy in the buttons below.
                     </span>
-                  </span>
-                </label>
-                <!-- Nuclear is clean? -->
-                <label class="policy-controls-toggle  mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-nuclear-is-clean">
-                  <input type="checkbox" id="checkbox-nuclear-is-clean" class="mdl-checkbox__input">
-                  <span class="mdl-checkbox__label suboption-title">
-                    Clean energy includes nuclear
-                    <i id="tooltip-launcher-policy-nuclear-is-clean-energy" class="material-icons info">info_outline</i>
+                  </label>
+                  <div id="ces-slider" class="policy-slider"></div>
+                  <!-- CCS is clean? -->
+                  <label class="policy-controls-toggle mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-ccs-is-clean">
+                    <input type="checkbox" id="checkbox-ccs-is-clean" class="mdl-checkbox__input">
+                    <span class="mdl-checkbox__label suboption-title">
+                      Clean energy includes CCS
+                      <i id="tooltip-launcher-policy-ccs-is-clean-energy" class="material-icons info">info_outline</i>
+                      <span class="tooltip mdl-tooltip mdl-tooltip--top"
+                          for="tooltip-launcher-policy-ccs-is-clean-energy">
+                        Should fossil fuel energy sources that capture carbon
+                        emissions be allowed to contribute towards the clean energy
+                        fraction goal?
+
+                        Note that CCS-based sources can capture about
+                        90% of their source emissions.
+                      </span>
+                    </span>
+                  </label>
+                  <!-- Nuclear is clean? -->
+                  <label class="policy-controls-toggle  mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-nuclear-is-clean">
+                    <input type="checkbox" id="checkbox-nuclear-is-clean" class="mdl-checkbox__input">
+                    <span class="mdl-checkbox__label suboption-title">
+                      Clean energy includes nuclear
+                      <i id="tooltip-launcher-policy-nuclear-is-clean-energy" class="material-icons info">info_outline</i>
+                      <span class="tooltip mdl-tooltip mdl-tooltip--top"
+                          for="tooltip-launcher-policy-nuclear-is-clean-energy">
+                        Should nuclear energy sources be allowed to contribute towards
+                        the clean energy fraction goal?
+
+                        Although nuclear energy is
+                        also a zero-carbon energy source, not all clean energy
+                        fraction policies allow nuclear energy to contribute towards
+                        meeting zero-carbon energy generation goals.
+                      </span>
+                    </span>
+                  </label>
+                </div>
+                <div class="policy-controls-option option">
+                  <!-- Carbon tax -->
+                  <label class="option-title">
+                    Carbon price
+                    <i id="tooltip-launcher-policy-carbon-tax" class="material-icons info">info_outline</i>
                     <span class="tooltip mdl-tooltip mdl-tooltip--top"
-                        for="tooltip-launcher-policy-nuclear-is-clean-energy">
-                      Should nuclear energy sources be allowed to contribute towards
-                      the clean energy fraction goal?
+                        for="tooltip-launcher-policy-carbon-tax">
+                      This slider represents an extra price or tax on carbon emissions ranging from:
+                      $0 up to $100 per metric ton.
 
-                      Although nuclear energy is
-                      also a zero-carbon energy source, not all clean energy
-                      fraction policies allow nuclear energy to contribute towards
-                      meeting zero-carbon energy generation goals.
+                      Since the simulation builds a grid which keeps the lights on at the lowest cost,
+                      higher carbon prices will drive the simulation to build with cleaner power sources,
+                      albeit at additional cost.
                     </span>
-                  </span>
-                </label>
+                  </label>
+                  <div id="carbon-tax-slider" class="policy-slider"></div>
+                  <!-- Storage on/off -->
+                  <label class="policy-controls-toggle  mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-storage-is-allowed">
+                    <input type="checkbox" id="checkbox-storage-is-allowed" class="mdl-checkbox__input" checked>
+                    <span class="mdl-checkbox__label suboption-title">
+                      Allow energy storage
+                      <i id="tooltip-launcher-policy-storage-is-allowed" class="material-icons info">info_outline</i>
+                      <span class="tooltip mdl-tooltip mdl-tooltip--top"
+                          for="tooltip-launcher-policy-storage-is-allowed">
+                        If energy storage is allowed, then the simulation is allowed to build energy
+                        storage capacity as necessary. Storage is useful when there is an excess and
+                        putting it back on the grid when there is high demand.
+                      </span>
+                    </span>
+                  </label>
+                  <!-- Nuclear on/off -->
+                  <label class="policy-controls-toggle  mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-nuclear-is-allowed">
+                    <input type="checkbox" id="checkbox-nuclear-is-allowed" class="mdl-checkbox__input" checked>
+                    <span class="mdl-checkbox__label suboption-title">
+                      Allow nuclear power
+                      <i id="tooltip-launcher-policy-nuclear-is-allowed" class="material-icons info">info_outline</i>
+                      <span class="tooltip mdl-tooltip mdl-tooltip--top"
+                          for="tooltip-launcher-policy-nuclear-is-allowed">
+                        Allow nuclear power in the simulation or disallow it
+                        completely?
+                      </span>
+                    </span>
+                  </label>
+                </div>
+                <!-- Policy costs -->
+                <div class="policy-controls-option option">
+                  <label class="option-title">
+                    Energy generation costs
+                    <i id="tooltip-launcher-policy-energy-costs" class="material-icons info">info_outline</i>
+                    <span class="tooltip mdl-tooltip mdl-tooltip--top"
+                        for="tooltip-launcher-policy-energy-costs">
+                        Use the sliders below to specify energy generation costs.
+                    </span>
+                  </label>
+                  <div id="ng-cost-slider" class="policy-cost-slider">
+                    <div id="ng-cost-slider-value" class="policy-cost-slider-value"></div>
+                  </div>
+                  <div id="solar-cost-slider" class="policy-cost-slider">
+                    <div id="solar-cost-slider-value" class="policy-cost-slider-value"></div>
+                  </div>
+                  <div id="wind-cost-slider" class="policy-cost-slider">
+                    <div id="wind-cost-slider-value" class="policy-cost-slider-value"></div>
+                  </div>
+                  <div id="nuclear-cost-slider" class="policy-cost-slider">
+                    <div id="nuclear-cost-slider-value" class="policy-cost-slider-value"></div>
+                  </div>
+                  <a href="" id="cost-slider-about-appendix">More cost details</a>
+                </div>
               </div>
-              <div class="policy-controls-option option">
-                <!-- Carbon tax -->
-                <label class="option-title">
-                  Carbon price
-                  <i id="tooltip-launcher-policy-carbon-tax" class="material-icons info">info_outline</i>
-                  <span class="tooltip mdl-tooltip mdl-tooltip--top"
-                      for="tooltip-launcher-policy-carbon-tax">
-                    This slider represents an extra price or tax on carbon emissions ranging from:
-                    $0 up to $100 per metric ton.
-
-                    Since the simulation builds a grid which keeps the lights on at the lowest cost,
-                    higher carbon prices will drive the simulation to build with cleaner power sources,
-                    albeit at additional cost.
-                  </span>
-                </label>
-                <div id="carbon-tax-slider" class="policy-slider"></div>
-                <!-- Storage on/off -->
-                <label class="policy-controls-toggle  mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-storage-is-allowed">
-                  <input type="checkbox" id="checkbox-storage-is-allowed" class="mdl-checkbox__input" checked>
-                  <span class="mdl-checkbox__label suboption-title">
-                    Allow energy storage
-                    <i id="tooltip-launcher-policy-storage-is-allowed" class="material-icons info">info_outline</i>
-                    <span class="tooltip mdl-tooltip mdl-tooltip--top"
-                        for="tooltip-launcher-policy-storage-is-allowed">
-                      If energy storage is allowed, then the simulation is allowed to build energy
-                      storage capacity as necessary. Storage is useful when there is an excess and
-                      putting it back on the grid when there is high demand.
-                    </span>
-                  </span>
-                </label>
-                <!-- Nuclear on/off -->
-                <label class="policy-controls-toggle  mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-nuclear-is-allowed">
-                  <input type="checkbox" id="checkbox-nuclear-is-allowed" class="mdl-checkbox__input" checked>
-                  <span class="mdl-checkbox__label suboption-title">
-                    Allow nuclear power
-                    <i id="tooltip-launcher-policy-nuclear-is-allowed" class="material-icons info">info_outline</i>
-                    <span class="tooltip mdl-tooltip mdl-tooltip--top"
-                        for="tooltip-launcher-policy-nuclear-is-allowed">
-                      Allow nuclear power in the simulation or disallow it
-                      completely?
-                    </span>
-                  </span>
-                </label>
+              <div class="mdl-cell mdl-cell--4-col">
+                <!--empty-->
               </div>
-              <!-- Policy costs -->
-              <div class="policy-controls-option option">
-                <label class="option-title">
-                  Energy generation costs
-                  <i id="tooltip-launcher-policy-energy-costs" class="material-icons info">info_outline</i>
-                  <span class="tooltip mdl-tooltip mdl-tooltip--top"
-                      for="tooltip-launcher-policy-energy-costs">
-                      Use the sliders below to specify energy generation costs.
-                  </span>
-                </label>
-                <div id="ng-cost-slider" class="policy-cost-slider">
-                  <div id="ng-cost-slider-value" class="policy-cost-slider-value"></div>
-                </div>
-                <div id="solar-cost-slider" class="policy-cost-slider">
-                  <div id="solar-cost-slider-value" class="policy-cost-slider-value"></div>
-                </div>
-                <div id="wind-cost-slider" class="policy-cost-slider">
-                  <div id="wind-cost-slider-value" class="policy-cost-slider-value"></div>
-                </div>
-                <div id="nuclear-cost-slider" class="policy-cost-slider">
-                  <div id="nuclear-cost-slider-value" class="policy-cost-slider-value"></div>
-                </div>
-                <a href="" id="cost-slider-about-appendix">More cost details</a>
-              </div>
-            </div>
-            <div class="mdl-cell mdl-cell--4-col">
-              <!--empty-->
             </div>
           </div>
         </div>
