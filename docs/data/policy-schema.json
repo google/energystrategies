@@ -1,0 +1,248 @@
+{
+  "shape": [
+    3, 
+    3, 
+    3, 
+    3, 
+    21, 
+    19, 
+    2, 
+    2, 
+    2, 
+    2
+  ], 
+  "scales": {
+    "solar_price": [
+      0.0, 
+      1.0, 
+      2.0
+    ], 
+    "rps_includes_nuclear_energy": [
+      0.0, 
+      1.0
+    ], 
+    "nuclear_price": [
+      0.0, 
+      1.0, 
+      2.0
+    ], 
+    "wind_price": [
+      0.0, 
+      1.0, 
+      2.0
+    ], 
+    "rps_includes_carbon_capture": [
+      0.0, 
+      1.0
+    ], 
+    "storage_allowed": [
+      0.0, 
+      1.0
+    ], 
+    "rps": [
+      0.0, 
+      5.0, 
+      10.0, 
+      15.0, 
+      20.0, 
+      25.0, 
+      30.0, 
+      35.0, 
+      40.0, 
+      45.0, 
+      50.0, 
+      55.0, 
+      60.0, 
+      65.0, 
+      70.0, 
+      75.0, 
+      80.0, 
+      85.0, 
+      90.0
+    ], 
+    "nuclear_allowed": [
+      0.0, 
+      1.0
+    ], 
+    "ng_price": [
+      0.0, 
+      1.0, 
+      2.0
+    ], 
+    "carbon_tax": [
+      0.0, 
+      5.0, 
+      10.0, 
+      15.0, 
+      20.0, 
+      25.0, 
+      30.0, 
+      35.0, 
+      40.0, 
+      45.0, 
+      50.0, 
+      55.0, 
+      60.0, 
+      65.0, 
+      70.0, 
+      75.0, 
+      80.0, 
+      85.0, 
+      90.0, 
+      95.0, 
+      100.0
+    ]
+  }, 
+  "stats": {
+    "coalccs_energy": {
+      "min": 0, 
+      "median": 0.0, 
+      "max": 0
+    }, 
+    "coal_energy": {
+      "min": -100132, 
+      "median": 0.0, 
+      "max": 3344670740
+    }, 
+    "solar_energy": {
+      "min": 0, 
+      "median": 395778972.0, 
+      "max": 1743699445
+    }, 
+    "wind_cost": {
+      "min": 0, 
+      "median": 1018835576677.0, 
+      "max": 2883428161292
+    }, 
+    "wind_energy": {
+      "min": -69383, 
+      "median": 1629909078.0, 
+      "max": 3315566964
+    }, 
+    "coal_cost": {
+      "min": 0, 
+      "median": 0.0, 
+      "max": 2596887780319
+    }, 
+    "cost": {
+      "min": 1756519989635, 
+      "median": 3023737287842.0, 
+      "max": 4609020304528
+    }, 
+    "storage_cost": {
+      "min": 0.0, 
+      "median": 2470723535.282135, 
+      "max": 460685035093.75
+    }, 
+    "coalccs_cost": {
+      "min": 0, 
+      "median": 0.0, 
+      "max": 0
+    }, 
+    "ng_energy": {
+      "min": 29212409, 
+      "median": 474556720.0, 
+      "max": 3747442192
+    }, 
+    "co2": {
+      "min": 16547736, 
+      "median": 197204443.0, 
+      "max": 3115855895
+    }, 
+    "nuclear_cost": {
+      "min": 0, 
+      "median": 0.0, 
+      "max": 2545967622952
+    }, 
+    "ngccs_energy": {
+      "min": 0, 
+      "median": 0.0, 
+      "max": 3554233216
+    }, 
+    "hydro_energy": {
+      "min": 115677713, 
+      "median": 247387000.0, 
+      "max": 247387000
+    }, 
+    "hydro_cost": {
+      "min": 18613667609, 
+      "median": 26034883879.0, 
+      "max": 26034963598
+    }, 
+    "ng_cost": {
+      "min": 155165245909, 
+      "median": 863262908518.0, 
+      "max": 2679575269890
+    }, 
+    "solar_cost": {
+      "min": 0, 
+      "median": 301028343851.0, 
+      "max": 997564990750
+    }, 
+    "ngccs_cost": {
+      "min": 0, 
+      "median": 0.0, 
+      "max": 2455715675578
+    }, 
+    "nuclear_energy": {
+      "min": -1069539, 
+      "median": 0.0, 
+      "max": 3654868392
+    }
+  }, 
+  "baseline": {
+    "coalccs_energy": 0, 
+    "coal_energy": 1304479608, 
+    "solar_energy": 29064443, 
+    "co2": 1610337516, 
+    "wind_energy": 186723976, 
+    "coal_cost": 948171611312, 
+    "cost": 2748390355744, 
+    "coalccs_cost": 0, 
+    "ng_energy": 1439342423, 
+    "storage_cost": 0.0, 
+    "wind_cost": 118775949301, 
+    "nuclear_cost": 820966379200, 
+    "ngccs_energy": 0, 
+    "hydro_energy": 246969835, 
+    "hydro_cost": 9585225197, 
+    "ng_cost": 818504890092, 
+    "solar_cost": 32386300642, 
+    "ngccs_cost": 0, 
+    "nuclear_energy": 794788133
+  }, 
+  "population": 320275892, 
+  "dimensions": [
+    "solar_price", 
+    "wind_price", 
+    "nuclear_price", 
+    "ng_price", 
+    "carbon_tax", 
+    "rps", 
+    "rps_includes_carbon_capture", 
+    "rps_includes_nuclear_energy", 
+    "nuclear_allowed", 
+    "storage_allowed"
+  ], 
+  "facts": [
+    "co2", 
+    "cost", 
+    "storage_cost", 
+    "solar_energy", 
+    "solar_cost", 
+    "wind_energy", 
+    "wind_cost", 
+    "nuclear_energy", 
+    "nuclear_cost", 
+    "ng_energy", 
+    "ng_cost", 
+    "ngccs_energy", 
+    "ngccs_cost", 
+    "coal_energy", 
+    "coal_cost", 
+    "coalccs_energy", 
+    "coalccs_cost", 
+    "hydro_energy", 
+    "hydro_cost"
+  ]
+}
