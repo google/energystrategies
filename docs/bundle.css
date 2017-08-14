@@ -225,19 +225,37 @@ a {
 
 /* Page layout */
 
-#container {
-  min-width: 1280px;
+@media all and (min-width:1280px) {
+  #container {
+    min-width: 1280px;
+  }
+
+  main {
+    width: 1168px;
+    /* Consume the remaining horizontal space on the right-hand-side
+    in order to push the vertical scroll bar to the right; otherwise
+    the scroll bar appears with a big whitespace margin between the
+    <main> element and the actual browser viewport rhs edge. The rhs padding
+    calculation allows for the vertical scroll bar to appear, as opposed to
+    being pushed off of the viewport. */
+    padding: 0 calc(100% - 1168px - 92px) 0 92px;
+  }
 }
 
-main {
-  width: 1168px;
-  /* Consume the remaining horizontal space on the right-hand-side
-  in order to push the vertical scroll bar to the right; otherwise
-  the scroll bar appears with a big whitespace margin between the
-  <main> element and the actual browser viewport rhs edge. The rhs padding
-  calculation allows for the vertical scroll bar to appear, as opposed to
-  being pushed off of the viewport. */
-  padding: 0 calc(100% - 1168px - 92px) 0 92px;
+/** Page layout for small screens (mobile). */
+@media all and (max-width:1280px) {
+  body {
+    min-width: 0;
+  }
+  main {
+    padding-left: 10px;
+    overflow-x: auto !important;
+    width: 100%;
+  }
+
+  header {
+    overflow-x: scroll;
+  }
 }
 
 /* Main page header/banner */
@@ -373,7 +391,8 @@ label {
   margin-top: 40px;
   padding-left: 24px;
   padding-bottom: 36px;
-}/* Copyright 2016 Google Inc. All Rights Reserved.
+}
+/* Copyright 2016 Google Inc. All Rights Reserved.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
